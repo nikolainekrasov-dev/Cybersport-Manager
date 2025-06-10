@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Cybersport Manager"
+run/main_scene="res://Scenes/Team Management.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
