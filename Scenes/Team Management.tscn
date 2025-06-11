@@ -182,3 +182,5 @@ text = "EXIT"
 script = ExtResource("5_os5ib")
 default_size = 40.0
 scaled_size = 60.0
+
+[connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
