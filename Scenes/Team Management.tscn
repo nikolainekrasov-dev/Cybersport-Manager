@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=9 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
+[ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
 [ext_resource type="Texture2D" uid="uid://derfex6e3ikrw" path="res://Sprites/Main Menu Buttons Background.png" id="2_2gff0"]
 [ext_resource type="FontFile" uid="uid://c31cdfbqvt5qu" path="res://Fonts/ALS Gorizont.ttf" id="3_os5ib"]
 [ext_resource type="StyleBox" uid="uid://78e7yp43foiu" path="res://Styles/Top Main Menu Button.tres" id="4_x3y6i"]
@@ -8,13 +9,14 @@
 [ext_resource type="StyleBox" uid="uid://s5s28nwk5cxw" path="res://Styles/Middle Main Menu Button.tres" id="5_whwgq"]
 [ext_resource type="StyleBox" uid="uid://dofs76iilc7ky" path="res://Styles/Bottom Main Menu Button.tres" id="6_2gff0"]
 
-[node name="Control" type="Control"]
+[node name="Screen manager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x3y6i")
 
 [node name="Main menu" type="CanvasLayer" parent="."]
 
