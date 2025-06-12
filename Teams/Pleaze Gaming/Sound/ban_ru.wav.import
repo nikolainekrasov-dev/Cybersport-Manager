@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://45n1b4f8ungu"
+path="res://.godot/imported/ban_ru.wav-343364a7aabcdc0071f22bfe797ae64e.sample"
+
+[deps]
+
+source_file="res://Teams/Pleaze Gaming/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-343364a7aabcdc0071f22bfe797ae64e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

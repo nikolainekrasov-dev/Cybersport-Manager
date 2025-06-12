@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bviki4o51cwx8"
+path="res://.godot/imported/pick_ru.wav-133cc2e2bc72eb6e38db3aca5d3ce9ab.sample"
+
+[deps]
+
+source_file="res://Teams/Para Bellum ESports/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-133cc2e2bc72eb6e38db3aca5d3ce9ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmytmw1g66oga"
+path="res://.godot/imported/ban_ru.wav-e57077b2580d9f6004d0a6990818013b.sample"
+
+[deps]
+
+source_file="res://Teams/Reality Rift/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-e57077b2580d9f6004d0a6990818013b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

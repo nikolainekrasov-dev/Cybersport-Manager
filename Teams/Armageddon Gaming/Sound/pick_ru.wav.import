@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://7d1y0yokwe6b"
+path="res://.godot/imported/pick_ru.wav-d4dc39abbe8e67b2f4bd51c396030cb4.sample"
+
+[deps]
+
+source_file="res://Teams/Armageddon Gaming/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-d4dc39abbe8e67b2f4bd51c396030cb4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

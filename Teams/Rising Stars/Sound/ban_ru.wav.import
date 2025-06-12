@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blg76rdr2ns3p"
+path="res://.godot/imported/ban_ru.wav-50053c67d21374f489b3a6e5f62a6387.sample"
+
+[deps]
+
+source_file="res://Teams/Rising Stars/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-50053c67d21374f489b3a6e5f62a6387.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

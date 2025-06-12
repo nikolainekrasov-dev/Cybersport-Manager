@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bq82jsdnh02ht"
+path="res://.godot/imported/ban_ru.wav-55d299d405d5ff9c2ac55f9920346dac.sample"
+
+[deps]
+
+source_file="res://Teams/One Way/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-55d299d405d5ff9c2ac55f9920346dac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

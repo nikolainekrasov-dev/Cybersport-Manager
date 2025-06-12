@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cduhvpbrctbmd"
+path="res://.godot/imported/pick_ru.wav-c99c4317d00a20496302fc9a162507f0.sample"
+
+[deps]
+
+source_file="res://Teams/Nexus Squad/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-c99c4317d00a20496302fc9a162507f0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

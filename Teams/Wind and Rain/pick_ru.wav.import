@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpk3qxbhykh76"
+path="res://.godot/imported/pick_ru.wav-81df83ab8e15ca9f464b312d47e39554.sample"
+
+[deps]
+
+source_file="res://Teams/Wind and Rain/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-81df83ab8e15ca9f464b312d47e39554.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

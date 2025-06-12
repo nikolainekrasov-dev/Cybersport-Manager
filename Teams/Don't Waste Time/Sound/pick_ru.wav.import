@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://de4vkjvr8cye7"
+path="res://.godot/imported/pick_ru.wav-2b53912aaab064c767f5c2483bd2a460.sample"
+
+[deps]
+
+source_file="res://Teams/Don't Waste Time/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-2b53912aaab064c767f5c2483bd2a460.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

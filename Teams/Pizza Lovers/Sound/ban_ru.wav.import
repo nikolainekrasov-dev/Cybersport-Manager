@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hsauxjuy2chr"
+path="res://.godot/imported/ban_ru.wav-cd0fd0782d5f38f7d2ec5d26f6bdcc0a.sample"
+
+[deps]
+
+source_file="res://Teams/Pizza Lovers/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-cd0fd0782d5f38f7d2ec5d26f6bdcc0a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

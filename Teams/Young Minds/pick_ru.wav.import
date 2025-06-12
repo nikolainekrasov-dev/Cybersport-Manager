@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3sh566ka88lr"
+path="res://.godot/imported/pick_ru.wav-2c46c5f467859bd7976a70dadbf72c27.sample"
+
+[deps]
+
+source_file="res://Teams/Young Minds/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-2c46c5f467859bd7976a70dadbf72c27.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

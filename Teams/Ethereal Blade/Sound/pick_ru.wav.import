@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd7m7elnuwjkl"
+path="res://.godot/imported/pick_ru.wav-b993c0e2090ed96327cd73f0de62d549.sample"
+
+[deps]
+
+source_file="res://Teams/Ethereal Blade/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-b993c0e2090ed96327cd73f0de62d549.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

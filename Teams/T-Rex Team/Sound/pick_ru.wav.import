@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbg8h3nxe3mc6"
+path="res://.godot/imported/pick_ru.wav-769c92b5c7a9096ae4b46ad136537234.sample"
+
+[deps]
+
+source_file="res://Teams/T-Rex Team/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-769c92b5c7a9096ae4b46ad136537234.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

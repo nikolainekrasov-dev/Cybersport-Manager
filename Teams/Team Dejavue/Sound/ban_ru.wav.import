@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bc0olhmi7eoub"
+path="res://.godot/imported/ban_ru.wav-c2a032adba554bc5d07c99ae2e01f974.sample"
+
+[deps]
+
+source_file="res://Teams/Team Dejavue/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-c2a032adba554bc5d07c99ae2e01f974.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

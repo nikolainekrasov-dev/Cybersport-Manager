@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnjglebrpp4nv"
+path="res://.godot/imported/pick_ru.wav-0bd986cd154cd7432ea33a4782a4d59a.sample"
+
+[deps]
+
+source_file="res://Teams/Mystical Power/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-0bd986cd154cd7432ea33a4782a4d59a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

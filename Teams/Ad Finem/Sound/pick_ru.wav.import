@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7aysffo0ro15"
+path="res://.godot/imported/pick_ru.wav-e17fe084d17cea16dec102d9ba1a3f47.sample"
+
+[deps]
+
+source_file="res://Teams/Ad Finem/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-e17fe084d17cea16dec102d9ba1a3f47.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

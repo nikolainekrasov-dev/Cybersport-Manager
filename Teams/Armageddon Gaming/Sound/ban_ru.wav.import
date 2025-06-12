@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ditk8yp6nqt4x"
+path="res://.godot/imported/ban_ru.wav-9e6570d567b1b9d0bc0c627484b5d8cd.sample"
+
+[deps]
+
+source_file="res://Teams/Armageddon Gaming/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-9e6570d567b1b9d0bc0c627484b5d8cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

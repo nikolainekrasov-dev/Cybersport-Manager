@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmpmr2tldx0fj"
+path="res://.godot/imported/pick_ru.wav-1012056fa04a8326a1dc4ce20facddaa.sample"
+
+[deps]
+
+source_file="res://Teams/HaHa United/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-1012056fa04a8326a1dc4ce20facddaa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

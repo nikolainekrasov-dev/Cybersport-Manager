@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cilhsclbair2i"
+path="res://.godot/imported/pick_ru.wav-f9a31ea506973af6e82ed488e28d8820.sample"
+
+[deps]
+
+source_file="res://Teams/Azure Fox/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-f9a31ea506973af6e82ed488e28d8820.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

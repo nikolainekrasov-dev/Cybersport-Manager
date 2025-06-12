@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcegsjthr1v88"
+path="res://.godot/imported/pick_ru.wav-307e5ddb85720f49df15cfb5d576fe64.sample"
+
+[deps]
+
+source_file="res://Teams/Moonlight Wispers/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-307e5ddb85720f49df15cfb5d576fe64.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

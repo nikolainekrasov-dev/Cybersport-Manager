@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw15yxddm1jjb"
+path="res://.godot/imported/ban_ru.wav-86065295c691c7c702fcfd3921587e09.sample"
+
+[deps]
+
+source_file="res://Teams/Pixel Warriors/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-86065295c691c7c702fcfd3921587e09.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

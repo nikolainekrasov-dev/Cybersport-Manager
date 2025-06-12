@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfelg6brdiic0"
+path="res://.godot/imported/ban_ru.wav-6c87c32a33fce86e4418d0e9fe0643cb.sample"
+
+[deps]
+
+source_file="res://Teams/Feel The Darkness/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-6c87c32a33fce86e4418d0e9fe0643cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

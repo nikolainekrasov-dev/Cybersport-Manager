@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dv3xvc2mems0v"
+path="res://.godot/imported/ban_ru.wav-e4c464b4fa7562a69f8ff06026f7984e.sample"
+
+[deps]
+
+source_file="res://Teams/Alternative Strategy/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-e4c464b4fa7562a69f8ff06026f7984e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

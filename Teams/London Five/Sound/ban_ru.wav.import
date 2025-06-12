@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://w1gpg2sqrepc"
+path="res://.godot/imported/ban_ru.wav-1a546dbaf97b43b0a9afb38f81fff3b6.sample"
+
+[deps]
+
+source_file="res://Teams/London Five/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-1a546dbaf97b43b0a9afb38f81fff3b6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl3ofcg3rp0b0"
+path="res://.godot/imported/pick_ru.wav-074dbfb8476458e7424dba14c40d31c9.sample"
+
+[deps]
+
+source_file="res://Teams/HeadShot Gaming/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-074dbfb8476458e7424dba14c40d31c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://curgjjhf4r2ak"
+path="res://.godot/imported/pick_ru.wav-0cb01628fc8a9c7bac85e1314ee2c09e.sample"
+
+[deps]
+
+source_file="res://Teams/Enigma Clan/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-0cb01628fc8a9c7bac85e1314ee2c09e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

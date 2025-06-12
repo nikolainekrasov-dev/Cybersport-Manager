@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cprbds7x130ut"
+path="res://.godot/imported/pick_ru.wav-c579f3f2d73786d6d8a8214c1847205b.sample"
+
+[deps]
+
+source_file="res://Teams/Pizza Lovers/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-c579f3f2d73786d6d8a8214c1847205b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
