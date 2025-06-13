@@ -109,7 +109,6 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -275,6 +274,7 @@ default_size = 40.0
 scaled_size = 60.0
 
 [node name="Team Selection" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="TextureRect" parent="Team Selection"]
 offset_right = 1920.0
@@ -580,7 +580,7 @@ offset_right = 3010.0
 offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ljre4")
 script = ExtResource("18_71nic")
-teams_container = NodePath("Teams")
+teams_container = NodePath("Teams/Teams container")
 animator = NodePath("../../Animator")
 
 [node name="Close button" type="TextureButton" parent="Team Selection/Team Selection Menu"]

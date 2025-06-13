@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://derfex6e3ikrw"
-path="res://.godot/imported/Main Menu Buttons Background.png-f67775a35ec5b79d70c9cf9479c27366.ctex"
+uid="uid://b40sliu4qpbh2"
+path="res://.godot/imported/Bottom Region.png-531b41b033b02cb391e98e8a0e79037e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Main Menu Buttons Background.png"
-dest_files=["res://.godot/imported/Main Menu Buttons Background.png-f67775a35ec5b79d70c9cf9479c27366.ctex"]
+source_file="res://Sprites/Team Selection/Bottom Region.png"
+dest_files=["res://.godot/imported/Bottom Region.png-531b41b033b02cb391e98e8a0e79037e.ctex"]
 
 [params]
 

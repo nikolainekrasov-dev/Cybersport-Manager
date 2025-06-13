@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=26 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -11,9 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://1kgvqa3fsg5" path="res://Styles/Menu Header Style.tres" id="9_47kb3"]
 [ext_resource type="FontFile" uid="uid://dkpcrvjmbigg2" path="res://Fonts/ALS Gorizont Bold.ttf" id="10_8me2i"]
 [ext_resource type="Texture2D" uid="uid://le5vpd8h2nbs" path="res://Sprites/Team Selection/Top Region.png" id="11_8me2i"]
-[ext_resource type="StyleBox" uid="uid://dn35qdep1jx5l" path="res://Styles/Back Button Style.tres" id="11_qm2px"]
 [ext_resource type="Texture2D" uid="uid://h830es62rmxg" path="res://Sprites/Team Selection/Middle Region.png" id="12_5ktfc"]
-[ext_resource type="Texture2D" uid="uid://x64wpknuoqp6" path="res://Sprites/Back Arrow.png" id="12_i5bvx"]
 [ext_resource type="Texture2D" uid="uid://dpk5b6jvjxww2" path="res://Sprites/Team Selection/Hover Top Region.png" id="12_ljre4"]
 [ext_resource type="Texture2D" uid="uid://cb5afc4kn4sap" path="res://Sprites/Team Selection/Hover Middle Region.png" id="13_ljre4"]
 [ext_resource type="Script" uid="uid://cwrche1rucjko" path="res://Scripts/LabeledTextureButton.gd" id="13_y3n8q"]
@@ -22,74 +20,10 @@
 [ext_resource type="Script" uid="uid://begw1ymy82e0o" path="res://Scripts/TeamSelectionMenu.gd" id="18_71nic"]
 [ext_resource type="Texture2D" uid="uid://bj3rp1f6fqdw" path="res://Sprites/Team Selection/Top Team.png" id="18_ehs75"]
 [ext_resource type="Texture2D" uid="uid://ckc741efjyecl" path="res://Sprites/Team Selection/Hover Top Team.png" id="19_fudmk"]
-[ext_resource type="Texture2D" uid="uid://cc3a4dcyu1t7q" path="res://Sprites/Close Button.png" id="19_toxjj"]
 [ext_resource type="Texture2D" uid="uid://dna1n0resbn2a" path="res://Sprites/Team Selection/Hover Middle Team.png" id="20_2v7ms"]
-[ext_resource type="Script" uid="uid://dbhxtueib6hoh" path="res://Scripts/HoverScaleButton.gd" id="20_7vgiu"]
 [ext_resource type="Texture2D" uid="uid://cdifxflnghodj" path="res://Sprites/Team Selection/Middle Team.png" id="20_71nic"]
 [ext_resource type="Script" uid="uid://cc7uykgm6n1ni" path="res://Scripts/TeamSelectionButton.gd" id="21_vl1f0"]
 [ext_resource type="FontFile" uid="uid://dlerfbtfi5ksu" path="res://Fonts/ALS Gorizont Medium.otf" id="23_n8hfv"]
-[ext_resource type="Texture2D" uid="uid://b7if5lmft8kxv" path="res://Sprites/Team Selection/Bottom Team.png" id="25_5he4t"]
-[ext_resource type="Texture2D" uid="uid://586w78uj5qhi" path="res://Sprites/Team Selection/Hover Bottom Team.png" id="26_ryuot"]
-
-[sub_resource type="Animation" id="Animation_toxjj"]
-resource_name = "Close Team Selection Menu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Team Selection/Screen dimmer:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Team Selection/Team Selection Menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(757, 137), Vector2(2000, 137)]
-}
-
-[sub_resource type="Animation" id="Animation_qm2px"]
-resource_name = "Open Team Selection Menu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Team Selection/Screen dimmer:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Team Selection/Team Selection Menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2000, 137), Vector2(757, 137)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2px"]
-_data = {
-&"Close Team Selection Menu": SubResource("Animation_toxjj"),
-&"Open Team Selection Menu": SubResource("Animation_qm2px")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljre4"]
 bg_color = Color(1, 1, 1, 0)
@@ -102,11 +36,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x3y6i")
-
-[node name="Animator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qm2px")
-}
 
 [node name="Main menu" type="CanvasLayer" parent="."]
 visible = false
@@ -309,32 +238,6 @@ text = "REGIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-
-[node name="Back Button" type="Button" parent="Team Selection"]
-offset_left = 130.0
-offset_top = 55.0
-offset_right = 231.0
-offset_bottom = 86.0
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("10_8me2i")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = ExtResource("11_qm2px")
-theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
-theme_override_styles/disabled = ExtResource("11_qm2px")
-theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
-theme_override_styles/hover_pressed = ExtResource("11_qm2px")
-theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
-theme_override_styles/hover = ExtResource("11_qm2px")
-theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
-theme_override_styles/pressed = ExtResource("11_qm2px")
-theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
-theme_override_styles/normal = ExtResource("11_qm2px")
-text = "BACK"
-icon = ExtResource("12_i5bvx")
 
 [node name="Regions" type="VBoxContainer" parent="Team Selection"]
 offset_left = 137.0
@@ -567,44 +470,22 @@ text = "OCEANIA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Screen dimmer" type="ColorRect" parent="Team Selection"]
-visible = false
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.772549)
-
-[node name="Team Selection Menu" type="Panel" parent="Team Selection" node_paths=PackedStringArray("teams_container", "animator")]
-offset_left = 2000.0
+[node name="Teams menu" type="Panel" parent="Team Selection" node_paths=PackedStringArray("teams_container")]
+offset_left = 757.0
 offset_top = 137.0
-offset_right = 3010.0
+offset_right = 1767.0
 offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ljre4")
 script = ExtResource("18_71nic")
-teams_container = NodePath("Teams")
-animator = NodePath("../../Animator")
+teams_container = NodePath("Teams/Teams container")
 
-[node name="Close button" type="TextureButton" parent="Team Selection/Team Selection Menu"]
-layout_mode = 0
-offset_left = 970.0
-offset_top = -40.0
-offset_right = 1010.0
-pivot_offset = Vector2(20, 20)
-texture_normal = ExtResource("19_toxjj")
-texture_pressed = ExtResource("19_toxjj")
-texture_hover = ExtResource("19_toxjj")
-texture_disabled = ExtResource("19_toxjj")
-texture_focused = ExtResource("19_toxjj")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("20_7vgiu")
-
-[node name="Teams header" type="Panel" parent="Team Selection/Team Selection Menu"]
+[node name="Teams header" type="Panel" parent="Team Selection/Teams menu"]
 layout_mode = 0
 offset_right = 1010.0
 offset_bottom = 115.0
 theme_override_styles/panel = ExtResource("9_47kb3")
 
-[node name="Label" type="Label" parent="Team Selection/Team Selection Menu/Teams header"]
+[node name="Label" type="Label" parent="Team Selection/Teams menu/Teams header"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -622,19 +503,19 @@ theme_override_fonts/font = ExtResource("10_8me2i")
 theme_override_font_sizes/font_size = 40
 text = "TEAMS"
 
-[node name="Teams" type="ScrollContainer" parent="Team Selection/Team Selection Menu"]
+[node name="Teams" type="ScrollContainer" parent="Team Selection/Teams menu"]
 layout_mode = 0
 offset_top = 125.0
 offset_right = 1018.0
 offset_bottom = 845.0
 
-[node name="Teams container" type="VBoxContainer" parent="Team Selection/Team Selection Menu/Teams"]
+[node name="Teams container" type="VBoxContainer" parent="Team Selection/Teams menu/Teams"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="1st Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="1st Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("18_ehs75")
@@ -645,7 +526,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/1st Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/1st Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -657,7 +538,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/1st Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/1st Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -672,7 +553,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="2nd Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="2nd Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -683,7 +564,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/2nd Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/2nd Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -695,7 +576,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/2nd Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/2nd Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -710,7 +591,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="3rd Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="3rd Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -721,7 +602,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/3rd Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/3rd Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -733,7 +614,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/3rd Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/3rd Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -748,7 +629,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="4th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="4th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -759,7 +640,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/4th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/4th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -771,7 +652,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/4th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/4th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -786,7 +667,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="5th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="5th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -797,7 +678,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/5th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/5th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -809,7 +690,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/5th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/5th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -824,7 +705,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="6th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="6th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -835,7 +716,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/6th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/6th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -847,7 +728,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/6th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/6th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -862,7 +743,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="7th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="7th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -873,7 +754,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/7th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/7th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -885,7 +766,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/7th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/7th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -900,7 +781,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="8th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="8th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -911,7 +792,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/8th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/8th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -923,7 +804,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/8th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/8th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -938,7 +819,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="9th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="9th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -949,7 +830,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/9th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/9th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -961,7 +842,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/9th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/9th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -976,7 +857,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="10th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="10th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -987,7 +868,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/10th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/10th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -999,7 +880,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/10th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/10th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1014,7 +895,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="11th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="11th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1025,7 +906,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/11th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/11th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1037,7 +918,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/11th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/11th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1052,7 +933,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="12th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="12th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1063,7 +944,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/12th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/12th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1075,7 +956,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/12th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/12th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1090,7 +971,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="13th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="13th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1101,7 +982,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/13th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/13th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1113,7 +994,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/13th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/13th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1128,7 +1009,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="14th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="14th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1139,7 +1020,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/14th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/14th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1151,7 +1032,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/14th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/14th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1166,7 +1047,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="15th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="15th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1177,7 +1058,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/15th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/15th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1189,7 +1070,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/15th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/15th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1204,7 +1085,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="16th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="16th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1215,7 +1096,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/16th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/16th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1227,7 +1108,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/16th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/16th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1242,7 +1123,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="17th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="17th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1253,7 +1134,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/17th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/17th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1265,7 +1146,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/17th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/17th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1280,7 +1161,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="18th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="18th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1291,7 +1172,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/18th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/18th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1303,7 +1184,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/18th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/18th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1318,7 +1199,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="19th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="19th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1329,7 +1210,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/19th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/19th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1341,7 +1222,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/19th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/19th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1356,7 +1237,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="20th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="20th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1367,7 +1248,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/20th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/20th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1379,7 +1260,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/20th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/20th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1394,7 +1275,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="21th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="21th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1405,7 +1286,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/21th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/21th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1417,7 +1298,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/21th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/21th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1432,7 +1313,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="22th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="22th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1443,7 +1324,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/22th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/22th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1455,7 +1336,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/22th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/22th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1470,7 +1351,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="23th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="23th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1481,7 +1362,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/23th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/23th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1493,7 +1374,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/23th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/23th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1508,7 +1389,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="24th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="24th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1519,7 +1400,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/24th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/24th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1531,7 +1412,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/24th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/24th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1546,7 +1427,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="25th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="25th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1557,7 +1438,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/25th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/25th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1569,7 +1450,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/25th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/25th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1584,7 +1465,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="26th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="26th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1595,7 +1476,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/26th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/26th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1607,7 +1488,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/26th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/26th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1622,7 +1503,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="27th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="27th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1633,7 +1514,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/27th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/27th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1645,7 +1526,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/27th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/27th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1660,7 +1541,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="28th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="28th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1671,7 +1552,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/28th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/28th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1683,7 +1564,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/28th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/28th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1698,7 +1579,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="29th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="29th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1709,7 +1590,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/29th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/29th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1721,7 +1602,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/29th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/29th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1736,7 +1617,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="30th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="30th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1747,7 +1628,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/30th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/30th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1759,7 +1640,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/30th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/30th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1774,7 +1655,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="31th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="31th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1785,7 +1666,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/31th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/31th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1797,7 +1678,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/31th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/31th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1812,7 +1693,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="32th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="32th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1823,7 +1704,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/32th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/32th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1835,7 +1716,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/32th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/32th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1850,7 +1731,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="33th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="33th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1861,7 +1742,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/33th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/33th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1873,7 +1754,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/33th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/33th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1888,7 +1769,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="34th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="34th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1899,7 +1780,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/34th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/34th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1911,7 +1792,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/34th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/34th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1926,7 +1807,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="35th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="35th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1937,7 +1818,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/35th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/35th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1949,7 +1830,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/35th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/35th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1964,7 +1845,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="36th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="36th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1975,7 +1856,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/36th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/36th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1987,7 +1868,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/36th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/36th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2002,7 +1883,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="37th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="37th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2013,7 +1894,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/37th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/37th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2025,7 +1906,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/37th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/37th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2040,7 +1921,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="38th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="38th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2051,7 +1932,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/38th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/38th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2063,7 +1944,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/38th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/38th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2078,7 +1959,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="39th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="39th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2089,7 +1970,7 @@ script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/39th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/39th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2101,7 +1982,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/39th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/39th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2116,18 +1997,18 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="40th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="40th Team" type="TextureButton" parent="Team Selection/Teams menu/Teams/Teams container"]
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("25_5he4t")
-texture_pressed = ExtResource("26_ryuot")
-texture_hover = ExtResource("26_ryuot")
-texture_focused = ExtResource("26_ryuot")
+texture_normal = ExtResource("20_71nic")
+texture_pressed = ExtResource("20_2v7ms")
+texture_hover = ExtResource("20_2v7ms")
+texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
 default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
-[node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/40th Team"]
+[node name="Team Logo" type="TextureRect" parent="Team Selection/Teams menu/Teams/Teams container/40th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2139,7 +2020,7 @@ offset_bottom = 35.0
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Team Name" type="Label" parent="Team Selection/Team Selection Menu/Teams/Teams container/40th Team"]
+[node name="Team Name" type="Label" parent="Team Selection/Teams menu/Teams/Teams container/40th Team"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2154,15 +2035,5 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
-[connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
-[connection signal="pressed" from="Team Selection/Regions/Europe" to="Team Selection/Team Selection Menu" method="show_european_teams"]
-[connection signal="pressed" from="Team Selection/Regions/North America" to="Team Selection/Team Selection Menu" method="show_north_american_teams"]
-[connection signal="pressed" from="Team Selection/Regions/South America" to="Team Selection/Team Selection Menu" method="show_south_american_teams"]
-[connection signal="pressed" from="Team Selection/Regions/East Asia" to="Team Selection/Team Selection Menu" method="show_east_asian_teams"]
-[connection signal="pressed" from="Team Selection/Regions/Southeast Asia" to="Team Selection/Team Selection Menu" method="show_southeast_asian_teams"]
-[connection signal="pressed" from="Team Selection/Regions/CIS" to="Team Selection/Team Selection Menu" method="show_cis_teams"]
-[connection signal="pressed" from="Team Selection/Regions/Africa and Middle East" to="Team Selection/Team Selection Menu" method="show_african_teams"]
-[connection signal="pressed" from="Team Selection/Regions/Oceania" to="Team Selection/Team Selection Menu" method="show_oceanian_teams"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Close button" to="Team Selection/Team Selection Menu" method="close_menu"]
+[connection signal="pressed" from="Team Selection/Regions/Europe" to="Team Selection/Teams menu" method="show_european_teams"]
