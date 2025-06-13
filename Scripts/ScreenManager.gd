@@ -11,7 +11,6 @@ func _ready():
 	for screen in get_children():
 		screens[screen.name] = screen
 	active_screen = screens["Main menu"]
-	Team.create_teams()
 	
 func show_screen(screen_name):
 	prev_screen = active_screen

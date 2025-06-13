@@ -12,10 +12,9 @@ func _ready():
 		
 func show_teams_from_region(region):
 	var index = 0
-	for team in Team.teams:
-		if team.region == region:
-			team_buttons[index].set_team(team)
-			index += 1
+	for team in TeamsManager.teams_by_region[region]:
+		team_buttons[index].set_team(team)
+		index += 1
 	open_menu()
 		
 func close_menu():
