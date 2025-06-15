@@ -1,0 +1,4 @@
+China;77
+Mongolia;9
+Japan;21
+South Korea;23

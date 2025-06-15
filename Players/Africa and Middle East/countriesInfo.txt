@@ -1,0 +1,14 @@
+Algeria;12
+Bahrain;5
+Egypt;11
+Ethiopia;10
+Iran;6
+Israel;12
+Jordan;7
+Kuwait;9
+Morocco;12
+Qatar;10
+Saudi Arabia;10
+South Africa;9
+Turkey;19
+UAE;9
