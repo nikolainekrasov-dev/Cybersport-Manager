@@ -12,6 +12,10 @@ func _ready():
 	team_name = find_child("Team Name")
 	connect("mouse_entered", Callable(self, "set_white_logo"))
 	connect("mouse_exited", Callable(self, "set_default_logo"))
+	connect("pressed", Callable(self, "choose_team"))
+
+func choose_team():
+	GameLifecycleService.start_new_game()
 
 func set_team(team):
 	self.team = team

@@ -109,7 +109,6 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -275,6 +274,7 @@ default_size = 40.0
 scaled_size = 60.0
 
 [node name="Team Selection" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="TextureRect" parent="Team Selection"]
 offset_right = 1920.0
