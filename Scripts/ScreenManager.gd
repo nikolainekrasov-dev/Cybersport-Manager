@@ -27,5 +27,8 @@ func show_main_menu():
 func show_team_selection():
 	show_screen("Team Selection")
 	
+func show_home():
+	show_screen("Home")
+	
 func exit_game():
 	get_tree().quit()

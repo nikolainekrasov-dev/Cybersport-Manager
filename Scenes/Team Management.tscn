@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=47 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -30,6 +30,18 @@
 [ext_resource type="FontFile" uid="uid://dlerfbtfi5ksu" path="res://Fonts/ALS Gorizont Medium.otf" id="23_n8hfv"]
 [ext_resource type="Texture2D" uid="uid://b7if5lmft8kxv" path="res://Sprites/Team Selection/Bottom Team.png" id="25_5he4t"]
 [ext_resource type="Texture2D" uid="uid://586w78uj5qhi" path="res://Sprites/Team Selection/Hover Bottom Team.png" id="26_ryuot"]
+[ext_resource type="Texture2D" uid="uid://b20s7x5tvkqy1" path="res://Sprites/Home/Forward Time Button.png" id="31_t8bwa"]
+[ext_resource type="Texture2D" uid="uid://bomx2t4qu6fpk" path="res://Sprites/Home/Hover Forward Time Button.png" id="32_muq1j"]
+[ext_resource type="Texture2D" uid="uid://dh7f1gcunfmti" path="res://Sprites/Home/Team Management Button.png" id="33_6m5cg"]
+[ext_resource type="Texture2D" uid="uid://bg44thndy43s4" path="res://Sprites/Home/Hover Team Management Button.png" id="34_of6uf"]
+[ext_resource type="Texture2D" uid="uid://bt4tgglb0csei" path="res://Sprites/Home/My Team Info Button.png" id="34_wsiqb"]
+[ext_resource type="Texture2D" uid="uid://cy73xdvx4en0n" path="res://Sprites/Home/System Button.png" id="35_c040a"]
+[ext_resource type="Texture2D" uid="uid://nf0lys04yxed" path="res://Sprites/Home/Hover My Team Info Button.png" id="36_8w23o"]
+[ext_resource type="Texture2D" uid="uid://dhvlqn8mf5qm5" path="res://Sprites/Home/Exit Button.png" id="36_tm80f"]
+[ext_resource type="Texture2D" uid="uid://car1we5hxmqag" path="res://Sprites/Home/Database Button.png" id="37_8uvl4"]
+[ext_resource type="Texture2D" uid="uid://60kxvpueby20" path="res://Sprites/Home/Hover Database Button.png" id="38_560ds"]
+[ext_resource type="Texture2D" uid="uid://dkdi3882gs6y2" path="res://Sprites/Home/Hover System Button.png" id="40_8uvl4"]
+[ext_resource type="Texture2D" uid="uid://ctdia0go4oysd" path="res://Sprites/Home/Hover Exit Button.png" id="42_560ds"]
 
 [sub_resource type="Animation" id="Animation_toxjj"]
 resource_name = "Close Team Selection Menu"
@@ -2154,6 +2166,201 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
+[node name="Home" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="Home"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_mrb3r")
+expand_mode = 1
+
+[node name="Forward Time" type="TextureButton" parent="Home"]
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 601.0
+offset_bottom = 282.0
+texture_normal = ExtResource("31_t8bwa")
+texture_pressed = ExtResource("32_muq1j")
+texture_hover = ExtResource("32_muq1j")
+texture_disabled = ExtResource("32_muq1j")
+texture_focused = ExtResource("32_muq1j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Forward Time"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 295.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Forward Time"
+
+[node name="Team Management" type="TextureButton" parent="Home"]
+offset_left = 130.0
+offset_top = 292.0
+offset_right = 601.0
+offset_bottom = 437.0
+texture_normal = ExtResource("33_6m5cg")
+texture_pressed = ExtResource("34_of6uf")
+texture_hover = ExtResource("34_of6uf")
+texture_disabled = ExtResource("34_of6uf")
+texture_focused = ExtResource("34_of6uf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Team Management"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 375.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Team Management"
+
+[node name="My Team Info" type="TextureButton" parent="Home"]
+offset_left = 130.0
+offset_top = 447.0
+offset_right = 601.0
+offset_bottom = 592.0
+texture_normal = ExtResource("34_wsiqb")
+texture_pressed = ExtResource("36_8w23o")
+texture_hover = ExtResource("36_8w23o")
+texture_disabled = ExtResource("36_8w23o")
+texture_focused = ExtResource("36_8w23o")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/My Team Info"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 295.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "My Team Info"
+
+[node name="Database" type="TextureButton" parent="Home"]
+offset_left = 130.0
+offset_top = 602.0
+offset_right = 601.0
+offset_bottom = 747.0
+texture_normal = ExtResource("37_8uvl4")
+texture_pressed = ExtResource("38_560ds")
+texture_hover = ExtResource("38_560ds")
+texture_disabled = ExtResource("38_560ds")
+texture_focused = ExtResource("38_560ds")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 295.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Database"
+
+[node name="System" type="TextureButton" parent="Home"]
+offset_left = 130.0
+offset_top = 758.0
+offset_right = 601.0
+offset_bottom = 865.0
+texture_normal = ExtResource("35_c040a")
+texture_pressed = ExtResource("40_8uvl4")
+texture_hover = ExtResource("40_8uvl4")
+texture_disabled = ExtResource("40_8uvl4")
+texture_focused = ExtResource("40_8uvl4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/System"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 295.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "System"
+
+[node name="Exit To Main Menu" type="TextureButton" parent="Home"]
+offset_left = 130.0
+offset_top = 875.0
+offset_right = 601.0
+offset_bottom = 982.0
+texture_normal = ExtResource("36_tm80f")
+texture_pressed = ExtResource("42_560ds")
+texture_hover = ExtResource("42_560ds")
+texture_disabled = ExtResource("42_560ds")
+texture_focused = ExtResource("42_560ds")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Exit To Main Menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 295.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Exit To Main Menu"
+
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -2166,3 +2373,4 @@ uppercase = true
 [connection signal="pressed" from="Team Selection/Regions/Africa and Middle East" to="Team Selection/Team Selection Menu" method="show_african_teams"]
 [connection signal="pressed" from="Team Selection/Regions/Oceania" to="Team Selection/Team Selection Menu" method="show_oceanian_teams"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Close button" to="Team Selection/Team Selection Menu" method="close_menu"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/1st Team" to="." method="show_home"]
