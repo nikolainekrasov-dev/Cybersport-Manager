@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=49 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://60kxvpueby20" path="res://Sprites/Home/Hover Database Button.png" id="38_560ds"]
 [ext_resource type="Texture2D" uid="uid://dkdi3882gs6y2" path="res://Sprites/Home/Hover System Button.png" id="40_8uvl4"]
 [ext_resource type="Texture2D" uid="uid://ctdia0go4oysd" path="res://Sprites/Home/Hover Exit Button.png" id="42_560ds"]
+[ext_resource type="Script" uid="uid://gad5u0yo0d1b" path="res://Scripts/PlayerInfoPanel.gd" id="43_560ds"]
 
 [sub_resource type="Animation" id="Animation_toxjj"]
 resource_name = "Close Team Selection Menu"
@@ -104,6 +105,9 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljre4"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_560ds"]
 bg_color = Color(1, 1, 1, 0)
 
 [node name="Screen manager" type="Control"]
@@ -2361,6 +2365,32 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Exit To Main Menu"
 
+[node name="Player Info Panel" type="Panel" parent="Home"]
+offset_left = 130.0
+offset_top = 27.0
+offset_right = 444.0
+offset_bottom = 127.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_560ds")
+script = ExtResource("43_560ds")
+
+[node name="Player Team Logo" type="TextureRect" parent="Home/Player Info Panel"]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 70.0
+offset_bottom = 85.0
+expand_mode = 1
+
+[node name="Player Team Name" type="Label" parent="Home/Player Info Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 38.5
+offset_right = 120.0
+offset_bottom = 61.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 30
+uppercase = true
+
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -2374,3 +2404,42 @@ text = "Exit To Main Menu"
 [connection signal="pressed" from="Team Selection/Regions/Oceania" to="Team Selection/Team Selection Menu" method="show_oceanian_teams"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Close button" to="Team Selection/Team Selection Menu" method="close_menu"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/1st Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/2nd Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/3rd Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/4th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/5th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/6th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/7th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/8th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/9th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/10th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/11th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/12th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/13th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/14th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/15th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/16th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/17th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/18th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/19th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/20th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/21th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/22th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/23th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/24th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/25th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/26th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/27th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/28th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/29th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/30th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/31th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/32th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/33th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/34th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/35th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/36th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/37th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/38th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/39th Team" to="." method="show_home"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/40th Team" to="." method="show_home"]

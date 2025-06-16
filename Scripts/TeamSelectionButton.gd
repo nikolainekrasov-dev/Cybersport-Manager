@@ -15,7 +15,7 @@ func _ready():
 	connect("pressed", Callable(self, "choose_team"))
 
 func choose_team():
-	GameLifecycleService.start_new_game()
+	GameLifecycleService.start_new_game(team)
 
 func set_team(team):
 	self.team = team

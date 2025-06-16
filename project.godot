@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TeamsManager="*res://Scripts/TeamsManagerAutoload.gd"
 GameLifecycleService="*res://Scripts/GameLifecycleServiceAutoload.gd"
+TeamsManager="*res://Scripts/TeamsManagerAutoload.gd"
 
 [display]
 

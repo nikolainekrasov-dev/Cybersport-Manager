@@ -2,6 +2,8 @@ extends Node
 
 class_name TeamsManagerAutoload
 
+var on_player_team_changed = []
+
 var teams_by_region = {
 	"Europe": [],
 	"North America": [],
@@ -13,6 +15,8 @@ var teams_by_region = {
 	"Oceania": []
 }
 
+var player_team: Team = null
+
 func _ready():
 	var file = FileAccess.open("res://Teams//Teams.json", FileAccess.READ)
 	var content = file.get_as_text()
@@ -22,9 +26,13 @@ func _ready():
 			var team = Team.new(name, region)
 			teams_by_region[region].append(team)
 
-func choose_teams_for_new_game():
+func choose_teams_for_new_game(new_player_team):
+	set_player_team(new_player_team)
 	for region in teams_by_region:
 		var rand_indices = []
+		var player_team_index = teams_by_region[region].find(player_team)
+		if player_team_index != -1:
+			rand_indices.append(player_team_index)
 		while len(rand_indices) < 16:
 			var index = randi() % 40
 			if not(rand_indices.has(index)):
@@ -34,3 +42,8 @@ func choose_teams_for_new_game():
 				teams_by_region[region][team_index].is_active = true
 			else:
 				teams_by_region[region][team_index].is_active = false
+				
+func set_player_team(new_player_team):
+	self.player_team = new_player_team
+	for event in on_player_team_changed:
+		event.call(new_player_team)
