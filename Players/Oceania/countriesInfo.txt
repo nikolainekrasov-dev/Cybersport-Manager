@@ -1,2 +1,0 @@
-Australia;80
-New Zealand;50

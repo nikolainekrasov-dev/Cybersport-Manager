@@ -1,9 +1,0 @@
-Argentina;19
-Brazil;22
-Chile;13
-Colombia;12
-Ecuador;7
-Paraguay;9
-Peru;15
-Uruguay;6
-Venezuela;7
