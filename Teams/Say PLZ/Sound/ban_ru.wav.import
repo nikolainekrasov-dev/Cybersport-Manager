@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpg817w2lwycd"
+path="res://.godot/imported/ban_ru.wav-2b6e9f5cf9c1b23db84a2c8cf2dde7c4.sample"
+
+[deps]
+
+source_file="res://Teams/Say PLZ/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-2b6e9f5cf9c1b23db84a2c8cf2dde7c4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d0w64ahcsf5cr"
+path="res://.godot/imported/pick_ru.wav-d0c25046da6f53ceaf16f7d8693ca697.sample"
+
+[deps]
+
+source_file="res://Teams/Vicious Teamwork/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-d0c25046da6f53ceaf16f7d8693ca697.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

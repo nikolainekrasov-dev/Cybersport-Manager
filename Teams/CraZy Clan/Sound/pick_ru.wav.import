@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbhhfful75p1g"
+path="res://.godot/imported/pick_ru.wav-585d01e383946082452d7e1b5eb9ba32.sample"
+
+[deps]
+
+source_file="res://Teams/CraZy Clan/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-585d01e383946082452d7e1b5eb9ba32.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

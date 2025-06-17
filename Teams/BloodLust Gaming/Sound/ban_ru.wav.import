@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d4eislxq5fixx"
+path="res://.godot/imported/ban_ru.wav-44ef01ec1cb06e450493086c59689cf4.sample"
+
+[deps]
+
+source_file="res://Teams/BloodLust Gaming/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-44ef01ec1cb06e450493086c59689cf4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
