@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b4mnbutasbx6b"
-path="res://.godot/imported/pick_ru.wav-a579f2208e93a5ab8bb25b0cb75410c1.sample"
+path="res://.godot/imported/pick_ru.wav-89d0a927c6a3ff8a85932a0f293436af.sample"
 
 [deps]
 
-source_file="res://Teams/Invasion/Sound/pick_ru.wav"
-dest_files=["res://.godot/imported/pick_ru.wav-a579f2208e93a5ab8bb25b0cb75410c1.sample"]
+source_file="res://Teams/ProStrats.gg/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-89d0a927c6a3ff8a85932a0f293436af.sample"]
 
 [params]
 

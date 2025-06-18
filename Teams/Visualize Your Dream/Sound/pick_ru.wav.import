@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpmewcosmlo1i"
+path="res://.godot/imported/pick_ru.wav-906d87d2e029a68eb1d20c74d21efed7.sample"
+
+[deps]
+
+source_file="res://Teams/Visualize Your Dream/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-906d87d2e029a68eb1d20c74d21efed7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

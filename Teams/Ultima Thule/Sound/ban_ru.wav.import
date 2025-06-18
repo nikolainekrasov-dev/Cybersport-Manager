@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d4fsg50kyduw4"
-path="res://.godot/imported/ban_ru.wav-70fa000277b2877f9827e2af1985e69e.sample"
+uid="uid://bn7dwbh7j3ove"
+path="res://.godot/imported/ban_ru.wav-cbc6ab968cb6a62dd5858cc36349388f.sample"
 
 [deps]
 
-source_file="res://Teams/ProStrats.gg/Sound/ban_ru.wav"
-dest_files=["res://.godot/imported/ban_ru.wav-70fa000277b2877f9827e2af1985e69e.sample"]
+source_file="res://Teams/Ultima Thule/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-cbc6ab968cb6a62dd5858cc36349388f.sample"]
 
 [params]
 

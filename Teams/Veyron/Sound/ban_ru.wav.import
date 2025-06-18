@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d4fsg50kyduw4"
-path="res://.godot/imported/ban_ru.wav-70fa000277b2877f9827e2af1985e69e.sample"
+uid="uid://cdl6aj0w4dg6a"
+path="res://.godot/imported/ban_ru.wav-be75b61d1c85422edad7ae18af0b9ad6.sample"
 
 [deps]
 
-source_file="res://Teams/ProStrats.gg/Sound/ban_ru.wav"
-dest_files=["res://.godot/imported/ban_ru.wav-70fa000277b2877f9827e2af1985e69e.sample"]
+source_file="res://Teams/Veyron/Sound/ban_ru.wav"
+dest_files=["res://.godot/imported/ban_ru.wav-be75b61d1c85422edad7ae18af0b9ad6.sample"]
 
 [params]
 

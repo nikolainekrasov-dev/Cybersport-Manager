@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnncebod3i8vq"
-path="res://.godot/imported/white_logo.png-48d217c9cf6f2d5e97bbe75f08e9aa9d.ctex"
+path="res://.godot/imported/white_logo.png-e175b2a081cd7014bdb9055ecdfaece9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Teams/Invasion/white_logo.png"
-dest_files=["res://.godot/imported/white_logo.png-48d217c9cf6f2d5e97bbe75f08e9aa9d.ctex"]
+source_file="res://Teams/ProStrats.gg/white_logo.png"
+dest_files=["res://.godot/imported/white_logo.png-e175b2a081cd7014bdb9055ecdfaece9.ctex"]
 
 [params]
 

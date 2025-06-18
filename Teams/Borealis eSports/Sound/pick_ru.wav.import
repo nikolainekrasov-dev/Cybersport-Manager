@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cok5e0o3apjl1"
+path="res://.godot/imported/pick_ru.wav-11eddb59eaf5ef2891744c8b26593447.sample"
+
+[deps]
+
+source_file="res://Teams/Borealis eSports/Sound/pick_ru.wav"
+dest_files=["res://.godot/imported/pick_ru.wav-11eddb59eaf5ef2891744c8b26593447.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
