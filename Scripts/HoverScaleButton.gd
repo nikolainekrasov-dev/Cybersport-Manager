@@ -1,6 +1,6 @@
 extends TextureButton
 
-class_name ScaleButton
+class_name HoverScaleButton
 
 @export var scale_size = 1.2
 

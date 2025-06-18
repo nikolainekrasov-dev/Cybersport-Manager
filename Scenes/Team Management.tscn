@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=81 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -43,13 +43,109 @@
 [ext_resource type="Texture2D" uid="uid://dkdi3882gs6y2" path="res://Sprites/Home/Hover System Button.png" id="40_8uvl4"]
 [ext_resource type="Texture2D" uid="uid://ctdia0go4oysd" path="res://Sprites/Home/Hover Exit Button.png" id="42_560ds"]
 [ext_resource type="Script" uid="uid://gad5u0yo0d1b" path="res://Scripts/PlayerInfoPanel.gd" id="43_560ds"]
+[ext_resource type="Texture2D" uid="uid://dd6qd7x070vvx" path="res://Sprites/Home/News Header.png" id="44_1vhcy"]
+[ext_resource type="Texture2D" uid="uid://dftnfqbyc8rup" path="res://Sprites/Home/News Body.png" id="45_ucqrp"]
+[ext_resource type="Texture2D" uid="uid://b4u0micg5e3o2" path="res://Sprites/Home/Tournaments Header.png" id="46_audvj"]
+[ext_resource type="Texture2D" uid="uid://da4om4h1h8thf" path="res://Sprites/Home/Date Body.png" id="47_mw3us"]
+[ext_resource type="Texture2D" uid="uid://bgu6sq7d5nr0x" path="res://Sprites/Home/Date Header.png" id="48_ak3ta"]
+[ext_resource type="Texture2D" uid="uid://cxsr0rt8k3vje" path="res://Sprites/Home/First Day.png" id="50_bjp12"]
+[ext_resource type="Texture2D" uid="uid://s61boldftjwc" path="res://Sprites/Home/Second Day.png" id="51_rmrt1"]
+[ext_resource type="Texture2D" uid="uid://dgqpkl4b6mp1y" path="res://Sprites/Home/Third Day.png" id="52_bcrdx"]
+[ext_resource type="Texture2D" uid="uid://m3i1p1quktii" path="res://Sprites/Home/Fourth Day.png" id="53_w4a5l"]
+[ext_resource type="Texture2D" uid="uid://bxues8jh8pg6u" path="res://Sprites/Home/Fifth Day.png" id="54_xd3vi"]
+[ext_resource type="Texture2D" uid="uid://d283e0v2t2rul" path="res://Sprites/Home/Sixth Day.png" id="55_ianid"]
+[ext_resource type="StyleBox" uid="uid://2cw80nbyp2u3" path="res://Styles/Home Menu Style.tres" id="56_bcrdx"]
+[ext_resource type="Script" uid="uid://63ph6p3us3l2" path="res://Scripts/AnimatedMenu.gd" id="57_ianid"]
+[ext_resource type="Texture2D" uid="uid://cfa378irjphaa" path="res://Sprites/Home/Top Menu Item.png" id="57_w4a5l"]
+[ext_resource type="Texture2D" uid="uid://cemcy86eorojy" path="res://Sprites/Home/Hover Top Menu Item.png" id="58_ianid"]
+[ext_resource type="Texture2D" uid="uid://bcfl7mlnbu5d2" path="res://Sprites/Home/Bottom Menu Item.png" id="58_xd3vi"]
+[ext_resource type="Texture2D" uid="uid://4hnmn4p2w7ms" path="res://Sprites/Home/Hover Bottom Menu Item.png" id="59_w4a5l"]
+[ext_resource type="Texture2D" uid="uid://c0nvj2h4bb7em" path="res://Sprites/Home/Middle Menu Item.png" id="61_ianid"]
+
+[sub_resource type="Animation" id="Animation_lqky6"]
+resource_name = "Close Forward Time Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Forward Time Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(471, 144), Vector2(471, 72), Vector2(471, 72), Vector2(0, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Forward Time Close Menu Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hlwi5"]
+resource_name = "Close My Team Info Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/My Team Info Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(471, 144), Vector2(471, 72), Vector2(471, 72), Vector2(0, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/My Team Info Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_toxjj"]
 resource_name = "Close Team Selection Menu"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Team Selection/Screen dimmer:visible")
+tracks/0/path = NodePath("Team Selection/Screen Dimmer:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,12 +167,90 @@ tracks/1/keys = {
 "values": [Vector2(757, 137), Vector2(2000, 137)]
 }
 
+[sub_resource type="Animation" id="Animation_ianid"]
+resource_name = "Open Forward Time Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Forward Time Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 72), Vector2(471, 72), Vector2(471, 72), Vector2(471, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Forward Time Close Menu Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xd3vi"]
+resource_name = "Open My Team Info Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/My Team Info Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 72), Vector2(471, 72), Vector2(471, 72), Vector2(471, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/My Team Info Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_qm2px"]
 resource_name = "Open Team Selection Menu"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Team Selection/Screen dimmer:visible")
+tracks/0/path = NodePath("Team Selection/Screen Dimmer:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,9 +272,253 @@ tracks/1/keys = {
 "values": [Vector2(2000, 137), Vector2(757, 137)]
 }
 
+[sub_resource type="Animation" id="Animation_dy24r"]
+resource_name = "Close Team Management Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Team Management Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(471, 216), Vector2(471, 72), Vector2(471, 72), Vector2(0, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Team Management Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_3fckt"]
+resource_name = "Open Team Management Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Team Management Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 72), Vector2(471, 72), Vector2(471, 72), Vector2(471, 216)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Team Management Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xardu"]
+resource_name = "Close System Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/System Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(471, 216), Vector2(471, 72), Vector2(471, 72), Vector2(0, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/System Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_u033w"]
+resource_name = "Open System Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/System Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 72), Vector2(471, 72), Vector2(471, 72), Vector2(471, 216)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/System Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hgvdx"]
+resource_name = "Close Database Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Database Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(952, 216), Vector2(952, 72), Vector2(952, 72), Vector2(0, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Database Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_gbk8k"]
+resource_name = "Open Database Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Database Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 72), Vector2(952, 72), Vector2(952, 72), Vector2(952, 216)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Database Menu Close Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Home/Screen Dimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2px"]
 _data = {
+&"Close Database Menu": SubResource("Animation_hgvdx"),
+&"Close Forward Time Menu": SubResource("Animation_lqky6"),
+&"Close My Team Info Menu": SubResource("Animation_hlwi5"),
+&"Close System Menu": SubResource("Animation_xardu"),
+&"Close Team Management Menu": SubResource("Animation_dy24r"),
 &"Close Team Selection Menu": SubResource("Animation_toxjj"),
+&"Open Database Menu": SubResource("Animation_gbk8k"),
+&"Open Forward Time Menu": SubResource("Animation_ianid"),
+&"Open My Team Info Menu": SubResource("Animation_xd3vi"),
+&"Open System Menu": SubResource("Animation_u033w"),
+&"Open Team Management Menu": SubResource("Animation_3fckt"),
 &"Open Team Selection Menu": SubResource("Animation_qm2px")
 }
 
@@ -108,6 +526,18 @@ _data = {
 bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_560ds"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmrt1"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqky6"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ianid"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dba6g"]
 bg_color = Color(1, 1, 1, 0)
 
 [node name="Screen manager" type="Control"]
@@ -125,6 +555,7 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -583,8 +1014,7 @@ text = "OCEANIA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Screen dimmer" type="ColorRect" parent="Team Selection"]
-visible = false
+[node name="Screen Dimmer" type="ColorRect" parent="Team Selection"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.772549)
@@ -2171,7 +2601,6 @@ theme_override_font_sizes/font_size = 25
 uppercase = true
 
 [node name="Home" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Background" type="TextureRect" parent="Home"]
 offset_right = 1920.0
@@ -2391,6 +2820,1020 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 30
 uppercase = true
 
+[node name="News" type="Panel" parent="Home"]
+offset_left = 611.0
+offset_top = 137.0
+offset_right = 651.0
+offset_bottom = 177.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rmrt1")
+
+[node name="News Header" type="TextureRect" parent="Home/News"]
+layout_mode = 0
+offset_right = 765.0
+offset_bottom = 55.0
+texture = ExtResource("44_1vhcy")
+
+[node name="Label" type="Label" parent="Home/News/News Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -11.5
+offset_right = 21.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 20
+text = "News"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="News Body" type="TextureRect" parent="Home/News"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 765.0
+offset_bottom = 203.0
+texture = ExtResource("45_ucqrp")
+
+[node name="News Text" type="Label" parent="Home/News/News Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tournaments" type="Panel" parent="Home"]
+offset_left = 611.0
+offset_top = 350.0
+offset_right = 1376.0
+offset_bottom = 983.0
+
+[node name="Tournaments Header" type="TextureRect" parent="Home/Tournaments"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("46_audvj")
+
+[node name="Name" type="Label" parent="Home/Tournaments/Tournaments Header"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 15.0
+offset_right = 20.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 20
+
+[node name="Stage" type="Label" parent="Home/Tournaments/Tournaments Header"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+
+[node name="Schedule" type="Panel" parent="Home"]
+offset_left = 1386.0
+offset_top = 137.0
+offset_right = 1790.0
+offset_bottom = 983.0
+
+[node name="Date Body" type="TextureRect" parent="Home/Schedule"]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 300.0
+texture = ExtResource("47_mw3us")
+
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Date Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -60.0
+offset_right = -50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Home/Schedule/Date Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -20.0
+offset_right = 29.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 40
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Date Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Home/Schedule/Date Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 58.5
+offset_right = 20.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage" type="Label" parent="Home/Schedule/Date Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 88.0
+offset_right = 20.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Format" type="Label" parent="Home/Schedule/Date Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 110.0
+offset_right = 20.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Date Header" type="TextureRect" parent="Home/Schedule"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("48_ak3ta")
+
+[node name="Label" type="Label" parent="Home/Schedule/Date Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Future Days" type="VBoxContainer" parent="Home/Schedule"]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 404.0
+offset_bottom = 846.0
+theme_override_constants/separation = 0
+
+[node name="First Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("50_bjp12")
+texture_pressed = ExtResource("50_bjp12")
+texture_hover = ExtResource("50_bjp12")
+texture_disabled = ExtResource("50_bjp12")
+texture_focused = ExtResource("50_bjp12")
+
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/First Day"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+
+[node name="Second Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("51_rmrt1")
+texture_pressed = ExtResource("51_rmrt1")
+texture_hover = ExtResource("51_rmrt1")
+texture_disabled = ExtResource("51_rmrt1")
+texture_focused = ExtResource("51_rmrt1")
+
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/Second Day"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+
+[node name="Third Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("52_bcrdx")
+texture_pressed = ExtResource("52_bcrdx")
+texture_hover = ExtResource("52_bcrdx")
+texture_disabled = ExtResource("52_bcrdx")
+texture_focused = ExtResource("52_bcrdx")
+
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/Third Day"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+
+[node name="Fourth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("53_w4a5l")
+texture_pressed = ExtResource("53_w4a5l")
+texture_hover = ExtResource("53_w4a5l")
+texture_disabled = ExtResource("53_w4a5l")
+texture_focused = ExtResource("53_w4a5l")
+
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/Fourth Day"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+
+[node name="Fifth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("54_xd3vi")
+texture_pressed = ExtResource("54_xd3vi")
+texture_hover = ExtResource("54_xd3vi")
+texture_disabled = ExtResource("54_xd3vi")
+texture_focused = ExtResource("54_xd3vi")
+
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/Fifth Day"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+
+[node name="Sixth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("55_ianid")
+texture_pressed = ExtResource("55_ianid")
+texture_hover = ExtResource("55_ianid")
+texture_disabled = ExtResource("55_ianid")
+texture_focused = ExtResource("55_ianid")
+
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/Sixth Day"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+
+[node name="Screen Dimmer" type="ColorRect" parent="Home"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.772549)
+
+[node name="Forward Time Menu" type="Panel" parent="Home" node_paths=PackedStringArray("animator")]
+clip_contents = true
+offset_left = 611.0
+offset_top = 137.0
+offset_right = 611.0
+offset_bottom = 209.0
+theme_override_styles/panel = ExtResource("56_bcrdx")
+script = ExtResource("57_ianid")
+animator = NodePath("../../Animator")
+
+[node name="Start The Match" type="TextureButton" parent="Home/Forward Time Menu"]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 72.0
+texture_normal = ExtResource("57_w4a5l")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("57_w4a5l")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Forward Time Menu/Start The Match"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Start The Match"
+
+[node name="Skip The Match" type="TextureButton" parent="Home/Forward Time Menu"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 471.0
+offset_bottom = 144.0
+texture_normal = ExtResource("58_xd3vi")
+texture_pressed = ExtResource("59_w4a5l")
+texture_hover = ExtResource("59_w4a5l")
+texture_disabled = ExtResource("58_xd3vi")
+texture_focused = ExtResource("59_w4a5l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Forward Time Menu/Skip The Match"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 168.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Skip The Match"
+
+[node name="Forward Time Close Menu Button" type="TextureButton" parent="Home"]
+visible = false
+offset_left = 1047.0
+offset_top = 97.0
+offset_right = 1087.0
+offset_bottom = 137.0
+pivot_offset = Vector2(20, 20)
+texture_normal = ExtResource("19_toxjj")
+texture_pressed = ExtResource("19_toxjj")
+texture_hover = ExtResource("19_toxjj")
+texture_disabled = ExtResource("19_toxjj")
+texture_focused = ExtResource("19_toxjj")
+script = ExtResource("20_7vgiu")
+
+[node name="My Team Info Menu" type="Panel" parent="Home" node_paths=PackedStringArray("animator")]
+clip_contents = true
+offset_left = 611.0
+offset_top = 447.0
+offset_right = 611.0
+offset_bottom = 519.0
+script = ExtResource("57_ianid")
+animator = NodePath("../../Animator")
+
+[node name="Team" type="TextureButton" parent="Home/My Team Info Menu"]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 72.0
+texture_normal = ExtResource("57_w4a5l")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("57_w4a5l")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/My Team Info Menu/Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 93.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Our Tournaments" type="TextureButton" parent="Home/My Team Info Menu"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 471.0
+offset_bottom = 144.0
+texture_normal = ExtResource("58_xd3vi")
+texture_pressed = ExtResource("59_w4a5l")
+texture_hover = ExtResource("59_w4a5l")
+texture_disabled = ExtResource("58_xd3vi")
+texture_focused = ExtResource("59_w4a5l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/My Team Info Menu/Our Tournaments"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Our Tournaments"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="My Team Info Menu Close Button" type="TextureButton" parent="Home"]
+visible = false
+offset_left = 1047.0
+offset_top = 407.0
+offset_right = 1087.0
+offset_bottom = 447.0
+pivot_offset = Vector2(20, 20)
+texture_normal = ExtResource("19_toxjj")
+texture_pressed = ExtResource("19_toxjj")
+texture_hover = ExtResource("19_toxjj")
+texture_disabled = ExtResource("19_toxjj")
+texture_focused = ExtResource("19_toxjj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("20_7vgiu")
+
+[node name="Team Management Menu" type="Panel" parent="Home" node_paths=PackedStringArray("animator")]
+clip_contents = true
+offset_left = 611.0
+offset_top = 292.0
+offset_right = 611.0
+offset_bottom = 364.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lqky6")
+script = ExtResource("57_ianid")
+animator = NodePath("../../Animator")
+metadata/_custom_type_script = "uid://63ph6p3us3l2"
+
+[node name="Inbox" type="TextureButton" parent="Home/Team Management Menu"]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 72.0
+texture_normal = ExtResource("57_w4a5l")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("57_w4a5l")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Team Management Menu/Inbox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Inbox"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Negotiation" type="TextureButton" parent="Home/Team Management Menu"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 471.0
+offset_bottom = 144.0
+texture_normal = ExtResource("61_ianid")
+texture_disabled = ExtResource("61_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Team Management Menu/Negotiation"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 142.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Negotiation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Calendar" type="TextureButton" parent="Home/Team Management Menu"]
+layout_mode = 0
+offset_top = 144.0
+offset_right = 471.0
+offset_bottom = 216.0
+texture_normal = ExtResource("58_xd3vi")
+texture_pressed = ExtResource("59_w4a5l")
+texture_hover = ExtResource("59_w4a5l")
+texture_disabled = ExtResource("58_xd3vi")
+texture_focused = ExtResource("59_w4a5l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Team Management Menu/Calendar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 120.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Calendar"
+
+[node name="Team Management Menu Close Button" type="TextureButton" parent="Home"]
+visible = false
+offset_left = 1047.0
+offset_top = 252.0
+offset_right = 1087.0
+offset_bottom = 292.0
+pivot_offset = Vector2(20, 20)
+texture_normal = ExtResource("19_toxjj")
+texture_pressed = ExtResource("19_toxjj")
+texture_hover = ExtResource("19_toxjj")
+texture_disabled = ExtResource("19_toxjj")
+texture_focused = ExtResource("19_toxjj")
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
+
+[node name="System Menu" type="Panel" parent="Home" node_paths=PackedStringArray("animator")]
+clip_contents = true
+offset_left = 611.0
+offset_top = 758.0
+offset_right = 611.0
+offset_bottom = 830.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ianid")
+script = ExtResource("57_ianid")
+animator = NodePath("../../Animator")
+metadata/_custom_type_script = "uid://63ph6p3us3l2"
+
+[node name="Save Game" type="TextureButton" parent="Home/System Menu"]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 72.0
+texture_normal = ExtResource("57_w4a5l")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("57_w4a5l")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/System Menu/Save Game"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 136.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Save Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load Game" type="TextureButton" parent="Home/System Menu"]
+offset_top = 72.0
+offset_right = 471.0
+offset_bottom = 144.0
+texture_normal = ExtResource("61_ianid")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("61_ianid")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/System Menu/Load Game"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 136.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Load Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="Home/System Menu"]
+offset_top = 144.0
+offset_right = 471.0
+offset_bottom = 216.0
+texture_normal = ExtResource("58_xd3vi")
+texture_pressed = ExtResource("59_w4a5l")
+texture_hover = ExtResource("59_w4a5l")
+texture_disabled = ExtResource("58_xd3vi")
+texture_focused = ExtResource("59_w4a5l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/System Menu/Settings"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -12.0
+offset_right = 166.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="System Menu Close Button" type="TextureButton" parent="Home"]
+visible = false
+offset_left = 1047.0
+offset_top = 718.0
+offset_right = 1087.0
+offset_bottom = 758.0
+pivot_offset = Vector2(20, 20)
+texture_normal = ExtResource("19_toxjj")
+texture_pressed = ExtResource("19_toxjj")
+texture_hover = ExtResource("19_toxjj")
+texture_disabled = ExtResource("19_toxjj")
+texture_focused = ExtResource("19_toxjj")
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
+
+[node name="Database Menu" type="Panel" parent="Home" node_paths=PackedStringArray("animator")]
+clip_contents = true
+offset_left = 611.0
+offset_top = 602.0
+offset_right = 611.0
+offset_bottom = 674.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dba6g")
+script = ExtResource("57_ianid")
+animator = NodePath("../../Animator")
+metadata/_custom_type_script = "uid://63ph6p3us3l2"
+
+[node name="Teams" type="TextureButton" parent="Home/Database Menu"]
+layout_mode = 0
+offset_right = 471.0
+offset_bottom = 72.0
+texture_normal = ExtResource("57_w4a5l")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("57_w4a5l")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database Menu/Teams"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Teams"
+
+[node name="Players" type="TextureButton" parent="Home/Database Menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -36.0
+offset_right = 471.0
+offset_bottom = 36.0
+grow_vertical = 2
+texture_normal = ExtResource("61_ianid")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("61_ianid")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database Menu/Players"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Players"
+
+[node name="Tournaments" type="TextureButton" parent="Home/Database Menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 471.0
+grow_vertical = 0
+texture_normal = ExtResource("58_xd3vi")
+texture_pressed = ExtResource("59_w4a5l")
+texture_hover = ExtResource("59_w4a5l")
+texture_disabled = ExtResource("58_xd3vi")
+texture_focused = ExtResource("59_w4a5l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database Menu/Tournaments"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Tournaments"
+
+[node name="All Matches" type="TextureButton" parent="Home/Database Menu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -471.0
+offset_bottom = 72.0
+grow_horizontal = 0
+texture_normal = ExtResource("57_w4a5l")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("57_w4a5l")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database Menu/All Matches"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "All Matches"
+
+[node name="Statistics" type="TextureButton" parent="Home/Database Menu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -471.0
+offset_top = -36.0
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("61_ianid")
+texture_pressed = ExtResource("58_ianid")
+texture_hover = ExtResource("58_ianid")
+texture_disabled = ExtResource("61_ianid")
+texture_focused = ExtResource("58_ianid")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database Menu/Statistics"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Statistics"
+
+[node name="Glossary" type="TextureButton" parent="Home/Database Menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -471.0
+offset_top = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("58_xd3vi")
+texture_pressed = ExtResource("59_w4a5l")
+texture_hover = ExtResource("59_w4a5l")
+texture_disabled = ExtResource("58_xd3vi")
+texture_focused = ExtResource("59_w4a5l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Database Menu/Glossary"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.5
+offset_right = 90.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Glossary"
+
+[node name="Database Menu Close Button" type="TextureButton" parent="Home"]
+visible = false
+offset_left = 1528.0
+offset_top = 562.0
+offset_right = 1568.0
+offset_bottom = 602.0
+pivot_offset = Vector2(20, 20)
+texture_normal = ExtResource("19_toxjj")
+texture_pressed = ExtResource("19_toxjj")
+texture_hover = ExtResource("19_toxjj")
+texture_disabled = ExtResource("19_toxjj")
+texture_focused = ExtResource("19_toxjj")
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
+
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -2443,3 +3886,13 @@ uppercase = true
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/38th Team" to="." method="show_home"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/39th Team" to="." method="show_home"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/40th Team" to="." method="show_home"]
+[connection signal="pressed" from="Home/Forward Time" to="Home/Forward Time Menu" method="open_menu"]
+[connection signal="pressed" from="Home/Team Management" to="Home/Team Management Menu" method="open_menu"]
+[connection signal="pressed" from="Home/My Team Info" to="Home/My Team Info Menu" method="open_menu"]
+[connection signal="pressed" from="Home/Database" to="Home/Database Menu" method="open_menu"]
+[connection signal="pressed" from="Home/System" to="Home/System Menu" method="open_menu"]
+[connection signal="pressed" from="Home/Forward Time Close Menu Button" to="Home/Forward Time Menu" method="close_menu"]
+[connection signal="pressed" from="Home/My Team Info Menu Close Button" to="Home/My Team Info Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Team Management Menu Close Button" to="Home/Team Management Menu" method="close_menu"]
+[connection signal="pressed" from="Home/System Menu Close Button" to="Home/System Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
