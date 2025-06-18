@@ -3,6 +3,7 @@ extends Node
 class_name TeamsManagerAutoload
 
 var on_player_team_changed = []
+static var team_count_in_region = 20
 
 var teams_by_region = {
 	"Europe": [],
@@ -33,7 +34,7 @@ func choose_teams_for_new_game(new_player_team):
 		var player_team_index = teams_by_region[region].find(player_team)
 		if player_team_index != -1:
 			rand_indices.append(player_team_index)
-		while len(rand_indices) < 16:
+		while len(rand_indices) < team_count_in_region:
 			var index = randi() % 40
 			if not(rand_indices.has(index)):
 				rand_indices.append(index)
