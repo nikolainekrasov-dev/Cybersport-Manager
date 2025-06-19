@@ -39,10 +39,9 @@ func choose_teams_for_new_game(new_player_team):
 			if not(rand_indices.has(index)):
 				rand_indices.append(index)
 		for team_index in range(len(teams_by_region[region])):
+			teams_by_region[region][team_index].nullify_team()
 			if team_index in rand_indices:
 				teams_by_region[region][team_index].is_active = true
-			else:
-				teams_by_region[region][team_index].is_active = false
 				
 func set_player_team(new_player_team):
 	self.player_team = new_player_team

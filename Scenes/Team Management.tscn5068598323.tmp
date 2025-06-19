@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=87 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -63,9 +63,10 @@
 [ext_resource type="Texture2D" uid="uid://c0nvj2h4bb7em" path="res://Sprites/Home/Middle Menu Item.png" id="61_ianid"]
 [ext_resource type="Texture2D" uid="uid://dst0kpjyqrat0" path="res://Sprites/Search Tab.png" id="62_dy24r"]
 [ext_resource type="Texture2D" uid="uid://c5hv2k4hpavlh" path="res://Sprites/Table Header.png" id="63_hlwi5"]
-[ext_resource type="Script" uid="uid://cct8edcuq66qy" path="res://Scripts/TeamsTable.gd" id="64_3fckt"]
-[ext_resource type="Texture2D" uid="uid://cvs2844fsphx4" path="res://Sprites/Right Arrow.png" id="64_hgvdx"]
-[ext_resource type="Texture2D" uid="uid://s1hutvr4lb8x" path="res://Sprites/Left Arrow.png" id="65_u033w"]
+[ext_resource type="Texture2D" uid="uid://q53qqfeidw0x" path="res://Sprites/Table Menu Item.png" id="64_hlwi5"]
+[ext_resource type="Texture2D" uid="uid://cermk1xorirms" path="res://Sprites/Hover Table Menu Item.png" id="65_hgvdx"]
+[ext_resource type="Script" uid="uid://cl8a73aquk6fj" path="res://Scripts/TeamMenuItem.gd" id="65_xardu"]
+[ext_resource type="Texture2D" uid="uid://b6a4otvvptovx" path="res://Teams/AllStars eSports/logo.png" id="66_3fckt"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -560,6 +561,7 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -3843,7 +3845,6 @@ script = ExtResource("20_7vgiu")
 metadata/_custom_type_script = "uid://dbhxtueib6hoh"
 
 [node name="Teams" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Background" type="TextureRect" parent="Teams"]
 offset_right = 40.0
@@ -3901,133 +3902,13 @@ text = "TEAMS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Table Header" type="TextureRect" parent="Teams"]
+[node name="TextureRect" type="TextureRect" parent="Teams"]
 offset_left = 130.0
 offset_top = 210.0
 offset_right = 1775.0
 offset_bottom = 270.0
 texture = ExtResource("63_hlwi5")
 expand_mode = 1
-
-[node name="Team Label" type="Label" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 210.0
-offset_top = -11.5
-offset_right = 266.0
-offset_bottom = 11.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 18
-text = "Team"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Region Label" type="Label" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 692.0
-offset_top = -11.5
-offset_right = 765.0
-offset_bottom = 11.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 18
-text = "Region"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Rating Label" type="Label" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 988.0
-offset_top = -11.5
-offset_right = 1061.0
-offset_bottom = 11.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 18
-text = "Rating"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Winrate Label" type="Label" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 1185.0
-offset_top = -11.5
-offset_right = 1264.0
-offset_bottom = 11.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 18
-text = "Winrate"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Total Winnings Label" type="Label" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 1412.0
-offset_top = -11.5
-offset_right = 1491.0
-offset_bottom = 11.5
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 18
-text = "Total Winnings"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Next Region" type="TextureButton" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 780.0
-offset_top = -8.0
-offset_right = 793.0
-offset_bottom = 5.0
-grow_vertical = 2
-texture_normal = ExtResource("64_hgvdx")
-texture_pressed = ExtResource("64_hgvdx")
-texture_hover = ExtResource("64_hgvdx")
-texture_disabled = ExtResource("64_hgvdx")
-texture_focused = ExtResource("64_hgvdx")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Prev Region" type="TextureButton" parent="Teams/Table Header"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 664.0
-offset_top = -8.0
-offset_right = 677.0
-offset_bottom = 5.0
-grow_vertical = 2
-texture_normal = ExtResource("65_u033w")
-texture_pressed = ExtResource("65_u033w")
-texture_hover = ExtResource("65_u033w")
-texture_disabled = ExtResource("65_u033w")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="Teams Container" type="ScrollContainer" parent="Teams"]
 offset_left = 130.0
@@ -4037,13 +3918,177 @@ offset_bottom = 982.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
-script = ExtResource("64_3fckt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Teams/Teams Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
+
+[node name="Team Menu Item" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_pressed = ExtResource("65_hgvdx")
+texture_hover = ExtResource("65_hgvdx")
+texture_disabled = ExtResource("64_hlwi5")
+texture_focused = ExtResource("65_hgvdx")
+script = ExtResource("65_xardu")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Logo" type="TextureRect" parent="Teams/Teams Container/VBoxContainer/Team Menu Item"]
+custom_minimum_size = Vector2(99, 99)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -51.0
+offset_right = 221.0
+offset_bottom = 50.0
+grow_vertical = 2
+texture = ExtResource("66_3fckt")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Teams/Teams Container/VBoxContainer/Team Menu Item"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = -11.5
+offset_right = 503.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+text = "ALLSTARS ESPORTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Region" type="Label" parent="Teams/Teams Container/VBoxContainer/Team Menu Item"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 600.0
+offset_top = -11.5
+offset_right = 683.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 18
+text = "EUROPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rating" type="Label" parent="Teams/Teams Container/VBoxContainer/Team Menu Item"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 800.0
+offset_top = -11.5
+offset_right = 852.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 18
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Winrate" type="Label" parent="Teams/Teams Container/VBoxContainer/Team Menu Item"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1100.0
+offset_top = -11.5
+offset_right = 1147.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 18
+text = "61 %"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Total Winnings" type="Label" parent="Teams/Teams Container/VBoxContainer/Team Menu Item"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1400.0
+offset_top = -11.5
+offset_right = 1506.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 18
+text = "1 252 123$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabeledTextureButton2" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_disabled = ExtResource("64_hlwi5")
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="LabeledTextureButton3" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_disabled = ExtResource("64_hlwi5")
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="LabeledTextureButton4" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_disabled = ExtResource("64_hlwi5")
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="LabeledTextureButton5" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_disabled = ExtResource("64_hlwi5")
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="LabeledTextureButton6" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_disabled = ExtResource("64_hlwi5")
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="LabeledTextureButton7" type="TextureButton" parent="Teams/Teams Container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("64_hlwi5")
+texture_disabled = ExtResource("64_hlwi5")
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
@@ -4108,8 +4153,5 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/System Menu Close Button" to="Home/System Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="." method="show_teams"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
-[connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="show_all_teams"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Teams/Back Button" to="." method="show_prev_screen"]
-[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="show_teams_from_next_region"]
-[connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="show_teams_from_prev_region"]

@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuww5c7ms518q"]
+
+[ext_resource type="Texture2D" uid="uid://q53qqfeidw0x" path="res://Sprites/Table Menu Item.png" id="1_m8rlj"]
+[ext_resource type="Texture2D" uid="uid://cermk1xorirms" path="res://Sprites/Hover Table Menu Item.png" id="2_ohh6k"]
+[ext_resource type="Script" uid="uid://cl8a73aquk6fj" path="res://Scripts/TeamMenuItem.gd" id="3_n4rou"]
+[ext_resource type="FontFile" uid="uid://dkpcrvjmbigg2" path="res://Fonts/ALS Gorizont Bold.ttf" id="4_gp870"]
+[ext_resource type="FontFile" uid="uid://dlerfbtfi5ksu" path="res://Fonts/ALS Gorizont Medium.otf" id="5_oj0sh"]
+
+[node name="Team Menu Item" type="TextureButton" node_paths=PackedStringArray("team_logo", "team_name", "team_region", "team_rating", "team_winrate", "team_total_winnings")]
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m8rlj")
+texture_pressed = ExtResource("2_ohh6k")
+texture_hover = ExtResource("2_ohh6k")
+texture_disabled = ExtResource("1_m8rlj")
+texture_focused = ExtResource("2_ohh6k")
+script = ExtResource("3_n4rou")
+team_logo = NodePath("Logo")
+team_name = NodePath("Name")
+team_region = NodePath("Region")
+team_rating = NodePath("Rating")
+team_winrate = NodePath("Winrate")
+team_total_winnings = NodePath("Total Winnings")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Logo" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(99, 99)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -51.0
+offset_right = 221.0
+offset_bottom = 50.0
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = -11.5
+offset_right = 453.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_gp870")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Region" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 600.0
+offset_top = -11.5
+offset_right = 860.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_oj0sh")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Rating" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1000.0
+offset_top = -11.5
+offset_right = 1052.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_oj0sh")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Winrate" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1200.0
+offset_top = -11.5
+offset_right = 1247.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_oj0sh")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Total Winnings" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1400.0
+offset_top = -11.5
+offset_right = 1506.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_oj0sh")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
