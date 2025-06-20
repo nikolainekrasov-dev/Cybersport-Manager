@@ -5,6 +5,10 @@ class_name TeamsTable
 var teams_to_display = []
 var teams_buttons = []
 var current_region_index = 0
+var sort_by_rating = false
+var sort_by_winrate = false
+var sort_by_winnings = false
+var order = "Dec"
 static var regions = [
 	"None",
 	"Europe",
@@ -30,9 +34,69 @@ func show_teams_from_prev_region():
 func show_teams_from_region(region_index):
 	current_region_index = region_index
 	update_teams(regions[current_region_index])
+	if sort_by_rating and order == "Dec":
+		teams_to_display.sort_custom(func(a, b): return a.rating > b.rating)
+	elif sort_by_rating and order == "Inc":
+		teams_to_display.sort_custom(func(a, b): return a.rating < b.rating)
+	elif sort_by_winrate and order == "Dec":
+		teams_to_display.sort_custom(func(a, b): return a.winrate() > b.winrate())
+	elif sort_by_winrate and order == "Inc":
+		teams_to_display.sort_custom(func(a, b): return a.winrate() < b.winrate())
+	elif sort_by_winnings and order == "Dec":
+		teams_to_display.sort_custom(func(a, b): return a.total_winnings > b.total_winnings)
+	elif sort_by_winnings and order == "Inc":
+		teams_to_display.sort_custom(func(a, b): return a.total_winnings < b.total_winnings)
 	fix_teams_button_count()
 	display_teams()
 	scroll_vertical = 0
+	
+func sort_teams_by_rating_decrease_order():
+	sort_by_rating = true
+	sort_by_winrate = false
+	sort_by_winnings = false
+	order = "Dec"
+	show_teams_from_region(current_region_index)
+	
+func sort_teams_by_rating_increase_order():
+	sort_by_rating = true
+	sort_by_winrate = false
+	sort_by_winnings = false
+	order = "Inc"
+	show_teams_from_region(current_region_index)
+	
+func sort_teams_by_winrate_decrease_order():
+	sort_by_rating = false
+	sort_by_winrate = true
+	sort_by_winnings = false
+	order = "Dec"
+	show_teams_from_region(current_region_index)
+	
+func sort_teams_by_winrate_increase_order():
+	sort_by_rating = false
+	sort_by_winrate = true
+	sort_by_winnings = false
+	order = "Inc"
+	show_teams_from_region(current_region_index)
+	
+func sort_teams_by_winnings_decrease_order():
+	sort_by_rating = false
+	sort_by_winrate = false
+	sort_by_winnings = true
+	order = "Dec"
+	show_teams_from_region(current_region_index)
+	
+func sort_teams_by_winnings_increase_order():
+	sort_by_rating = false
+	sort_by_winrate = false
+	sort_by_winnings = true
+	order = "Inc"
+	show_teams_from_region(current_region_index)
+	
+func unsort_teams():
+	sort_by_winnings = false
+	sort_by_winrate = false
+	sort_by_rating = false
+	show_teams_from_region(current_region_index)
 		
 func fix_teams_button_count():
 	if len(teams_to_display) < len(teams_buttons):
@@ -60,3 +124,9 @@ func update_teams(region):
 		for team in TeamsManager.teams_by_region[region]:
 			if team.is_active == true:
 				teams_to_display.append(team)
+				
+func nullify():
+	sort_by_winnings = false
+	sort_by_winrate = false
+	sort_by_rating = false
+	current_region_index = 0

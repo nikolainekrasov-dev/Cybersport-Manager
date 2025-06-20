@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=91 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -66,6 +66,11 @@
 [ext_resource type="Script" uid="uid://cct8edcuq66qy" path="res://Scripts/TeamsTable.gd" id="64_3fckt"]
 [ext_resource type="Texture2D" uid="uid://cvs2844fsphx4" path="res://Sprites/Right Arrow.png" id="64_hgvdx"]
 [ext_resource type="Texture2D" uid="uid://s1hutvr4lb8x" path="res://Sprites/Left Arrow.png" id="65_u033w"]
+[ext_resource type="Texture2D" uid="uid://dojowxk7wcox7" path="res://Sprites/Top Arrow.png" id="66_u033w"]
+[ext_resource type="Script" uid="uid://co4hljjn0hg4" path="res://Scripts/SortButton.gd" id="67_dba6g"]
+[ext_resource type="Texture2D" uid="uid://b1ngd7wya1sgy" path="res://Sprites/Down Arrow.png" id="67_njl4x"]
+[ext_resource type="Texture2D" uid="uid://bvla6jl7m6b7c" path="res://Sprites/Green Top Arrow.png" id="68_xyo06"]
+[ext_resource type="Texture2D" uid="uid://b4iukmuw7w3mp" path="res://Sprites/Red Down Arrow.png" id="70_aut1c"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -4029,6 +4034,144 @@ texture_disabled = ExtResource("65_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Rating Sort Decreasing Order" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1076.0
+offset_top = -8.0
+offset_right = 1089.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("67_njl4x")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+table_to_sort = NodePath("../../Teams Container")
+sort_method = "sort_teams_by_rating_decrease_order"
+
+[node name="Rating Sort Increasing Order" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1086.0
+offset_top = -8.0
+offset_right = 1099.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("66_u033w")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+texture_focused = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+table_to_sort = NodePath("../../Teams Container")
+sort_method = "sort_teams_by_rating_increase_order"
+
+[node name="Winrate Sort Decreasing Order2" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1279.0
+offset_top = -8.0
+offset_right = 1292.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("67_njl4x")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+table_to_sort = NodePath("../../Teams Container")
+sort_method = "sort_teams_by_winrate_decrease_order"
+
+[node name="Winrate Sort Increasing Order" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1289.0
+offset_top = -8.0
+offset_right = 1302.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("66_u033w")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+texture_focused = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+table_to_sort = NodePath("../../Teams Container")
+sort_method = "sort_teams_by_winrate_increase_order"
+
+[node name="Winnings Sort Decreasing Order3" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1576.0
+offset_top = -8.0
+offset_right = 1589.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("67_njl4x")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+table_to_sort = NodePath("../../Teams Container")
+sort_method = "sort_teams_by_winnings_decrease_order"
+
+[node name="Winnings Sort Increasing Order2" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1586.0
+offset_top = -8.0
+offset_right = 1599.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("66_u033w")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+texture_focused = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+table_to_sort = NodePath("../../Teams Container")
+sort_method = "sort_teams_by_winnings_increase_order"
+
 [node name="Teams Container" type="ScrollContainer" parent="Teams"]
 offset_left = 130.0
 offset_top = 270.0
@@ -4111,5 +4254,12 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="show_all_teams"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Teams/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winrate Sort Decreasing Order2" method="nullify"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winrate Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Teams Container" method="nullify"]
 [connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="show_teams_from_next_region"]
 [connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="show_teams_from_prev_region"]

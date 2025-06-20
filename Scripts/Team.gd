@@ -23,8 +23,8 @@ func nullify_team():
 	is_active = false
 	games_won = 0
 	games_lost = 0
-	rating = start_team_rating
-	total_winnings = 0
+	rating = randi() % 10000
+	total_winnings = randi() % 10000000
 	
 func winrate():
 	var games_played = games_won + games_drawn + games_lost
