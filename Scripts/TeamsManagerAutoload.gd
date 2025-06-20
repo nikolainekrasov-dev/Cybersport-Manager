@@ -27,7 +27,7 @@ func _ready():
 			var team = Team.new(name, region)
 			teams_by_region[region].append(team)
 
-func choose_teams_for_new_game(new_player_team):
+func setup_teams_for_new_game(new_player_team):
 	set_player_team(new_player_team)
 	for region in teams_by_region:
 		var rand_indices = []

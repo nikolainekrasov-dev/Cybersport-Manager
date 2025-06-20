@@ -13,7 +13,7 @@ var players_by_region = {
 	"Oceania": []
 }
 
-func create_new_players():
+func setup_players_for_new_game():
 	var nicks = _readlines("res://Players/nicknames.txt")
 	for region in players_by_region:
 		for country in DirAccess.open("res://Players/%s" % region).get_directories():
