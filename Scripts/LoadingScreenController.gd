@@ -42,13 +42,13 @@ func load_new_game(team):
 	progress_bar_timer.start()
 	team_logo.texture = team.white_logo
 	animator.play("Pulse Team Logo")
-	thread.start(Callable(self, "test").bind(team))
+	thread.start(Callable(self, "start_new_game").bind(team))
 	Callable(screen_manager, "show_loading").call()
 
 func update_progress_bar():
 	progress_bar.value += 6 + randi() % 6
 
-func test(team):
+func start_new_game(team):
 	Callable(GameLifecycleService, "start_new_game").bind(team).call()
 	call_deferred("move_to_home_screen")
 	
