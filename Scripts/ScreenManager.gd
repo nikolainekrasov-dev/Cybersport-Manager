@@ -26,7 +26,10 @@ func show_main_menu():
 	
 func show_team_selection():
 	show_screen("Team Selection")
-	
+
+func show_loading():
+	show_screen("Loading")
+
 func show_home():
 	show_screen("Home")
 	

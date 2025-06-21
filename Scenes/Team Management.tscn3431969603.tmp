@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=95 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -74,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://bvla6jl7m6b7c" path="res://Sprites/Green Top Arrow.png" id="68_xyo06"]
 [ext_resource type="Texture2D" uid="uid://b4iukmuw7w3mp" path="res://Sprites/Red Down Arrow.png" id="70_aut1c"]
 [ext_resource type="Script" uid="uid://bhvrgncgc6cf8" path="res://Scripts/LoadingScreenController.gd" id="74_m33au"]
+[ext_resource type="Script" uid="uid://bmpv5wyypa61u" path="res://Scripts/PulsatingTextureButton.gd" id="74_p72bl"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -519,23 +520,6 @@ tracks/1/keys = {
 "values": [Vector2(2000, 137), Vector2(757, 137)]
 }
 
-[sub_resource type="Animation" id="Animation_3kfxy"]
-resource_name = "Pulse Team Logo"
-length = 1.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Loading/Team Logo:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2px"]
 _data = {
 &"Close Database Menu": SubResource("Animation_hgvdx"),
@@ -549,8 +533,7 @@ _data = {
 &"Open My Team Info Menu": SubResource("Animation_xd3vi"),
 &"Open System Menu": SubResource("Animation_u033w"),
 &"Open Team Management Menu": SubResource("Animation_3fckt"),
-&"Open Team Selection Menu": SubResource("Animation_qm2px"),
-&"Pulse Team Logo": SubResource("Animation_3kfxy")
+&"Open Team Selection Menu": SubResource("Animation_qm2px")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljre4"]
@@ -570,17 +553,6 @@ bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dba6g"]
 bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m33au"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p72bl"]
-bg_color = Color(1, 1, 1, 1)
 
 [node name="Screen manager" type="Control"]
 layout_mode = 3
@@ -4233,11 +4205,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Loading" type="CanvasLayer" parent="." node_paths=PackedStringArray("animator", "screen_manager")]
+[node name="Loading" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("74_m33au")
-animator = NodePath("../Animator")
-screen_manager = NodePath("..")
 
 [node name="Background" type="TextureRect" parent="Loading"]
 offset_right = 1920.0
@@ -4297,43 +4267,7 @@ offset_right = 100.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(100, 100)
-expand_mode = 1
-
-[node name="Advice" type="Label" parent="Loading"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -415.0
-offset_top = -32.0
-offset_right = 415.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 20
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Progress Bar" type="ProgressBar" parent="Loading"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -415.0
-offset_top = -118.0
-offset_right = 415.0
-offset_bottom = -108.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/background = SubResource("StyleBoxFlat_m33au")
-theme_override_styles/fill = SubResource("StyleBoxFlat_p72bl")
-show_percentage = false
+script = ExtResource("74_p72bl")
 
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
@@ -4347,6 +4281,7 @@ show_percentage = false
 [connection signal="pressed" from="Team Selection/Regions/Africa and Middle East" to="Team Selection/Team Selection Menu" method="show_african_teams"]
 [connection signal="pressed" from="Team Selection/Regions/Oceania" to="Team Selection/Team Selection Menu" method="show_oceanian_teams"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Close button" to="Team Selection/Team Selection Menu" method="close_menu"]
+[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/1st Team" to="." method="show_loading"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/2nd Team" to="." method="show_home"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/3rd Team" to="." method="show_home"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/4th Team" to="." method="show_home"]

@@ -23,15 +23,14 @@ func _ready():
 	var content = file.get_as_text()
 	var parsed = JSON.parse_string(content)
 	for region in parsed:
-		for name in parsed[region]:
-			var team = Team.new(name, region)
+		for team_name in parsed[region]:
+			var team = Team.new(team_name, region)
 			teams_by_region[region].append(team)
 
 func setup_teams_for_new_game(new_player_team):
-	set_player_team(new_player_team)
 	for region in teams_by_region:
 		var rand_indices = []
-		var player_team_index = teams_by_region[region].find(player_team)
+		var player_team_index = teams_by_region[region].find(new_player_team)
 		if player_team_index != -1:
 			rand_indices.append(player_team_index)
 		while len(rand_indices) < team_count_in_region:

@@ -5,6 +5,7 @@ class_name TeamSelectionButton
 var team: Team
 var team_logo: TextureRect
 var team_name: Label
+@onready var loading_screen: LoadingScreenController = get_node("/root/Screen manager/Loading")
 
 func _ready():
 	super._ready()
@@ -15,12 +16,12 @@ func _ready():
 	connect("pressed", Callable(self, "choose_team"))
 
 func choose_team():
-	GameLifecycleService.start_new_game(team)
+	Callable(loading_screen, "load_new_game").bind(team).call()
 
-func set_team(team):
-	self.team = team
-	team_logo.texture = team.logo
-	team_name.text = team.name
+func set_team(new_team):
+	self.team = new_team
+	team_logo.texture = new_team.logo
+	team_name.text = new_team.name
 	
 func set_white_logo():
 	team_logo.texture = self.team.white_logo

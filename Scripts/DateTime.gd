@@ -20,10 +20,10 @@ var month_names := {
 	11: "December"
 }
 
-func _init(day, month, year):
-	self.day = day
-	self.month = month
-	self.year = year
+func _init(date_day, date_month, date_year):
+	self.day = date_day
+	self.month = date_month
+	self.year = date_year
 	
 func copy():
 	return DateTime.new(self.day, self.month, self.year)

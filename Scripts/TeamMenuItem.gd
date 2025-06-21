@@ -23,7 +23,6 @@ func set_team(new_team):
 	team_name.text = str(new_team.name)
 	team_rating.text = str(new_team.rating)
 	team_region.text = new_team.region
-	var games_played = new_team.games_won + new_team.games_lost
 	var team_wr = new_team.winrate()
 	if team_wr != -1:
 		team_winrate.text = str(team_wr)

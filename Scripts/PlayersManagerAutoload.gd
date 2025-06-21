@@ -34,8 +34,8 @@ func clear_players():
 func _get_player_photos(region, country):
 	var photos = []
 	for file in DirAccess.open("res://Players/%s/%s" % [region, country]).get_files():
-		if file.ends_with(".png"):
-			photos.append(file)
+		if file != "Names.txt" and file != "Surnames.txt":
+			photos.append(file.replace(".import", ""))
 	return photos
 	
 func _readlines(path_to_file):
