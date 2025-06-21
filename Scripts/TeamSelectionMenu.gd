@@ -9,6 +9,7 @@ var team_buttons = []
 func _ready():
 	for team_button in teams_container.get_child(0).get_children():
 		team_buttons.append(team_button)
+		team_button.connect("pressed", Callable(self, "close_menu"))
 		
 func show_teams_from_region(region):
 	var index = 0

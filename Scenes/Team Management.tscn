@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=103 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -66,8 +66,11 @@
 [ext_resource type="Texture2D" uid="uid://dst0kpjyqrat0" path="res://Sprites/Search Tab.png" id="62_dy24r"]
 [ext_resource type="Texture2D" uid="uid://c5hv2k4hpavlh" path="res://Sprites/Table Header.png" id="63_hlwi5"]
 [ext_resource type="Script" uid="uid://cct8edcuq66qy" path="res://Scripts/TeamsTable.gd" id="64_3fckt"]
+[ext_resource type="Texture2D" uid="uid://dco1od032ngbg" path="res://Sprites/Home/Exit Menu Question.png" id="64_8225k"]
 [ext_resource type="Texture2D" uid="uid://cvs2844fsphx4" path="res://Sprites/Right Arrow.png" id="64_hgvdx"]
+[ext_resource type="Texture2D" uid="uid://dc7trcor0vllh" path="res://Sprites/Home/Exit Menu Answer.png" id="65_aup3r"]
 [ext_resource type="Texture2D" uid="uid://s1hutvr4lb8x" path="res://Sprites/Left Arrow.png" id="65_u033w"]
+[ext_resource type="Texture2D" uid="uid://dpbhtxwpw75nf" path="res://Sprites/Home/Hover Exit Menu Answer.png" id="66_1pyhs"]
 [ext_resource type="Texture2D" uid="uid://dojowxk7wcox7" path="res://Sprites/Top Arrow.png" id="66_u033w"]
 [ext_resource type="Script" uid="uid://co4hljjn0hg4" path="res://Scripts/SortButton.gd" id="67_dba6g"]
 [ext_resource type="Texture2D" uid="uid://b1ngd7wya1sgy" path="res://Sprites/Down Arrow.png" id="67_njl4x"]
@@ -112,6 +115,33 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_aup3r"]
+resource_name = "Close Exit Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Exit Menu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Screen Dimmer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_lqky6"]
@@ -336,6 +366,33 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_8225k"]
+resource_name = "Open Exit Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Home/Exit Menu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Home/Screen Dimmer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_ianid"]
 resource_name = "Open Forward Time Menu"
 tracks/0/type = "value"
@@ -539,12 +596,14 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2px"]
 _data = {
 &"Close Database Menu": SubResource("Animation_hgvdx"),
+&"Close Exit Menu": SubResource("Animation_aup3r"),
 &"Close Forward Time Menu": SubResource("Animation_lqky6"),
 &"Close My Team Info Menu": SubResource("Animation_hlwi5"),
 &"Close System Menu": SubResource("Animation_xardu"),
 &"Close Team Management Menu": SubResource("Animation_dy24r"),
 &"Close Team Selection Menu": SubResource("Animation_toxjj"),
 &"Open Database Menu": SubResource("Animation_gbk8k"),
+&"Open Exit Menu": SubResource("Animation_8225k"),
 &"Open Forward Time Menu": SubResource("Animation_ianid"),
 &"Open My Team Info Menu": SubResource("Animation_xd3vi"),
 &"Open System Menu": SubResource("Animation_u033w"),
@@ -569,6 +628,9 @@ bg_color = Color(1, 1, 1, 0)
 bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dba6g"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0n5v"]
 bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m33au"]
@@ -769,15 +831,14 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_mrb3r")
 
-[node name="Regions header" type="Panel" parent="Team Selection/Background"]
-layout_mode = 0
+[node name="Regions header" type="Panel" parent="Team Selection"]
 offset_left = 137.0
 offset_top = 137.0
 offset_right = 737.0
 offset_bottom = 252.0
 theme_override_styles/panel = ExtResource("9_47kb3")
 
-[node name="Label" type="Label" parent="Team Selection/Background/Regions header"]
+[node name="Label" type="Label" parent="Team Selection/Regions header"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3892,6 +3953,131 @@ texture_focused = ExtResource("19_toxjj")
 script = ExtResource("20_7vgiu")
 metadata/_custom_type_script = "uid://dbhxtueib6hoh"
 
+[node name="Exit Menu" type="Panel" parent="Home" node_paths=PackedStringArray("animator")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -82.0
+offset_right = 302.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a0n5v")
+script = ExtResource("57_ianid")
+animator = NodePath("../../Animator")
+
+[node name="Question" type="TextureRect" parent="Home/Exit Menu"]
+layout_mode = 0
+offset_right = 604.0
+offset_bottom = 82.0
+texture = ExtResource("64_8225k")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Home/Exit Menu/Question"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -11.5
+offset_right = 52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Are you sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="TextureButton" parent="Home/Exit Menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 297.0
+grow_vertical = 0
+texture_normal = ExtResource("65_aup3r")
+texture_pressed = ExtResource("66_1pyhs")
+texture_hover = ExtResource("66_1pyhs")
+texture_disabled = ExtResource("65_aup3r")
+texture_focused = ExtResource("66_1pyhs")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Exit Menu/Yes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="No" type="TextureButton" parent="Home/Exit Menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -297.0
+offset_top = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("65_aup3r")
+texture_pressed = ExtResource("66_1pyhs")
+texture_hover = ExtResource("66_1pyhs")
+texture_disabled = ExtResource("65_aup3r")
+texture_focused = ExtResource("66_1pyhs")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Label" type="Label" parent="Home/Exit Menu/No"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 23
+text = "No"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Teams" type="CanvasLayer" parent="."]
 visible = false
 
@@ -4347,50 +4533,12 @@ show_percentage = false
 [connection signal="pressed" from="Team Selection/Regions/Africa and Middle East" to="Team Selection/Team Selection Menu" method="show_african_teams"]
 [connection signal="pressed" from="Team Selection/Regions/Oceania" to="Team Selection/Team Selection Menu" method="show_oceanian_teams"]
 [connection signal="pressed" from="Team Selection/Team Selection Menu/Close button" to="Team Selection/Team Selection Menu" method="close_menu"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/2nd Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/3rd Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/4th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/5th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/6th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/7th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/8th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/9th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/10th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/11th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/12th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/13th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/14th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/15th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/16th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/17th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/18th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/19th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/20th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/21th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/22th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/23th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/24th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/25th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/26th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/27th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/28th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/29th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/30th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/31th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/32th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/33th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/34th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/35th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/36th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/37th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/38th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/39th Team" to="." method="show_home"]
-[connection signal="pressed" from="Team Selection/Team Selection Menu/Teams/Teams container/40th Team" to="." method="show_home"]
 [connection signal="pressed" from="Home/Forward Time" to="Home/Forward Time Menu" method="open_menu"]
 [connection signal="pressed" from="Home/Team Management" to="Home/Team Management Menu" method="open_menu"]
 [connection signal="pressed" from="Home/My Team Info" to="Home/My Team Info Menu" method="open_menu"]
 [connection signal="pressed" from="Home/Database" to="Home/Database Menu" method="open_menu"]
 [connection signal="pressed" from="Home/System" to="Home/System Menu" method="open_menu"]
+[connection signal="pressed" from="Home/Exit To Main Menu" to="Home/Exit Menu" method="open_menu"]
 [connection signal="pressed" from="Home/Forward Time Close Menu Button" to="Home/Forward Time Menu" method="close_menu"]
 [connection signal="pressed" from="Home/My Team Info Menu Close Button" to="Home/My Team Info Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Team Management Menu Close Button" to="Home/Team Management Menu" method="close_menu"]
@@ -4399,6 +4547,9 @@ show_percentage = false
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="show_all_teams"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
+[connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Exit Menu/No" to="Home/Exit Menu" method="close_menu"]
 [connection signal="pressed" from="Teams/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
