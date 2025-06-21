@@ -50,8 +50,8 @@ func update_progress_bar():
 
 func test(team):
 	Callable(GameLifecycleService, "start_new_game").bind(team).call()
-	call_deferred("w")
+	call_deferred("move_to_home_screen")
 	
-func w():
+func move_to_home_screen():
 	Callable(screen_manager, "show_home").call()
 	thread.wait_to_finish()
