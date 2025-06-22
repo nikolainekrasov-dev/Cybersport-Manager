@@ -16,7 +16,7 @@ func _ready():
 	connect("pressed", Callable(self, "choose_team"))
 
 func choose_team():
-	Callable(loading_screen, "load_new_game").bind(team).call()
+	loading_screen.load_new_game(team)
 
 func set_team(new_team):
 	self.team = new_team
