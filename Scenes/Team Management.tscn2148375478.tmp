@@ -4731,7 +4731,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Rating Label" type="Label" parent="Team/Left Panel/Team Info"]
+[node name="Rating" type="Label" parent="Team/Left Panel/Team Info"]
 layout_mode = 0
 offset_left = 340.0
 offset_top = 63.0
@@ -4787,36 +4787,14 @@ text = "VIEW MORE STATISTICS"
 
 [node name="Region" type="Label" parent="Team/Left Panel/Team Info"]
 layout_mode = 0
-offset_left = 444.0
+offset_left = 340.0
 offset_top = 33.0
-offset_right = 683.0
+offset_right = 579.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Rating" type="Label" parent="Team/Left Panel/Team Info"]
-offset_left = 439.0
-offset_top = 63.0
-offset_right = 678.0
-offset_bottom = 86.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-uppercase = true
-
-[node name="Winnings" type="Label" parent="Team/Left Panel/Team Info"]
-offset_left = 540.0
-offset_top = 93.0
-offset_right = 740.0
-offset_bottom = 116.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
-theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 uppercase = true
 

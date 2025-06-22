@@ -36,5 +36,8 @@ func show_home():
 func show_teams():
 	show_screen("Teams")
 	
+func show_team():
+	show_screen("Team")
+	
 func exit_game():
 	get_tree().quit()

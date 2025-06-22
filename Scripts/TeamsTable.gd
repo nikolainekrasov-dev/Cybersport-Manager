@@ -75,6 +75,7 @@ func fix_teams_button_count():
 	else:
 		while len(teams_to_display) > len(teams_buttons):
 			var new_team_menu_item = team_menu_item.instantiate() as TeamMenuItem
+			new_team_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_team"))
 			find_child("VBoxContainer").add_child(new_team_menu_item)
 			teams_buttons.append(new_team_menu_item)
 

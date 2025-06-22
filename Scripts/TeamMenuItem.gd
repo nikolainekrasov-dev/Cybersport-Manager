@@ -2,13 +2,14 @@ extends LabeledTextureButton
 
 class_name TeamMenuItem
 
-var team: Team
 @export var team_logo: TextureRect
 @export var team_name: Label
 @export var team_region: Label
 @export var team_rating: Label
 @export var team_winrate: Label
 @export var team_total_winnings: Label
+var team: Team
+@onready var team_screen: TeamScreenController = get_node("/root/Screen manager/Team")
 
 func _ready():
 	super._ready()
@@ -16,6 +17,10 @@ func _ready():
 	team_name = find_child("Name")
 	connect("mouse_entered", Callable(self, "set_white_team_logo"))
 	connect("mouse_exited", Callable(self, "set_default_team_logo"))
+	connect("pressed", Callable(self, "show_team_info"))
+	
+func show_team_info():
+	team_screen.set_team(team)
 	
 func set_team(new_team):
 	self.team = new_team
