@@ -4,21 +4,13 @@ class_name SortButton
 
 @export var default_texture: Texture2D
 @export var pressed_texture: Texture2D
-@export var table_to_sort: TeamsTable
 @export var sort_method: String
 static var active_button: SortButton = null
 var is_active: bool = false
 var method_to_call: Callable
 
 func _ready():
-	method_to_call = Callable(table_to_sort, sort_method)
 	connect("pressed", Callable(self, "press_button"))
-
-func sort_table():
-	if is_active:
-		table_to_sort.unsort_teams()
-	else:
-		method_to_call.call()
 
 func change_texture():
 	if is_active:
@@ -47,7 +39,6 @@ func set_texture(new_texture):
 func press_button():
 	change_texture()
 	set_new_active_button()
-	sort_table()
 	is_active = not(is_active)
 	
 func nullify():

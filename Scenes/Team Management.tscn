@@ -4265,7 +4265,7 @@ texture_disabled = ExtResource("65_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Rating Sort Decreasing Order" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+[node name="Rating Sort Decreasing Order" type="TextureButton" parent="Teams/Table Header"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -4285,10 +4285,9 @@ stretch_mode = 0
 script = ExtResource("67_dba6g")
 default_texture = ExtResource("67_njl4x")
 pressed_texture = ExtResource("68_xyo06")
-table_to_sort = NodePath("../../Teams Container")
 sort_method = "sort_teams_by_rating_decrease_order"
 
-[node name="Rating Sort Increasing Order" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+[node name="Rating Sort Increasing Order" type="TextureButton" parent="Teams/Table Header"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -4308,10 +4307,9 @@ stretch_mode = 0
 script = ExtResource("67_dba6g")
 default_texture = ExtResource("66_u033w")
 pressed_texture = ExtResource("70_aut1c")
-table_to_sort = NodePath("../../Teams Container")
 sort_method = "sort_teams_by_rating_increase_order"
 
-[node name="Winrate Sort Decreasing Order2" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+[node name="Winrate Sort Decreasing Order2" type="TextureButton" parent="Teams/Table Header"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -4331,10 +4329,9 @@ stretch_mode = 0
 script = ExtResource("67_dba6g")
 default_texture = ExtResource("67_njl4x")
 pressed_texture = ExtResource("68_xyo06")
-table_to_sort = NodePath("../../Teams Container")
 sort_method = "sort_teams_by_winrate_decrease_order"
 
-[node name="Winrate Sort Increasing Order" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+[node name="Winrate Sort Increasing Order" type="TextureButton" parent="Teams/Table Header"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -4354,10 +4351,9 @@ stretch_mode = 0
 script = ExtResource("67_dba6g")
 default_texture = ExtResource("66_u033w")
 pressed_texture = ExtResource("70_aut1c")
-table_to_sort = NodePath("../../Teams Container")
 sort_method = "sort_teams_by_winrate_increase_order"
 
-[node name="Winnings Sort Decreasing Order3" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+[node name="Winnings Sort Decreasing Order3" type="TextureButton" parent="Teams/Table Header"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -4377,10 +4373,9 @@ stretch_mode = 0
 script = ExtResource("67_dba6g")
 default_texture = ExtResource("67_njl4x")
 pressed_texture = ExtResource("68_xyo06")
-table_to_sort = NodePath("../../Teams Container")
 sort_method = "sort_teams_by_winnings_decrease_order"
 
-[node name="Winnings Sort Increasing Order2" type="TextureButton" parent="Teams/Table Header" node_paths=PackedStringArray("table_to_sort")]
+[node name="Winnings Sort Increasing Order2" type="TextureButton" parent="Teams/Table Header"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -4400,7 +4395,6 @@ stretch_mode = 0
 script = ExtResource("67_dba6g")
 default_texture = ExtResource("66_u033w")
 pressed_texture = ExtResource("70_aut1c")
-table_to_sort = NodePath("../../Teams Container")
 sort_method = "sort_teams_by_winnings_increase_order"
 
 [node name="Teams Container" type="ScrollContainer" parent="Teams"]
@@ -4545,7 +4539,7 @@ show_percentage = false
 [connection signal="pressed" from="Home/System Menu Close Button" to="Home/System Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="." method="show_teams"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
-[connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="show_all_teams"]
+[connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
@@ -4558,5 +4552,25 @@ show_percentage = false
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Teams Container" method="nullify"]
-[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="show_teams_from_next_region"]
-[connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="show_teams_from_prev_region"]
+[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="set_next_region"]
+[connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="set_prev_region"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="set_decrease_order"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="switch_winrate_flag"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="set_decrease_order"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="switch_winrate_flag"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="switch_winnings_flag"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="set_decrease_order"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="switch_winnings_flag"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="update_table_content"]

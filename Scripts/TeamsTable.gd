@@ -21,18 +21,14 @@ static var regions = [
 	"Oceania"
 ]
 static var team_menu_item = preload("res://Prefabs/Team Menu Item.tscn")
-		
-func show_all_teams():
-	show_teams_from_region(0)
 	
-func show_teams_from_next_region():
-	show_teams_from_region((current_region_index + 1) % len(regions))
+func set_next_region():
+	current_region_index  = (current_region_index + 1) % len(regions)
 	
-func show_teams_from_prev_region():
-	show_teams_from_region((current_region_index - 1) % len(regions))
+func set_prev_region():
+	current_region_index  = (current_region_index - 1) % len(regions)
 		
-func show_teams_from_region(region_index):
-	current_region_index = region_index
+func update_table_content():
 	update_teams(regions[current_region_index])
 	if sort_by_rating and order == "Dec":
 		teams_to_display.sort_custom(func(a, b): return a.rating > b.rating)
@@ -50,54 +46,27 @@ func show_teams_from_region(region_index):
 	display_teams()
 	scroll_vertical = 0
 	
-func sort_teams_by_rating_decrease_order():
-	sort_by_rating = true
+func switch_rating_flag():
+	sort_by_rating = not(sort_by_rating)
 	sort_by_winrate = false
 	sort_by_winnings = false
-	order = "Dec"
-	show_teams_from_region(current_region_index)
 	
-func sort_teams_by_rating_increase_order():
-	sort_by_rating = true
-	sort_by_winrate = false
-	sort_by_winnings = false
-	order = "Inc"
-	show_teams_from_region(current_region_index)
-	
-func sort_teams_by_winrate_decrease_order():
+func switch_winrate_flag():
 	sort_by_rating = false
-	sort_by_winrate = true
+	sort_by_winrate = not(sort_by_winrate)
 	sort_by_winnings = false
-	order = "Dec"
-	show_teams_from_region(current_region_index)
 	
-func sort_teams_by_winrate_increase_order():
-	sort_by_rating = false
-	sort_by_winrate = true
-	sort_by_winnings = false
-	order = "Inc"
-	show_teams_from_region(current_region_index)
-	
-func sort_teams_by_winnings_decrease_order():
+func switch_winnings_flag():
 	sort_by_rating = false
 	sort_by_winrate = false
-	sort_by_winnings = true
-	order = "Dec"
-	show_teams_from_region(current_region_index)
-	
-func sort_teams_by_winnings_increase_order():
-	sort_by_rating = false
-	sort_by_winrate = false
-	sort_by_winnings = true
-	order = "Inc"
-	show_teams_from_region(current_region_index)
-	
-func unsort_teams():
-	sort_by_winnings = false
-	sort_by_winrate = false
-	sort_by_rating = false
-	show_teams_from_region(current_region_index)
+	sort_by_winnings = not(sort_by_winnings)
 		
+func set_increase_order():
+	order = "Inc"
+	
+func set_decrease_order():
+	order = "Dec"
+	
 func fix_teams_button_count():
 	if len(teams_to_display) < len(teams_buttons):
 		while len(teams_to_display) < len(teams_buttons):
@@ -129,4 +98,5 @@ func nullify():
 	sort_by_winnings = false
 	sort_by_winrate = false
 	sort_by_rating = false
+	order = "Inc"
 	current_region_index = 0
