@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=121 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -78,9 +78,11 @@
 [ext_resource type="Texture2D" uid="uid://b4iukmuw7w3mp" path="res://Sprites/Red Down Arrow.png" id="70_aut1c"]
 [ext_resource type="Script" uid="uid://bhvrgncgc6cf8" path="res://Scripts/LoadingScreenController.gd" id="74_m33au"]
 [ext_resource type="Script" uid="uid://b3icnptolqwtp" path="res://Scripts/TeamScreenController.gd" id="78_aup3r"]
+[ext_resource type="Texture2D" uid="uid://dxhfyuulkflld" path="res://Teams/AllStars eSports/white_logo.png" id="78_jwx42"]
 [ext_resource type="StyleBox" uid="uid://c7tqbl1ixvkdb" path="res://Styles/Hover Team Screen Button.tres" id="79_a0n5v"]
 [ext_resource type="StyleBox" uid="uid://crermaeax7tex" path="res://Styles/Team Screen Button.tres" id="80_s63yl"]
 [ext_resource type="Script" uid="uid://c4a8kotqf75ui" path="res://Scripts/PlayerIcon.gd" id="81_s63yl"]
+[ext_resource type="Script" uid="uid://xwekea7hwffr" path="res://Scripts/PlayersTable.gd" id="83_p7b5h"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -580,7 +582,25 @@ tracks/1/keys = {
 "values": [Vector2(2000, 137), Vector2(757, 137)]
 }
 
-[sub_resource type="Animation" id="Animation_3kfxy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2px"]
+_data = {
+&"Close Database Menu": SubResource("Animation_hgvdx"),
+&"Close Exit Menu": SubResource("Animation_aup3r"),
+&"Close Forward Time Menu": SubResource("Animation_lqky6"),
+&"Close My Team Info Menu": SubResource("Animation_hlwi5"),
+&"Close System Menu": SubResource("Animation_xardu"),
+&"Close Team Management Menu": SubResource("Animation_dy24r"),
+&"Close Team Selection Menu": SubResource("Animation_toxjj"),
+&"Open Database Menu": SubResource("Animation_gbk8k"),
+&"Open Exit Menu": SubResource("Animation_8225k"),
+&"Open Forward Time Menu": SubResource("Animation_ianid"),
+&"Open My Team Info Menu": SubResource("Animation_xd3vi"),
+&"Open System Menu": SubResource("Animation_u033w"),
+&"Open Team Management Menu": SubResource("Animation_3fckt"),
+&"Open Team Selection Menu": SubResource("Animation_qm2px")
+}
+
+[sub_resource type="Animation" id="Animation_jwx42"]
 resource_name = "Pulse Team Logo"
 length = 1.4
 loop_mode = 1
@@ -597,23 +617,25 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.8, 0.8), Vector2(1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qm2px"]
+[sub_resource type="Animation" id="Animation_p7b5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/Team Logo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2w2tr"]
 _data = {
-&"Close Database Menu": SubResource("Animation_hgvdx"),
-&"Close Exit Menu": SubResource("Animation_aup3r"),
-&"Close Forward Time Menu": SubResource("Animation_lqky6"),
-&"Close My Team Info Menu": SubResource("Animation_hlwi5"),
-&"Close System Menu": SubResource("Animation_xardu"),
-&"Close Team Management Menu": SubResource("Animation_dy24r"),
-&"Close Team Selection Menu": SubResource("Animation_toxjj"),
-&"Open Database Menu": SubResource("Animation_gbk8k"),
-&"Open Exit Menu": SubResource("Animation_8225k"),
-&"Open Forward Time Menu": SubResource("Animation_ianid"),
-&"Open My Team Info Menu": SubResource("Animation_xd3vi"),
-&"Open System Menu": SubResource("Animation_u033w"),
-&"Open Team Management Menu": SubResource("Animation_3fckt"),
-&"Open Team Selection Menu": SubResource("Animation_qm2px"),
-&"Pulse Team Logo": SubResource("Animation_3kfxy")
+&"Pulse Team Logo": SubResource("Animation_jwx42"),
+&"RESET": SubResource("Animation_p7b5h")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljre4"]
@@ -723,12 +745,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x3y6i")
 
-[node name="Animator" type="AnimationPlayer" parent="."]
+[node name="Menu\'s Animator" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qm2px")
 }
 
+[node name="Loading Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2w2tr")
+}
+
 [node name="Main menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -1200,7 +1228,7 @@ offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ljre4")
 script = ExtResource("18_71nic")
 teams_container = NodePath("Teams")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 
 [node name="Close button" type="TextureButton" parent="Team Selection/Team Selection Menu"]
 layout_mode = 0
@@ -3380,7 +3408,7 @@ offset_right = 611.0
 offset_bottom = 209.0
 theme_override_styles/panel = ExtResource("56_bcrdx")
 script = ExtResource("57_ianid")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 
 [node name="Start The Match" type="TextureButton" parent="Home/Forward Time Menu"]
 layout_mode = 0
@@ -3464,7 +3492,7 @@ offset_top = 447.0
 offset_right = 611.0
 offset_bottom = 519.0
 script = ExtResource("57_ianid")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 
 [node name="Team" type="TextureButton" parent="Home/My Team Info Menu"]
 layout_mode = 0
@@ -3554,7 +3582,7 @@ offset_right = 611.0
 offset_bottom = 364.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lqky6")
 script = ExtResource("57_ianid")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 metadata/_custom_type_script = "uid://63ph6p3us3l2"
 
 [node name="Inbox" type="TextureButton" parent="Home/Team Management Menu"]
@@ -3673,7 +3701,7 @@ offset_right = 611.0
 offset_bottom = 830.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ianid")
 script = ExtResource("57_ianid")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 metadata/_custom_type_script = "uid://63ph6p3us3l2"
 
 [node name="Save Game" type="TextureButton" parent="Home/System Menu"]
@@ -3797,7 +3825,7 @@ offset_right = 611.0
 offset_bottom = 674.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dba6g")
 script = ExtResource("57_ianid")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 metadata/_custom_type_script = "uid://63ph6p3us3l2"
 
 [node name="Teams" type="TextureButton" parent="Home/Database Menu"]
@@ -4038,7 +4066,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a0n5v")
 script = ExtResource("57_ianid")
-animator = NodePath("../../Animator")
+animator = NodePath("../../Menu\'s Animator")
 
 [node name="Question" type="TextureRect" parent="Home/Exit Menu"]
 layout_mode = 0
@@ -4486,7 +4514,7 @@ theme_override_constants/separation = 0
 [node name="Loading" type="CanvasLayer" parent="." node_paths=PackedStringArray("animator", "screen_manager")]
 visible = false
 script = ExtResource("74_m33au")
-animator = NodePath("../Animator")
+animator = NodePath("../Loading Animator")
 screen_manager = NodePath("..")
 
 [node name="Background" type="TextureRect" parent="Loading"]
@@ -4548,6 +4576,7 @@ offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
+texture = ExtResource("78_jwx42")
 expand_mode = 1
 
 [node name="Advice" type="Label" parent="Loading"]
@@ -4799,6 +4828,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Rating" type="Label" parent="Team/Left Panel/Team Info"]
+layout_mode = 0
 offset_left = 439.0
 offset_top = 63.0
 offset_right = 678.0
@@ -4810,6 +4840,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Winnings" type="Label" parent="Team/Left Panel/Team Info"]
+layout_mode = 0
 offset_left = 540.0
 offset_top = 93.0
 offset_right = 740.0
@@ -4944,6 +4975,7 @@ offset_right = 140.0
 offset_bottom = 159.0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Carry Role"]
+layout_mode = 0
 offset_top = 159.0
 offset_right = 140.0
 offset_bottom = 185.0
@@ -4969,6 +5001,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Assassin Role" type="Panel" parent="Team/Right Panel/Roster"]
+layout_mode = 0
 offset_left = 190.0
 offset_top = 62.0
 offset_right = 330.0
@@ -5009,6 +5042,7 @@ offset_right = 140.0
 offset_bottom = 159.0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Assassin Role"]
+layout_mode = 0
 offset_top = 159.0
 offset_right = 140.0
 offset_bottom = 185.0
@@ -5034,6 +5068,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tank Role" type="Panel" parent="Team/Right Panel/Roster"]
+layout_mode = 0
 offset_left = 345.0
 offset_top = 62.0
 offset_right = 485.0
@@ -5074,6 +5109,7 @@ offset_right = 140.0
 offset_bottom = 159.0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Tank Role"]
+layout_mode = 0
 offset_top = 159.0
 offset_right = 140.0
 offset_bottom = 185.0
@@ -5099,6 +5135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pusher Role" type="Panel" parent="Team/Right Panel/Roster"]
+layout_mode = 0
 offset_left = 500.0
 offset_top = 62.0
 offset_right = 640.0
@@ -5139,6 +5176,7 @@ offset_right = 140.0
 offset_bottom = 159.0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Pusher Role"]
+layout_mode = 0
 offset_top = 159.0
 offset_right = 140.0
 offset_bottom = 185.0
@@ -5164,6 +5202,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Support Role" type="Panel" parent="Team/Right Panel/Roster"]
+layout_mode = 0
 offset_left = 655.0
 offset_top = 62.0
 offset_right = 795.0
@@ -5204,6 +5243,7 @@ offset_right = 140.0
 offset_bottom = 159.0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Support Role"]
+layout_mode = 0
 offset_top = 159.0
 offset_right = 140.0
 offset_bottom = 185.0
@@ -5260,6 +5300,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Bot Separator" type="ColorRect" parent="Team/Right Panel"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 504.0
 offset_right = 795.0
@@ -5267,6 +5308,7 @@ offset_bottom = 505.0
 color = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="Trophies" type="Panel" parent="Team/Right Panel"]
+layout_mode = 0
 offset_top = 530.0
 offset_right = 830.0
 offset_bottom = 755.0
@@ -5320,6 +5362,410 @@ theme_override_styles/normal_mirrored = ExtResource("80_s63yl")
 theme_override_styles/normal = ExtResource("80_s63yl")
 text = "VIEW MORE TROPHIES"
 
+[node name="Players" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="Players"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_mrb3r")
+expand_mode = 1
+
+[node name="Back Button" type="Button" parent="Players"]
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 231.0
+offset_bottom = 86.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("11_qm2px")
+theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
+theme_override_styles/disabled = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed = ExtResource("11_qm2px")
+theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover = ExtResource("11_qm2px")
+theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/pressed = ExtResource("11_qm2px")
+theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
+theme_override_styles/normal = ExtResource("11_qm2px")
+text = "BACK"
+icon = ExtResource("12_i5bvx")
+
+[node name="Search Tab" type="TextureRect" parent="Players"]
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 1775.0
+offset_bottom = 197.0
+texture = ExtResource("62_dy24r")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Players/Search Tab"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -11.5
+offset_right = 85.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+text = "PLAYERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Table Header" type="TextureRect" parent="Players"]
+offset_left = 130.0
+offset_top = 210.0
+offset_right = 1775.0
+offset_bottom = 270.0
+texture = ExtResource("63_hlwi5")
+expand_mode = 1
+
+[node name="Name Label" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = -11.5
+offset_right = 270.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Nick"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Age Label" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 384.0
+offset_top = -11.5
+offset_right = 424.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Age"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Age Sort Decreasing Order2" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 439.0
+offset_top = -8.0
+offset_right = 452.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("67_njl4x")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+sort_method = "sort_teams_by_rating_decrease_order"
+
+[node name="Age Sort Increasing Order2" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 449.0
+offset_top = -8.0
+offset_right = 462.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("66_u033w")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+texture_focused = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+sort_method = "sort_teams_by_rating_increase_order"
+
+[node name="Prev Pos" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 540.0
+offset_top = -8.0
+offset_right = 553.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("65_u033w")
+texture_pressed = ExtResource("65_u033w")
+texture_hover = ExtResource("65_u033w")
+texture_disabled = ExtResource("65_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Pos" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 568.0
+offset_top = -11.5
+offset_right = 614.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Role"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next Pos" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 629.0
+offset_top = -8.0
+offset_right = 642.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("64_hgvdx")
+texture_pressed = ExtResource("64_hgvdx")
+texture_hover = ExtResource("64_hgvdx")
+texture_disabled = ExtResource("64_hgvdx")
+texture_focused = ExtResource("64_hgvdx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Prev Region" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 791.0
+offset_top = -8.0
+offset_right = 804.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("65_u033w")
+texture_pressed = ExtResource("65_u033w")
+texture_hover = ExtResource("65_u033w")
+texture_disabled = ExtResource("65_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Region Label" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 819.0
+offset_top = -11.5
+offset_right = 893.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Region"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next Region" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 908.0
+offset_top = -8.0
+offset_right = 921.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("64_hgvdx")
+texture_pressed = ExtResource("64_hgvdx")
+texture_hover = ExtResource("64_hgvdx")
+texture_disabled = ExtResource("64_hgvdx")
+texture_focused = ExtResource("64_hgvdx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Team" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1044.0
+offset_top = -11.5
+offset_right = 1100.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rating Label" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1223.0
+offset_top = -11.5
+offset_right = 1293.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Rating"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rating Sort Decreasing Order" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1312.0
+offset_top = -8.0
+offset_right = 1325.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("67_njl4x")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+sort_method = "sort_teams_by_rating_decrease_order"
+
+[node name="Rating Sort Increasing Order" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1322.0
+offset_top = -8.0
+offset_right = 1335.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("66_u033w")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+texture_focused = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+sort_method = "sort_teams_by_rating_increase_order"
+
+[node name="Total Winnings Label" type="Label" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1413.0
+offset_top = -11.5
+offset_right = 1563.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Total Winnings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Winnings Sort Decreasing Order3" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1576.0
+offset_top = -8.0
+offset_right = 1589.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("67_njl4x")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+sort_method = "sort_teams_by_winnings_decrease_order"
+
+[node name="Winnings Sort Increasing Order2" type="TextureButton" parent="Players/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1586.0
+offset_top = -8.0
+offset_right = 1599.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("66_u033w")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+texture_focused = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+sort_method = "sort_teams_by_winnings_increase_order"
+
+[node name="Players Container" type="ScrollContainer" parent="Players"]
+offset_left = 130.0
+offset_top = 270.0
+offset_right = 1775.0
+offset_bottom = 982.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("83_p7b5h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Players/Players Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -5345,6 +5791,9 @@ text = "VIEW MORE TROPHIES"
 [connection signal="pressed" from="Home/Database Menu/Teams" to="." method="show_teams"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Home/Database Menu/Players" to="." method="show_players"]
+[connection signal="pressed" from="Home/Database Menu/Players" to="Home/Database Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Database Menu/Players" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
@@ -5357,26 +5806,60 @@ text = "VIEW MORE TROPHIES"
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Teams Container" method="nullify"]
-[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="set_next_region"]
+[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="set_prev_region"]
 [connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="update_table_content"]
-[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
 [connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
 [connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="set_decrease_order"]
 [connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
-[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
-[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="switch_winrate_flag"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="set_increase_order"]
-[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="set_decrease_order"]
-[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="switch_winrate_flag"]
-[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="switch_winnings_flag"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="set_decrease_order"]
 [connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="switch_winnings_flag"]
 [connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="switch_winnings_flag"]
 [connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="set_decrease_order"]
-[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Team/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Players/Back Button" to="." method="show_home"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winrate Sort Decreasing Order2" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winrate Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Teams Container" method="nullify"]
+[connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Teams/Teams Container" method="switch_rating_flag"]
+[connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Teams/Teams Container" method="set_decrease_order"]
+[connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Teams/Teams Container" method="switch_rating_flag"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Teams/Teams Container" method="set_prev_region"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Teams/Teams Container" method="set_next_region"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Region" to="Teams/Teams Container" method="set_prev_region"]
+[connection signal="pressed" from="Players/Table Header/Prev Region" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Region" to="Teams/Teams Container" method="set_next_region"]
+[connection signal="pressed" from="Players/Table Header/Next Region" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
+[connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Players/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="set_decrease_order"]
+[connection signal="pressed" from="Players/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="switch_rating_flag"]
+[connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="switch_winnings_flag"]
+[connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="set_increase_order"]
+[connection signal="pressed" from="Players/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="switch_winnings_flag"]
+[connection signal="pressed" from="Players/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="set_decrease_order"]

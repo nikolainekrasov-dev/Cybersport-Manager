@@ -36,6 +36,9 @@ func show_home():
 func show_teams():
 	show_screen("Teams")
 	
+func show_players():
+	show_screen("Players")
+	
 func show_team():
 	show_screen("Team")
 	

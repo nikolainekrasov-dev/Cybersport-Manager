@@ -1751,7 +1751,8 @@ birdring
 bodito
 boosx45
 bored
-bra1n_damag3dbriz
+bra1n_damag3d
+briz
 brock
 bru
 camisado_47
