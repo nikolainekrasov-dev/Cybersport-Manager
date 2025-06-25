@@ -34,8 +34,6 @@ func update_players(region):
 	players_to_display.clear()
 	if region == "None":
 		for reg in PlayersManager.players_by_region:
-			print(reg)
-			print(len(PlayersManager.players_by_region[reg]))
 			for player in PlayersManager.players_by_region[reg]:
 				players_to_display.append(player)
 	else:

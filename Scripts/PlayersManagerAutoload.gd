@@ -15,17 +15,24 @@ var players_by_region = {
 
 func setup_players_for_new_game():
 	var nicks = _readlines("res://Players/nicknames.txt")
+	var threads = []
 	for region in players_by_region:
-		for country in DirAccess.open("res://Players/%s" % region).get_directories():
-			var photos = _get_player_photos(region, country)
-			var names = _readlines("res://Players/%s/%s/Names.txt" % [region, country])
-			var surnames = _readlines("res://Players/%s/%s/Surnames.txt" % [region, country])
-			for photo in photos:
-				var nick_index = randi() % len(nicks)
-				var player = Player.new(names[randi() % len(names)], surnames[randi() % len(surnames)], nicks[nick_index], region, "res://Players/%s/%s/%s" % [region, country, photo])
-				players_by_region[region].append(player)
-				nicks.remove_at(nick_index)
-			
+		var new_thread = Thread.new()
+		new_thread.start(Callable(self, "create_player_from_region").bind(region))
+	for thread in threads:
+		thread.wait_to_finish()
+
+func create_player_from_region(region):
+	var nicks = _readlines("res://Players/%s/nicknames.txt" % region)
+	for country in DirAccess.open("res://Players/%s" % region).get_directories():
+		var photos = _get_player_photos(region, country)
+		var names = _readlines("res://Players/%s/%s/Names.txt" % [region, country])
+		var surnames = _readlines("res://Players/%s/%s/Surnames.txt" % [region, country])
+		for photo in photos:
+			var nick_index = randi() % len(nicks)
+			var player = Player.new(names[randi() % len(names)], surnames[randi() % len(surnames)], nicks[nick_index], region, "res://Players/%s/%s/%s" % [region, country, photo])
+			players_by_region[region].append(player)
+			nicks.remove_at(nick_index)
 
 func clear_players():
 	for region in players_by_region:
