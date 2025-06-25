@@ -9,14 +9,21 @@ var team: Team
 var rating: int
 var winnings: int
 var is_active: bool = false
+var birth_date: DateTime
+var role: String
 
-func _init(player_name, player_surname, player_nick, player_region, path_to_photo):
+func _init(player_name, player_surname, player_nick, player_region, player_role, path_to_photo):
 	self.name = player_name
 	self.surname = player_surname
 	self.nick = player_nick
 	self.region = player_region
 	self.team = null
-	self.rating = 3000
+	self.rating = 4500 + randi() % 1000
 	self.winnings = 0
+	self.role = player_role
+	self.birth_date = DateTime.new(1, 1, 2005)
 	self.photo = load(path_to_photo)
+	
+func get_age():
+	return 18
 	

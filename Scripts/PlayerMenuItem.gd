@@ -29,7 +29,23 @@ func set_player(new_player):
 	player = new_player
 	photo.texture = new_player.photo
 	nick.text = new_player.nick
-	age.text = "26"
+	age.text = str(new_player.get_age())
+	role.text = new_player.role
 	region.text = new_player.region
 	rating.text = str(new_player.rating)
 	winnings.text = "%d$" % new_player.winnings
+	if new_player.team != null:
+		free_agent.visible = false
+		team_logo.visible = true
+		team_logo.texture = new_player.team.logo
+	else:
+		team_logo.visible = false
+		free_agent.visible = true
+		
+func set_white_team_logo():
+	if player.team != null:
+		team_logo.texture = player.team.white_logo
+
+func set_default_team_logo():
+	if player.team != null:
+		team_logo.texture = player.team.logo
