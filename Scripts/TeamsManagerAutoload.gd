@@ -16,6 +16,8 @@ var teams_by_region = {
 	"Oceania": []
 }
 
+var all_teams = []
+
 var player_team: Team = null
 
 func _ready():
@@ -26,6 +28,7 @@ func _ready():
 		for team_name in parsed[region]:
 			var team = Team.new(team_name, region)
 			teams_by_region[region].append(team)
+			all_teams.append(team)
 
 func setup_teams_for_new_game(new_player_team):
 	for region in teams_by_region:
