@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=125 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -84,6 +84,8 @@
 [ext_resource type="StyleBox" uid="uid://crermaeax7tex" path="res://Styles/Team Screen Button.tres" id="80_s63yl"]
 [ext_resource type="Script" uid="uid://c4a8kotqf75ui" path="res://Scripts/PlayerIcon.gd" id="81_s63yl"]
 [ext_resource type="Script" uid="uid://xwekea7hwffr" path="res://Scripts/PlayersTable.gd" id="83_p7b5h"]
+[ext_resource type="Texture2D" uid="uid://cgvqu7fgbcb64" path="res://Sprites/Heroes/Hover Heroes Button.png" id="85_am2r8"]
+[ext_resource type="StyleBox" uid="uid://4bf8o1uaj8k4" path="res://Styles/Transparent.tres" id="86_3rm58"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -737,6 +739,13 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8gnk"]
 draw_center = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yin71"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Screen manager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -757,6 +766,7 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -5767,6 +5777,168 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
+[node name="Heroes" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="Heroes"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_mrb3r")
+expand_mode = 1
+
+[node name="Back Button" type="Button" parent="Heroes"]
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 231.0
+offset_bottom = 86.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("11_qm2px")
+theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
+theme_override_styles/disabled = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed = ExtResource("11_qm2px")
+theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover = ExtResource("11_qm2px")
+theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/pressed = ExtResource("11_qm2px")
+theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
+theme_override_styles/normal = ExtResource("11_qm2px")
+text = "BACK"
+icon = ExtResource("12_i5bvx")
+
+[node name="Search Tab" type="TextureRect" parent="Heroes"]
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 1775.0
+offset_bottom = 197.0
+texture = ExtResource("62_dy24r")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Heroes/Search Tab"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -11.5
+offset_right = 85.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+text = "GLOSSARY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heroes" type="TextureButton" parent="Heroes/Search Tab"]
+layout_mode = 0
+offset_left = 743.0
+offset_right = 859.0
+offset_bottom = 60.0
+texture_normal = ExtResource("85_am2r8")
+texture_pressed = ExtResource("85_am2r8")
+texture_hover = ExtResource("85_am2r8")
+texture_disabled = ExtResource("85_am2r8")
+texture_focused = ExtResource("85_am2r8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Heroes Panel" type="Panel" parent="Heroes"]
+offset_left = 130.0
+offset_top = 207.0
+offset_right = 1775.0
+offset_bottom = 977.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yin71")
+
+[node name="Strength" type="Label" parent="Heroes/Heroes Panel"]
+layout_mode = 1
+offset_left = 58.0
+offset_top = 50.0
+offset_right = 175.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "STRENGTH"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Strength Sep" type="ColorRect" parent="Heroes/Heroes Panel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 80.0
+offset_right = 527.0
+offset_bottom = 82.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Strength Heroes" type="Panel" parent="Heroes/Heroes Panel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 100.0
+offset_right = 527.0
+offset_bottom = 750.0
+theme_override_styles/panel = ExtResource("86_3rm58")
+
+[node name="Agility" type="Label" parent="Heroes/Heroes Panel"]
+offset_left = 585.0
+offset_top = 50.0
+offset_right = 665.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "AGILITY"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Agility Sep" type="ColorRect" parent="Heroes/Heroes Panel"]
+offset_left = 585.0
+offset_top = 80.0
+offset_right = 1054.0
+offset_bottom = 82.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Agility Heroes" type="Panel" parent="Heroes/Heroes Panel"]
+offset_left = 585.0
+offset_top = 100.0
+offset_right = 1054.0
+offset_bottom = 750.0
+theme_override_styles/panel = ExtResource("86_3rm58")
+
+[node name="Intelligence" type="Label" parent="Heroes/Heroes Panel"]
+offset_left = 1112.0
+offset_top = 50.0
+offset_right = 1265.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "INTELLIGENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Intelligence Sep" type="ColorRect" parent="Heroes/Heroes Panel"]
+offset_left = 1112.0
+offset_top = 80.0
+offset_right = 1581.0
+offset_bottom = 82.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Intelligence Heroes" type="Panel" parent="Heroes/Heroes Panel"]
+offset_left = 1112.0
+offset_top = 100.0
+offset_right = 1581.0
+offset_bottom = 750.0
+theme_override_styles/panel = ExtResource("86_3rm58")
+
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -5795,6 +5967,8 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/Database Menu/Players" to="." method="show_players"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Home/Database Menu/Glossary" to="." method="show_heroes"]
+[connection signal="pressed" from="Home/Database Menu/Glossary" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
@@ -5838,3 +6012,4 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Players/Table Header/Rating Sort Increasing Order" to="Players/Players Container" method="sort_table_by_rating_in_ascending_order"]
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Players/Players Container" method="sort_table_by_winnings_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_winnings_in_ascending_order"]
+[connection signal="pressed" from="Heroes/Back Button" to="." method="show_home"]
