@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=122 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://c0nvj2h4bb7em" path="res://Sprites/Home/Middle Menu Item.png" id="61_ianid"]
 [ext_resource type="Texture2D" uid="uid://dst0kpjyqrat0" path="res://Sprites/Search Tab.png" id="62_dy24r"]
 [ext_resource type="Texture2D" uid="uid://c5hv2k4hpavlh" path="res://Sprites/Table Header.png" id="63_hlwi5"]
+[ext_resource type="Texture2D" uid="uid://ct1snni2n1405" path="res://Sprites/Home/Hover Middle Menu Item.png" id="64_2w2tr"]
 [ext_resource type="Script" uid="uid://cct8edcuq66qy" path="res://Scripts/TeamsTable.gd" id="64_3fckt"]
 [ext_resource type="Texture2D" uid="uid://dco1od032ngbg" path="res://Sprites/Home/Exit Menu Question.png" id="64_8225k"]
 [ext_resource type="Texture2D" uid="uid://cvs2844fsphx4" path="res://Sprites/Right Arrow.png" id="64_hgvdx"]
@@ -3867,10 +3868,10 @@ offset_right = 471.0
 offset_bottom = 36.0
 grow_vertical = 2
 texture_normal = ExtResource("61_ianid")
-texture_pressed = ExtResource("58_ianid")
-texture_hover = ExtResource("58_ianid")
+texture_pressed = ExtResource("64_2w2tr")
+texture_hover = ExtResource("64_2w2tr")
 texture_disabled = ExtResource("61_ianid")
-texture_focused = ExtResource("58_ianid")
+texture_focused = ExtResource("64_2w2tr")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
@@ -3973,10 +3974,10 @@ offset_bottom = 36.0
 grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("61_ianid")
-texture_pressed = ExtResource("58_ianid")
-texture_hover = ExtResource("58_ianid")
+texture_pressed = ExtResource("64_2w2tr")
+texture_hover = ExtResource("64_2w2tr")
 texture_disabled = ExtResource("61_ianid")
-texture_focused = ExtResource("58_ianid")
+texture_focused = ExtResource("64_2w2tr")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
