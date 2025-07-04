@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=143 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -85,7 +85,25 @@
 [ext_resource type="Script" uid="uid://c4a8kotqf75ui" path="res://Scripts/PlayerIcon.gd" id="81_s63yl"]
 [ext_resource type="Script" uid="uid://xwekea7hwffr" path="res://Scripts/PlayersTable.gd" id="83_p7b5h"]
 [ext_resource type="Texture2D" uid="uid://cgvqu7fgbcb64" path="res://Sprites/Heroes/Hover Heroes Button.png" id="85_am2r8"]
+[ext_resource type="Script" uid="uid://bqjptm6mj1f7a" path="res://Scripts/HeroesScreenController.gd" id="85_cdm35"]
 [ext_resource type="StyleBox" uid="uid://4bf8o1uaj8k4" path="res://Styles/Transparent.tres" id="86_3rm58"]
+[ext_resource type="FontFile" uid="uid://b0xbb68ewjyky" path="res://Fonts/ALS Gorizont Thin.otf" id="86_yin71"]
+[ext_resource type="Texture2D" uid="uid://pcmnq886lg5y" path="res://Heroes/Amaelyna/portrait.png" id="90_5trrp"]
+[ext_resource type="Texture2D" uid="uid://bp3832xu8r4ky" path="res://Sprites/Hero/Tank Logo.png" id="91_5g405"]
+[ext_resource type="Texture2D" uid="uid://c4vt7enog2myd" path="res://Sprites/Hero/Ability Panel.png" id="91_ffd21"]
+[ext_resource type="Texture2D" uid="uid://r8aw2r6sjb3" path="res://Sprites/Hero/Health Bar.png" id="91_pc54e"]
+[ext_resource type="Texture2D" uid="uid://bt0ew8pofoena" path="res://Sprites/Hero/Red Strength Logo.png" id="92_camai"]
+[ext_resource type="Texture2D" uid="uid://cmuatp8u8us2n" path="res://Sprites/Hero/White Agility Logo.png" id="93_tecsn"]
+[ext_resource type="Texture2D" uid="uid://ycw72sq5u86i" path="res://Sprites/Hero/White Intelligence Logo.png" id="94_rdtcv"]
+[ext_resource type="Texture2D" uid="uid://cyqjcow24wb6n" path="res://Sprites/Hero/HP Regen Logo.png" id="95_3slng"]
+[ext_resource type="Texture2D" uid="uid://b74a7s54irhoi" path="res://Sprites/Hero/Armor Logo.png" id="96_5g405"]
+[ext_resource type="Texture2D" uid="uid://cucdwe0cc6apt" path="res://Sprites/Hero/Magic Res Logo.png" id="97_w800s"]
+[ext_resource type="Texture2D" uid="uid://noshm50hn8qn" path="res://Sprites/Hero/Attack Logo.png" id="98_ffd21"]
+[ext_resource type="Texture2D" uid="uid://wkctol2vtjr0" path="res://Sprites/Hero/Attack Interval Logo.png" id="99_cwvpo"]
+[ext_resource type="Texture2D" uid="uid://b420o5i7qg2ow" path="res://Sprites/Hero/Attack Range Logo.png" id="100_6e0qj"]
+[ext_resource type="Texture2D" uid="uid://hk3ifdlu7tts" path="res://Sprites/Hero/Move Speed Logo.png" id="104_o6hu1"]
+[ext_resource type="Script" uid="uid://txeafp5poidf" path="res://Scripts/AbilityIcon.gd" id="106_w800s"]
+[ext_resource type="Script" uid="uid://c3gtg4qbbv67j" path="res://Scripts/HeroScreenController.gd" id="116_pild4"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -766,7 +784,6 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -5777,7 +5794,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Heroes" type="CanvasLayer" parent="."]
+[node name="Heroes" type="CanvasLayer" parent="." node_paths=PackedStringArray("strength_heroes_table", "agility_heroes_table", "intelligence_heroes_table")]
+visible = false
+script = ExtResource("85_cdm35")
+strength_heroes_table = NodePath("Heroes Panel/Strength Heroes")
+agility_heroes_table = NodePath("Heroes Panel/Agility Heroes")
+intelligence_heroes_table = NodePath("Heroes Panel/Intelligence Heroes")
 
 [node name="Background" type="TextureRect" parent="Heroes"]
 offset_right = 1920.0
@@ -5863,7 +5885,7 @@ offset_top = 50.0
 offset_right = 175.0
 offset_bottom = 73.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_fonts/font = ExtResource("86_yin71")
 theme_override_font_sizes/font_size = 20
 text = "STRENGTH"
 vertical_alignment = 1
@@ -5886,12 +5908,13 @@ offset_bottom = 750.0
 theme_override_styles/panel = ExtResource("86_3rm58")
 
 [node name="Agility" type="Label" parent="Heroes/Heroes Panel"]
+layout_mode = 0
 offset_left = 585.0
 offset_top = 50.0
 offset_right = 665.0
 offset_bottom = 73.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_fonts/font = ExtResource("86_yin71")
 theme_override_font_sizes/font_size = 20
 text = "AGILITY"
 horizontal_alignment = 1
@@ -5899,6 +5922,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Agility Sep" type="ColorRect" parent="Heroes/Heroes Panel"]
+layout_mode = 0
 offset_left = 585.0
 offset_top = 80.0
 offset_right = 1054.0
@@ -5906,6 +5930,7 @@ offset_bottom = 82.0
 color = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="Agility Heroes" type="Panel" parent="Heroes/Heroes Panel"]
+layout_mode = 0
 offset_left = 585.0
 offset_top = 100.0
 offset_right = 1054.0
@@ -5913,12 +5938,13 @@ offset_bottom = 750.0
 theme_override_styles/panel = ExtResource("86_3rm58")
 
 [node name="Intelligence" type="Label" parent="Heroes/Heroes Panel"]
+layout_mode = 0
 offset_left = 1112.0
 offset_top = 50.0
 offset_right = 1265.0
 offset_bottom = 73.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_fonts/font = ExtResource("86_yin71")
 theme_override_font_sizes/font_size = 20
 text = "INTELLIGENCE"
 horizontal_alignment = 1
@@ -5926,6 +5952,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Intelligence Sep" type="ColorRect" parent="Heroes/Heroes Panel"]
+layout_mode = 0
 offset_left = 1112.0
 offset_top = 80.0
 offset_right = 1581.0
@@ -5933,11 +5960,555 @@ offset_bottom = 82.0
 color = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="Intelligence Heroes" type="Panel" parent="Heroes/Heroes Panel"]
+layout_mode = 0
 offset_left = 1112.0
 offset_top = 100.0
 offset_right = 1581.0
 offset_bottom = 750.0
 theme_override_styles/panel = ExtResource("86_3rm58")
+
+[node name="Hero" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("116_pild4")
+
+[node name="Background" type="TextureRect" parent="Hero"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_mrb3r")
+expand_mode = 1
+
+[node name="Back Button" type="Button" parent="Hero"]
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 231.0
+offset_bottom = 86.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("11_qm2px")
+theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
+theme_override_styles/disabled = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed = ExtResource("11_qm2px")
+theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover = ExtResource("11_qm2px")
+theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/pressed = ExtResource("11_qm2px")
+theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
+theme_override_styles/normal = ExtResource("11_qm2px")
+text = "BACK"
+icon = ExtResource("12_i5bvx")
+
+[node name="Hero Portrait" type="TextureRect" parent="Hero"]
+offset_left = 130.0
+offset_top = 136.0
+offset_right = 1790.0
+offset_bottom = 976.0
+texture = ExtResource("90_5trrp")
+expand_mode = 1
+
+[node name="Attribute Panel" type="TextureRect" parent="Hero/Hero Portrait"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 840.0
+texture = ExtResource("91_ffd21")
+expand_mode = 1
+
+[node name="Hero Name" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 64.0
+offset_right = 440.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 60
+text = "AMAELYNA"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Attack Type Label" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 160.0
+offset_right = 151.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+text = "ATTACK TYPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Attack Type" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 159.0
+offset_right = 266.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+uppercase = true
+
+[node name="First Sep" type="ColorRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 204.0
+offset_right = 314.0
+offset_bottom = 205.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Role Label" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 250.0
+offset_right = 89.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+text = "ROLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Role Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 242.0
+offset_right = 141.0
+offset_bottom = 274.0
+texture = ExtResource("91_5g405")
+expand_mode = 1
+
+[node name="Second Sep" type="ColorRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 294.0
+offset_right = 314.0
+offset_bottom = 295.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Role" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 249.0
+offset_right = 266.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+uppercase = true
+
+[node name="Attributes Label" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 319.0
+offset_right = 183.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 20
+text = "ATTRIBUTES"
+vertical_alignment = 1
+
+[node name="Health Bar" type="TextureButton" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 360.0
+offset_right = 210.0
+offset_bottom = 390.0
+texture_normal = ExtResource("91_pc54e")
+texture_pressed = ExtResource("91_pc54e")
+texture_hover = ExtResource("91_pc54e")
+texture_disabled = ExtResource("91_pc54e")
+texture_focused = ExtResource("91_pc54e")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Health" type="Label" parent="Hero/Hero Portrait/Attribute Panel/Health Bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Strength Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 410.0
+offset_right = 73.0
+offset_bottom = 438.0
+texture = ExtResource("92_camai")
+
+[node name="Agility Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 410.0
+offset_right = 180.0
+offset_bottom = 438.0
+texture = ExtResource("93_tecsn")
+
+[node name="Intelligence Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 410.0
+offset_right = 286.0
+offset_bottom = 438.0
+texture = ExtResource("94_rdtcv")
+
+[node name="Strength" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 415.0
+offset_right = 101.0
+offset_bottom = 434.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Agility" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 415.0
+offset_right = 208.0
+offset_bottom = 434.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Intelligence" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 415.0
+offset_right = 314.0
+offset_bottom = 434.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Third Sep" type="ColorRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 460.0
+offset_right = 314.0
+offset_bottom = 461.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Defence Label" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 485.0
+offset_right = 121.0
+offset_bottom = 501.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+text = "DEFENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HP Regen Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 515.0
+offset_right = 65.0
+offset_bottom = 535.0
+texture = ExtResource("95_3slng")
+expand_mode = 1
+
+[node name="HP Regen" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = 97.0
+offset_right = -388.0
+offset_bottom = 117.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Armor" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = 97.0
+offset_right = -290.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Armor Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 174.0
+offset_top = 95.0
+offset_right = 191.0
+offset_bottom = 115.0
+grow_vertical = 2
+texture = ExtResource("96_5g405")
+expand_mode = 1
+
+[node name="Magic Res Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 279.0
+offset_top = 95.0
+offset_right = 296.0
+offset_bottom = 115.0
+grow_vertical = 2
+texture = ExtResource("97_w800s")
+expand_mode = 1
+
+[node name="Magic Res" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = 97.0
+offset_right = -186.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Fourth Sep" type="ColorRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 555.0
+offset_right = 314.0
+offset_bottom = 556.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Attack Label" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 580.0
+offset_right = 107.0
+offset_bottom = 596.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+text = "ATTACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Attack Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 605.0
+offset_right = 65.0
+offset_bottom = 625.0
+texture = ExtResource("98_ffd21")
+expand_mode = 1
+
+[node name="Attack" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 609.0
+offset_right = 94.0
+offset_bottom = 628.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Attack Interval Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 605.0
+offset_right = 173.0
+offset_bottom = 625.0
+texture = ExtResource("99_cwvpo")
+expand_mode = 1
+
+[node name="Attack Interval" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 608.0
+offset_right = 208.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Attack Range Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 605.0
+offset_right = 263.0
+offset_bottom = 625.0
+texture = ExtResource("100_6e0qj")
+expand_mode = 1
+
+[node name="Attack Range" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 608.0
+offset_right = 314.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Fifth Sep" type="ColorRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 645.0
+offset_right = 314.0
+offset_bottom = 646.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Mobility Label" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 670.0
+offset_right = 119.0
+offset_bottom = 686.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+text = "MOBILITY"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Move Speed Logo" type="TextureRect" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 695.0
+offset_right = 75.0
+offset_bottom = 715.0
+texture = ExtResource("104_o6hu1")
+expand_mode = 1
+
+[node name="Move Speed" type="Label" parent="Hero/Hero Portrait/Attribute Panel"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 697.0
+offset_right = 129.0
+offset_bottom = 716.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="Ability Panel" type="Panel" parent="Hero/Hero Portrait"]
+layout_mode = 0
+offset_left = 1235.0
+offset_top = 561.0
+offset_right = 1615.0
+offset_bottom = 691.0
+theme_override_styles/panel = ExtResource("86_3rm58")
+
+[node name="Ability Label" type="Label" parent="Hero/Hero Portrait/Ability Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 20
+text = "ABILITIES"
+vertical_alignment = 1
+
+[node name="First Ability" type="TextureRect" parent="Hero/Hero Portrait/Ability Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+offset_right = 74.0
+grow_vertical = 0
+expand_mode = 1
+script = ExtResource("106_w800s")
+
+[node name="Second Ability" type="TextureRect" parent="Hero/Hero Portrait/Ability Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = -74.0
+offset_right = 176.0
+grow_vertical = 0
+expand_mode = 1
+script = ExtResource("106_w800s")
+
+[node name="Third Ability" type="TextureRect" parent="Hero/Hero Portrait/Ability Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 204.0
+offset_top = -74.0
+offset_right = 278.0
+grow_vertical = 0
+expand_mode = 1
+script = ExtResource("106_w800s")
+
+[node name="Fourth Ability" type="TextureRect" parent="Hero/Hero Portrait/Ability Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 306.0
+offset_top = -74.0
+offset_right = 380.0
+grow_vertical = 0
+expand_mode = 1
+script = ExtResource("106_w800s")
 
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
@@ -6000,10 +6571,10 @@ theme_override_styles/panel = ExtResource("86_3rm58")
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Container" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
@@ -6013,3 +6584,4 @@ theme_override_styles/panel = ExtResource("86_3rm58")
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Players/Players Container" method="sort_table_by_winnings_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_winnings_in_ascending_order"]
 [connection signal="pressed" from="Heroes/Back Button" to="." method="show_home"]
+[connection signal="pressed" from="Hero/Back Button" to="." method="show_prev_screen"]

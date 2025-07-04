@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuuaqr53ctab7"]
+
+[ext_resource type="Script" uid="uid://b3my653otltvc" path="res://Scripts/HeroInfoButton.gd" id="2_c6baq"]
+
+[node name="Hero Info Icon" type="TextureButton"]
+offset_right = 112.0
+offset_bottom = 80.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_c6baq")

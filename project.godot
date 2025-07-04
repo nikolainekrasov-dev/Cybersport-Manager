@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameLifecycleService="*res://Scripts/GameLifecycleServiceAutoload.gd"
+HeroesManager="*res://Scripts/HeroesManagerAutoload.gd"
 TeamsManager="*res://Scripts/TeamsManagerAutoload.gd"
 PlayersManager="*res://Scripts/PlayersManagerAutoload.gd"
 EventManager="*res://Scripts/EventManagerAutoload.gd"
