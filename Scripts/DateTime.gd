@@ -55,6 +55,15 @@ func describe():
 func is_equal(other_date):
 	return day == other_date.day and month == other_date.month and year == other_date.year
 
+static func get_random_date(left_border, right_border):
+	var result_year = left_border + randi() % (right_border - left_border + 1)
+	var result_month = 1 + randi() % 12
+	var result_day = 1 + randi() % (day_in_month[result_month - 1])
+	return DateTime.new(result_day, result_month, result_year)
+
+static func get_years_between_dates(first_date, second_date):
+	var years_between_dates = abs(second_date.year - first_date.year)
+
 func get_day_count_in_month():
 	if is_leap_year() and month == 1:
 		return 29
