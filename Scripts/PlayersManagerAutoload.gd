@@ -24,6 +24,7 @@ var players_by_role = {
 var sorted_players = []
 
 func setup_players_for_new_game():
+	clear_players()
 	var nicks = _readlines("res://Players/nicknames.txt")
 	var threads = []
 	for region in players_by_region:
@@ -34,7 +35,7 @@ func setup_players_for_new_game():
 		thread.wait_to_finish()
 	for region in players_by_region:
 		sorted_players += players_by_region[region]
-	sorted_players.sort_custom(func(p1, p2): return p1.nick <= p2.nick)
+	sorted_players.sort_custom(func(p1, p2): return p1.nick < p2.nick)
 
 func create_player_from_region(region):
 	var nicks = _readlines("res://Players/%s/nicknames.txt" % region)
@@ -53,6 +54,9 @@ func create_player_from_region(region):
 func clear_players():
 	for region in players_by_region:
 		players_by_region[region].clear()
+	for role in players_by_role:
+		players_by_role[role].clear()
+	sorted_players.clear()
 		
 func _get_player_photos(region, country):
 	var photos = []

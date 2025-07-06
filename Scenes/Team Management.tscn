@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=142 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -659,9 +659,6 @@ _data = {
 &"RESET": SubResource("Animation_p7b5h")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljre4"]
-bg_color = Color(1, 1, 1, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_560ds"]
 bg_color = Color(1, 1, 1, 0)
 
@@ -1252,7 +1249,7 @@ offset_left = 2000.0
 offset_top = 137.0
 offset_right = 3010.0
 offset_bottom = 982.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ljre4")
+theme_override_styles/panel = ExtResource("86_3rm58")
 script = ExtResource("18_71nic")
 teams_container = NodePath("Teams")
 animator = NodePath("../../Menu\'s Animator")
@@ -4850,7 +4847,6 @@ offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
-horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
@@ -5259,7 +5255,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 15
-text = "TANK"
+text = "SUPPORT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -6571,10 +6567,10 @@ script = ExtResource("106_w800s")
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Container" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
