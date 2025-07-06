@@ -4640,6 +4640,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_p72bl")
 show_percentage = false
 
 [node name="Team" type="CanvasLayer" parent="." node_paths=PackedStringArray("roster")]
+visible = false
 script = ExtResource("78_aup3r")
 roster = [NodePath("Right Panel/Roster/Carry Role"), NodePath("Right Panel/Roster/Assassin Role"), NodePath("Right Panel/Roster/Tank Role"), NodePath("Right Panel/Roster/Pusher Role"), NodePath("Right Panel/Roster/Support Role")]
 
@@ -6507,6 +6508,7 @@ expand_mode = 1
 script = ExtResource("106_w800s")
 
 [node name="Player" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("105_5g405")
 
 [node name="Background" type="TextureRect" parent="Player"]

@@ -85,6 +85,7 @@ func fix_players_button_count():
 	else:
 		while len(players_to_display) > len(players_buttons):
 			var new_player_menu_item = player_menu_item.instantiate() as PlayerMenuItem
+			new_player_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_player"))
 			find_child("VBoxContainer").add_child(new_player_menu_item)
 			players_buttons.append(new_player_menu_item)
 

@@ -26,7 +26,6 @@ func _ready():
 	rating = find_child("Rating")
 	winnings = find_child("Winnings")
 	
-	
 func set_player(new_player):
 	player = new_player
 	photo.texture = new_player.photo
