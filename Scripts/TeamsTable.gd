@@ -119,11 +119,16 @@ func display_teams():
 		teams_buttons[i].set_team(teams_to_display[i])
 	
 func update_teams():
+	teams_to_display.clear()
 	var region = regions[current_region_index]
 	if region == "None":
-		teams_to_display = TeamsManager.all_teams
+		for team in TeamsManager.all_teams:
+			if team.is_active:
+				teams_to_display.append(team)
 	else:
-		teams_to_display = TeamsManager.teams_by_region[region]
+		for team in TeamsManager.teams_by_region[region]:
+			if team.is_active:
+				teams_to_display.append(team)
 
 func set_next_region():
 	current_region_index = (current_region_index + 1) % len(regions)
