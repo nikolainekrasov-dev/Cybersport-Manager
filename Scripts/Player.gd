@@ -28,5 +28,5 @@ func _init(player_name, player_surname, player_nick, player_region, player_role,
 	self.birth_date = DateTime.get_random_date(min_birth_year, max_birth_year)
 	
 func get_age():
-	return 18
+	return DateTime.get_years_between_dates(birth_date, EventManager.current_date)
 	

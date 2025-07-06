@@ -47,9 +47,9 @@ func update_table_content():
 	elif sort_by_rating and sort_order == "Asc":
 		players_to_display.sort_custom(func(a, b): return a.rating < b.rating)
 	elif sort_by_age and sort_order == "Des":
-		players_to_display.sort_custom(func(a, b): return a.age > b.age)
+		players_to_display.sort_custom(func(a, b): return a.get_age() > b.get_age())
 	elif sort_by_age and sort_order == "Asc":
-		players_to_display.sort_custom(func(a, b): return a.age < b.age)
+		players_to_display.sort_custom(func(a, b): return a.get_age() < b.get_age())
 	elif sort_by_winnings and sort_order == "Des":
 		players_to_display.sort_custom(func(a, b): return a.winnings > b.winnings)
 	elif sort_by_winnings and sort_order == "Asc":

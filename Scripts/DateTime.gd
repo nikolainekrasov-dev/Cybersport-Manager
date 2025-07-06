@@ -62,7 +62,10 @@ static func get_random_date(left_border, right_border):
 	return DateTime.new(result_day, result_month, result_year)
 
 static func get_years_between_dates(first_date, second_date):
-	var years_between_dates = abs(second_date.year - first_date.year)
+	var years_between_dates = second_date.year - first_date.year
+	if not(second_date.month > first_date.month or second_date.month == first_date.month and second_date.day > first_date.day):
+		years_between_dates -= 1
+	return years_between_dates
 
 func get_day_count_in_month():
 	if is_leap_year() and month == 1:
