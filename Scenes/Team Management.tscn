@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=143 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -102,6 +102,7 @@
 [ext_resource type="Texture2D" uid="uid://wkctol2vtjr0" path="res://Sprites/Hero/Attack Interval Logo.png" id="99_cwvpo"]
 [ext_resource type="Texture2D" uid="uid://b420o5i7qg2ow" path="res://Sprites/Hero/Attack Range Logo.png" id="100_6e0qj"]
 [ext_resource type="Texture2D" uid="uid://hk3ifdlu7tts" path="res://Sprites/Hero/Move Speed Logo.png" id="104_o6hu1"]
+[ext_resource type="Script" uid="uid://jeyls3wj32d4" path="res://Scripts/PlayerScreenController.gd" id="105_5g405"]
 [ext_resource type="Script" uid="uid://txeafp5poidf" path="res://Scripts/AbilityIcon.gd" id="106_w800s"]
 [ext_resource type="Script" uid="uid://c3gtg4qbbv67j" path="res://Scripts/HeroScreenController.gd" id="116_pild4"]
 
@@ -4639,7 +4640,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_p72bl")
 show_percentage = false
 
 [node name="Team" type="CanvasLayer" parent="." node_paths=PackedStringArray("roster")]
-visible = false
 script = ExtResource("78_aup3r")
 roster = [NodePath("Right Panel/Roster/Carry Role"), NodePath("Right Panel/Roster/Assassin Role"), NodePath("Right Panel/Roster/Tank Role"), NodePath("Right Panel/Roster/Pusher Role"), NodePath("Right Panel/Roster/Support Role")]
 
@@ -6506,6 +6506,41 @@ grow_vertical = 0
 expand_mode = 1
 script = ExtResource("106_w800s")
 
+[node name="Player" type="CanvasLayer" parent="."]
+script = ExtResource("105_5g405")
+
+[node name="Background" type="TextureRect" parent="Player"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_mrb3r")
+expand_mode = 1
+
+[node name="Back Button" type="Button" parent="Player"]
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 231.0
+offset_bottom = 86.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("11_qm2px")
+theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
+theme_override_styles/disabled = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed = ExtResource("11_qm2px")
+theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover = ExtResource("11_qm2px")
+theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/pressed = ExtResource("11_qm2px")
+theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
+theme_override_styles/normal = ExtResource("11_qm2px")
+text = "BACK"
+icon = ExtResource("12_i5bvx")
+
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -6581,3 +6616,4 @@ script = ExtResource("106_w800s")
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_winnings_in_ascending_order"]
 [connection signal="pressed" from="Heroes/Back Button" to="." method="show_home"]
 [connection signal="pressed" from="Hero/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Player/Back Button" to="." method="show_prev_screen"]

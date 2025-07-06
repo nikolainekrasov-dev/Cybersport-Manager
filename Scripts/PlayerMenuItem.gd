@@ -2,6 +2,7 @@ extends LabeledTextureButton
 
 class_name PlayerMenuItem
 
+@onready var player_screen: PlayerScreenController = get_node("/root/Screen manager/Player")
 var photo: TextureRect
 var nick: Label
 var age: Label
@@ -24,6 +25,7 @@ func _ready():
 	team_logo = find_child("Team Logo")
 	rating = find_child("Rating")
 	winnings = find_child("Winnings")
+	
 	
 func set_player(new_player):
 	player = new_player

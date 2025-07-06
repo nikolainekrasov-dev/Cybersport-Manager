@@ -48,5 +48,8 @@ func show_heroes():
 func show_hero():
 	show_screen("Hero")
 	
+func show_player():
+	show_screen("Player")
+	
 func exit_game():
 	get_tree().quit()
