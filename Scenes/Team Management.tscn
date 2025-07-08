@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=147 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -78,15 +78,19 @@
 [ext_resource type="Texture2D" uid="uid://bvla6jl7m6b7c" path="res://Sprites/Green Top Arrow.png" id="68_xyo06"]
 [ext_resource type="Texture2D" uid="uid://b4iukmuw7w3mp" path="res://Sprites/Red Down Arrow.png" id="70_aut1c"]
 [ext_resource type="Script" uid="uid://bhvrgncgc6cf8" path="res://Scripts/LoadingScreenController.gd" id="74_m33au"]
+[ext_resource type="Texture2D" uid="uid://ipcgnrj00aqt" path="res://Sprites/Pressed Down Arrow.png" id="76_6e0qj"]
 [ext_resource type="Script" uid="uid://b3icnptolqwtp" path="res://Scripts/TeamScreenController.gd" id="78_aup3r"]
 [ext_resource type="Texture2D" uid="uid://dxhfyuulkflld" path="res://Teams/AllStars eSports/white_logo.png" id="78_jwx42"]
 [ext_resource type="StyleBox" uid="uid://c7tqbl1ixvkdb" path="res://Styles/Hover Team Screen Button.tres" id="79_a0n5v"]
+[ext_resource type="Texture2D" uid="uid://by7uqenogdjy5" path="res://Sprites/Pressed Top Arrow.png" id="80_pu5sy"]
 [ext_resource type="StyleBox" uid="uid://crermaeax7tex" path="res://Styles/Team Screen Button.tres" id="80_s63yl"]
 [ext_resource type="Script" uid="uid://c4a8kotqf75ui" path="res://Scripts/PlayerIcon.gd" id="81_s63yl"]
 [ext_resource type="Script" uid="uid://xwekea7hwffr" path="res://Scripts/PlayersTable.gd" id="83_p7b5h"]
 [ext_resource type="Texture2D" uid="uid://cgvqu7fgbcb64" path="res://Sprites/Heroes/Hover Heroes Button.png" id="85_am2r8"]
 [ext_resource type="Script" uid="uid://bqjptm6mj1f7a" path="res://Scripts/HeroesScreenController.gd" id="85_cdm35"]
+[ext_resource type="Texture2D" uid="uid://c8d4tif226i7w" path="res://Sprites/Pressed Left Arrow.png" id="85_ffd21"]
 [ext_resource type="StyleBox" uid="uid://4bf8o1uaj8k4" path="res://Styles/Transparent.tres" id="86_3rm58"]
+[ext_resource type="Texture2D" uid="uid://jb177n8gk1u" path="res://Sprites/Pressed Right Arrow.png" id="86_cwvpo"]
 [ext_resource type="FontFile" uid="uid://b0xbb68ewjyky" path="res://Fonts/ALS Gorizont Thin.otf" id="86_yin71"]
 [ext_resource type="Texture2D" uid="uid://pcmnq886lg5y" path="res://Heroes/Amaelyna/portrait.png" id="90_5trrp"]
 [ext_resource type="Texture2D" uid="uid://bp3832xu8r4ky" path="res://Sprites/Hero/Tank Logo.png" id="91_5g405"]
@@ -4364,10 +4368,9 @@ offset_right = 793.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("64_hgvdx")
-texture_pressed = ExtResource("64_hgvdx")
+texture_pressed = ExtResource("86_cwvpo")
 texture_hover = ExtResource("64_hgvdx")
 texture_disabled = ExtResource("64_hgvdx")
-texture_focused = ExtResource("64_hgvdx")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -4382,7 +4385,7 @@ offset_right = 677.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("65_u033w")
-texture_pressed = ExtResource("65_u033w")
+texture_pressed = ExtResource("85_ffd21")
 texture_hover = ExtResource("65_u033w")
 texture_disabled = ExtResource("65_u033w")
 ignore_texture_size = true
@@ -4399,10 +4402,9 @@ offset_right = 1089.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("67_njl4x")
-texture_pressed = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
 texture_hover = ExtResource("67_njl4x")
 texture_disabled = ExtResource("67_njl4x")
-texture_focused = ExtResource("67_njl4x")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -4421,10 +4423,9 @@ offset_right = 1099.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("66_u033w")
-texture_pressed = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
 texture_hover = ExtResource("66_u033w")
 texture_disabled = ExtResource("66_u033w")
-texture_focused = ExtResource("66_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -4443,10 +4444,9 @@ offset_right = 1292.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("67_njl4x")
-texture_pressed = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
 texture_hover = ExtResource("67_njl4x")
 texture_disabled = ExtResource("67_njl4x")
-texture_focused = ExtResource("67_njl4x")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -4465,10 +4465,9 @@ offset_right = 1302.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("66_u033w")
-texture_pressed = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
 texture_hover = ExtResource("66_u033w")
 texture_disabled = ExtResource("66_u033w")
-texture_focused = ExtResource("66_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -4487,7 +4486,7 @@ offset_right = 1589.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("67_njl4x")
-texture_pressed = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
 texture_hover = ExtResource("67_njl4x")
 texture_disabled = ExtResource("67_njl4x")
 texture_focused = ExtResource("67_njl4x")
@@ -4509,10 +4508,9 @@ offset_right = 1599.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("66_u033w")
-texture_pressed = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
 texture_hover = ExtResource("66_u033w")
 texture_disabled = ExtResource("66_u033w")
-texture_focused = ExtResource("66_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -5499,10 +5497,9 @@ offset_right = 452.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("67_njl4x")
-texture_pressed = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
 texture_hover = ExtResource("67_njl4x")
 texture_disabled = ExtResource("67_njl4x")
-texture_focused = ExtResource("67_njl4x")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -5521,10 +5518,9 @@ offset_right = 462.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("66_u033w")
-texture_pressed = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
 texture_hover = ExtResource("66_u033w")
 texture_disabled = ExtResource("66_u033w")
-texture_focused = ExtResource("66_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -5543,7 +5539,7 @@ offset_right = 553.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("65_u033w")
-texture_pressed = ExtResource("65_u033w")
+texture_pressed = ExtResource("85_ffd21")
 texture_hover = ExtResource("65_u033w")
 texture_disabled = ExtResource("65_u033w")
 ignore_texture_size = true
@@ -5577,10 +5573,9 @@ offset_right = 642.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("64_hgvdx")
-texture_pressed = ExtResource("64_hgvdx")
+texture_pressed = ExtResource("86_cwvpo")
 texture_hover = ExtResource("64_hgvdx")
 texture_disabled = ExtResource("64_hgvdx")
-texture_focused = ExtResource("64_hgvdx")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -5595,7 +5590,7 @@ offset_right = 776.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("65_u033w")
-texture_pressed = ExtResource("65_u033w")
+texture_pressed = ExtResource("85_ffd21")
 texture_hover = ExtResource("65_u033w")
 texture_disabled = ExtResource("65_u033w")
 ignore_texture_size = true
@@ -5629,10 +5624,9 @@ offset_right = 893.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("64_hgvdx")
-texture_pressed = ExtResource("64_hgvdx")
+texture_pressed = ExtResource("86_cwvpo")
 texture_hover = ExtResource("64_hgvdx")
 texture_disabled = ExtResource("64_hgvdx")
-texture_focused = ExtResource("64_hgvdx")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -5681,10 +5675,9 @@ offset_right = 1325.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("67_njl4x")
-texture_pressed = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
 texture_hover = ExtResource("67_njl4x")
 texture_disabled = ExtResource("67_njl4x")
-texture_focused = ExtResource("67_njl4x")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -5703,10 +5696,9 @@ offset_right = 1335.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("66_u033w")
-texture_pressed = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
 texture_hover = ExtResource("66_u033w")
 texture_disabled = ExtResource("66_u033w")
-texture_focused = ExtResource("66_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -5742,10 +5734,9 @@ offset_right = 1589.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("67_njl4x")
-texture_pressed = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
 texture_hover = ExtResource("67_njl4x")
 texture_disabled = ExtResource("67_njl4x")
-texture_focused = ExtResource("67_njl4x")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
@@ -5764,10 +5755,9 @@ offset_right = 1599.0
 offset_bottom = 5.0
 grow_vertical = 2
 texture_normal = ExtResource("66_u033w")
-texture_pressed = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
 texture_hover = ExtResource("66_u033w")
 texture_disabled = ExtResource("66_u033w")
-texture_focused = ExtResource("66_u033w")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("67_dba6g")
