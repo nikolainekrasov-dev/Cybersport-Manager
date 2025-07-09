@@ -34,6 +34,13 @@ var sort_order = "Des"
 
 static var player_menu_item = preload("res://Prefabs/Player Menu Item.tscn")
 
+func _ready():
+	for i in range(PlayersManager.player_count):
+		var new_player_menu_item = player_menu_item.instantiate() as PlayerMenuItem
+		new_player_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_player"))
+		find_child("VBoxContainer").add_child(new_player_menu_item)
+		players_buttons.append(new_player_menu_item)
+
 func set_rating_flag():
 	sort_by_rating = true
 	sort_by_age = false
@@ -56,12 +63,7 @@ func update_table_content():
 		players_to_display.sort_custom(func(a, b): return a.winnings < b.winnings)
 	else:
 		players_to_display.sort_custom(func(a, b): return a.nick < b.nick)
-	fix_players_button_count()
 	display_players()
-
-func display_players():
-	for i in range(len(players_to_display)):
-		players_buttons[i].set_player(players_to_display[i])
 
 func update_players():
 	var region = regions[current_region_index]
@@ -77,17 +79,13 @@ func update_players():
 				result.append(player)
 		players_to_display = result
 				
-func fix_players_button_count():
-	if len(players_to_display) < len(players_buttons):
-		while len(players_to_display) < len(players_buttons):
-			players_buttons[-1].queue_free()
-			players_buttons.pop_back()
-	else:
-		while len(players_to_display) > len(players_buttons):
-			var new_player_menu_item = player_menu_item.instantiate() as PlayerMenuItem
-			new_player_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_player"))
-			find_child("VBoxContainer").add_child(new_player_menu_item)
-			players_buttons.append(new_player_menu_item)
+func display_players():
+	for i in range(len(players_buttons)):
+		if i < len(players_to_display):
+			players_buttons[i].show()
+			players_buttons[i].set_player(players_to_display[i])
+		else:
+			players_buttons[i].hide()
 
 func sort_table_by_rating_in_ascending_order():
 	if sort_by_rating and sort_order == "Asc":

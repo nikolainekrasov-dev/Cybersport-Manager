@@ -21,6 +21,8 @@ var players_by_role = {
 	"Support": []
 }
 
+static var player_count = 1600
+
 var sorted_players = []
 
 func setup_players_for_new_game():
