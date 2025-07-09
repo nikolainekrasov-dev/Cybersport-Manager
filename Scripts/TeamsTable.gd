@@ -21,8 +21,16 @@ static var regions = [
 	"Oceania"
 ]
 static var team_menu_item = preload("res://Prefabs/Team Menu Item.tscn")
-		
+
+func _ready():
+	for i in range(TeamsManager.teams_count / 2):
+		var new_team_menu_item = team_menu_item.instantiate() as TeamMenuItem
+		new_team_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_team"))
+		find_child("VBoxContainer").add_child(new_team_menu_item)
+		teams_buttons.append(new_team_menu_item)
+
 func update_table_content():
+	scroll_vertical = 0
 	update_teams()
 	if sort_by_rating and sort_order == "Des":
 		teams_to_display.sort_custom(func(a, b): return a.rating > b.rating)
@@ -38,9 +46,7 @@ func update_table_content():
 		teams_to_display.sort_custom(func(a, b): return a.total_winnings < b.total_winnings)
 	else:
 		teams_to_display.sort_custom(func(a, b): return a.name < b.name)
-	fix_teams_button_count()
 	display_teams()
-	scroll_vertical = 0
 	
 func sort_table_by_rating_in_ascending_order():
 	if sort_by_rating and sort_order == "Asc":
@@ -102,21 +108,13 @@ func sort_table_by_winnings_in_descending_order():
 		sort_order = "Des"
 	update_table_content()
 	
-func fix_teams_button_count():
-	if len(teams_to_display) < len(teams_buttons):
-		while len(teams_to_display) < len(teams_buttons):
-			teams_buttons[-1].queue_free()
-			teams_buttons.pop_back()
-	else:
-		while len(teams_to_display) > len(teams_buttons):
-			var new_team_menu_item = team_menu_item.instantiate() as TeamMenuItem
-			new_team_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_team"))
-			find_child("VBoxContainer").add_child(new_team_menu_item)
-			teams_buttons.append(new_team_menu_item)
-
 func display_teams():
-	for i in range(len(teams_to_display)):
-		teams_buttons[i].set_team(teams_to_display[i])
+	for i in range(len(teams_buttons)):
+		if i < len(teams_to_display):
+			teams_buttons[i].show()
+			teams_buttons[i].set_team(teams_to_display[i])
+		else:
+			teams_buttons[i].hide()
 	
 func update_teams():
 	teams_to_display.clear()

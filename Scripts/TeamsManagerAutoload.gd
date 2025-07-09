@@ -16,6 +16,8 @@ var teams_by_region = {
 	"Oceania": []
 }
 
+static var teams_count = 320
+
 var all_teams = []
 
 var player_team: Team = null
