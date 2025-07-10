@@ -25,6 +25,10 @@ func _ready():
 	team_logo = find_child("Team Logo")
 	rating = find_child("Rating")
 	winnings = find_child("Winnings")
+	connect("pressed", Callable(self, "show_player_screen"))
+	
+func show_player_screen():
+	player_screen.set_player(player)
 	
 func set_player(new_player):
 	player = new_player

@@ -35,9 +35,10 @@ var sort_order = "Des"
 static var player_menu_item = preload("res://Prefabs/Player Menu Item.tscn")
 
 func _ready():
+	var screen_manager = get_node("/root/Screen manager")
 	for i in range(PlayersManager.player_count):
 		var new_player_menu_item = player_menu_item.instantiate() as PlayerMenuItem
-		new_player_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_player"))
+		new_player_menu_item.connect("pressed", Callable(screen_manager, "show_player"))
 		find_child("VBoxContainer").add_child(new_player_menu_item)
 		players_buttons.append(new_player_menu_item)
 

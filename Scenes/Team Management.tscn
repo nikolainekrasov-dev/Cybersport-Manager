@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=154 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -108,6 +108,7 @@
 [ext_resource type="Texture2D" uid="uid://hk3ifdlu7tts" path="res://Sprites/Hero/Move Speed Logo.png" id="104_o6hu1"]
 [ext_resource type="Script" uid="uid://jeyls3wj32d4" path="res://Scripts/PlayerScreenController.gd" id="105_5g405"]
 [ext_resource type="Script" uid="uid://txeafp5poidf" path="res://Scripts/AbilityIcon.gd" id="106_w800s"]
+[ext_resource type="Texture2D" uid="uid://drmn8yamji162" path="res://Sprites/Player/Rating Panel.png" id="110_pu5sy"]
 [ext_resource type="Script" uid="uid://c3gtg4qbbv67j" path="res://Scripts/HeroScreenController.gd" id="116_pild4"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
@@ -765,6 +766,40 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e0qj"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.537255, 0.537255, 0.537255, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu5sy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.537255, 0.537255, 0.537255, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqgwi"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.537255, 0.537255, 0.537255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxolj"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.537255, 0.537255, 0.537255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6hu1"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_color = Color(0.537255, 0.537255, 0.537255, 1)
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvnhf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 10
 
 [node name="Screen manager" type="Control"]
 layout_mode = 3
@@ -6532,6 +6567,312 @@ theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
 theme_override_styles/normal = ExtResource("11_qm2px")
 text = "BACK"
 icon = ExtResource("12_i5bvx")
+
+[node name="Player Information" type="Panel" parent="Player"]
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 960.0
+offset_bottom = 197.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6e0qj")
+
+[node name="Label" type="Label" parent="Player/Player Information"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+text = "PLAYER INFORMATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Additional Information" type="Panel" parent="Player"]
+offset_left = 970.0
+offset_top = 137.0
+offset_right = 1800.0
+offset_bottom = 197.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu5sy")
+
+[node name="Label" type="Label" parent="Player/Additional Information"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Photo Panel" type="Panel" parent="Player"]
+offset_left = 130.0
+offset_top = 197.0
+offset_right = 510.0
+offset_bottom = 530.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqgwi")
+
+[node name="Player Rating Panel" type="TextureRect" parent="Player/Player Photo Panel"]
+layout_mode = 0
+offset_top = 33.0
+offset_right = 85.0
+offset_bottom = 89.0
+texture = ExtResource("110_pu5sy")
+expand_mode = 1
+
+[node name="Player Rating" type="Label" parent="Player/Player Photo Panel/Player Rating Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -13.0
+offset_right = 42.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player Photo" type="TextureRect" parent="Player/Player Photo Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.5
+offset_top = -295.0
+offset_right = 146.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+expand_mode = 1
+
+[node name="Player Role" type="Label" parent="Player/Player Photo Panel"]
+layout_mode = 0
+offset_top = 109.0
+offset_right = 85.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player Nick Panel" type="Panel" parent="Player"]
+offset_left = 130.0
+offset_top = 530.0
+offset_right = 510.0
+offset_bottom = 590.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxolj")
+
+[node name="Player Nick" type="Label" parent="Player/Player Nick Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.5
+offset_right = 20.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+uppercase = true
+
+[node name="Detailed Information" type="Panel" parent="Player"]
+offset_left = 510.0
+offset_top = 197.0
+offset_right = 960.0
+offset_bottom = 982.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6hu1")
+
+[node name="Player Name Label" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 100.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("86_yin71")
+theme_override_font_sizes/font_size = 15
+text = "NAME:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Name" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 140.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Surname Label" type="Label" parent="Player/Detailed Information"]
+offset_left = 60.0
+offset_top = 70.0
+offset_right = 142.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("86_yin71")
+theme_override_font_sizes/font_size = 15
+text = "SURNAME:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Surname" type="Label" parent="Player/Detailed Information"]
+offset_left = 154.0
+offset_top = 70.0
+offset_right = 174.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Age Label" type="Label" parent="Player/Detailed Information"]
+offset_left = 60.0
+offset_top = 100.0
+offset_right = 97.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("86_yin71")
+theme_override_font_sizes/font_size = 15
+text = "AGE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Age" type="Label" parent="Player/Detailed Information"]
+offset_left = 109.0
+offset_top = 100.0
+offset_right = 129.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Region Label" type="Label" parent="Player/Detailed Information"]
+offset_left = 60.0
+offset_top = 130.0
+offset_right = 97.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("86_yin71")
+theme_override_font_sizes/font_size = 15
+text = "REGION:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Region" type="Label" parent="Player/Detailed Information"]
+offset_left = 138.0
+offset_top = 130.0
+offset_right = 158.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Team Label" type="Label" parent="Player/Detailed Information"]
+offset_left = 60.0
+offset_top = 160.0
+offset_right = 106.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("86_yin71")
+theme_override_font_sizes/font_size = 15
+text = "TEAM:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Team" type="Label" parent="Player/Detailed Information"]
+offset_left = 118.0
+offset_top = 160.0
+offset_right = 138.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Winnings Label" type="Label" parent="Player/Detailed Information"]
+offset_left = 60.0
+offset_top = 190.0
+offset_right = 106.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0.313726, 0.313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("86_yin71")
+theme_override_font_sizes/font_size = 15
+text = "TOTAL WINNINGS:"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player Winnings" type="Label" parent="Player/Detailed Information"]
+offset_left = 209.0
+offset_top = 190.0
+offset_right = 229.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Skill Information" type="Panel" parent="Player"]
+offset_left = 130.0
+offset_top = 590.0
+offset_right = 510.0
+offset_bottom = 982.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fvnhf")
 
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
