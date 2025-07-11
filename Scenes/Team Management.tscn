@@ -6743,6 +6743,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Surname Label" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 70.0
 offset_right = 142.0
@@ -6756,6 +6757,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Surname" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 154.0
 offset_top = 70.0
 offset_right = 174.0
@@ -6768,6 +6770,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Age Label" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 100.0
 offset_right = 97.0
@@ -6781,6 +6784,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Age" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 100.0
 offset_right = 129.0
@@ -6793,6 +6797,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Region Label" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 130.0
 offset_right = 97.0
@@ -6806,6 +6811,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Region" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 130.0
 offset_right = 158.0
@@ -6818,6 +6824,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Team Label" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 160.0
 offset_right = 106.0
@@ -6831,6 +6838,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Team" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 118.0
 offset_top = 160.0
 offset_right = 138.0
@@ -6843,6 +6851,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Winnings Label" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 190.0
 offset_right = 106.0
@@ -6856,6 +6865,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Player Winnings" type="Label" parent="Player/Detailed Information"]
+layout_mode = 0
 offset_left = 209.0
 offset_top = 190.0
 offset_right = 229.0
@@ -6935,12 +6945,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fvnhf")
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Container" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
-[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
+[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="set_next_region"]
 [connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Players/Players Container" method="sort_table_by_rating_in_descending_order"]
