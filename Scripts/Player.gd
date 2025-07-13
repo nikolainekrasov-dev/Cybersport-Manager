@@ -1,5 +1,6 @@
 class_name Player
 
+static var max_hero_skill_at_start = 51
 static var min_birth_year = 1995
 static var max_birth_year = 2010
 var name: String
@@ -13,6 +14,7 @@ var winnings: int
 var is_active: bool = false
 var birth_date: DateTime
 var role: String
+var heroes_skill = {}
 
 func _init(player_name, player_surname, player_nick, player_region, player_role, path_to_photo):
 	self.name = player_name
@@ -26,6 +28,8 @@ func _init(player_name, player_surname, player_nick, player_region, player_role,
 	self.birth_date = DateTime.new(1, 1, 2005)
 	self.photo = load(path_to_photo)
 	self.birth_date = DateTime.get_random_date(min_birth_year, max_birth_year)
+	for hero in HeroesManager.heroes:
+		heroes_skill[hero] = randi() % max_hero_skill_at_start
 	
 func get_age():
 	return DateTime.get_years_between_dates(birth_date, EventManager.current_date)
