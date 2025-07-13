@@ -33,7 +33,7 @@ func _ready():
 			all_teams.append(team)
 
 func setup_teams_for_new_game(new_player_team):
-	clear_team_regions()
+	make_all_teams_inactive()
 	for region in teams_by_region:
 		var rand_indices = []
 		var player_team_index = teams_by_region[region].find(new_player_team)
@@ -48,10 +48,9 @@ func setup_teams_for_new_game(new_player_team):
 			if team_index in rand_indices:
 				teams_by_region[region][team_index].is_active = true
 				
-func clear_team_regions():
-	for region in teams_by_region:
-		for team in teams_by_region[region]:
-			team.is_active = false
+func make_all_teams_inactive():
+	for team in all_teams:
+		team.is_active = false
 				
 func set_player_team(new_player_team):
 	self.player_team = new_player_team
