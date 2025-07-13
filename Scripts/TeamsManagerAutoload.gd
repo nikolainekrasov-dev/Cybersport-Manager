@@ -26,11 +26,20 @@ func _ready():
 	var file = FileAccess.open("res://Teams//Teams.json", FileAccess.READ)
 	var content = file.get_as_text()
 	var parsed = JSON.parse_string(content)
+	var threads = []
 	for region in parsed:
-		for team_name in parsed[region]:
-			var team = Team.new(team_name, region)
-			teams_by_region[region].append(team)
-			all_teams.append(team)
+		var new_thread = Thread.new()
+		new_thread.start(Callable(self, "create_teams_from_region").bind(region, parsed[region]))
+		threads.append(new_thread)
+	for thread in threads:
+		thread.wait_to_finish()
+	for region in teams_by_region:
+		all_teams += teams_by_region[region]
+
+func create_teams_from_region(region, teams_names):
+	for team_name in teams_names:
+		var team = Team.new(team_name, region)
+		teams_by_region[region].append(team)
 
 func setup_teams_for_new_game(new_player_team):
 	make_all_teams_inactive()
