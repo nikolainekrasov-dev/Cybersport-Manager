@@ -11,6 +11,7 @@ func _ready():
 	player_photo = find_child("Photo")
 	
 func set_player(new_player):
-	player = new_player
-	player_nick.text = player.nick
-	player_photo.texture = player.photo
+	if new_player != null:
+		player = new_player
+		player_nick.text = player.nick
+		player_photo.texture = player.photo

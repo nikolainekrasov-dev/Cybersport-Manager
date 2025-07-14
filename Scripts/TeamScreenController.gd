@@ -24,3 +24,8 @@ func set_team(new_team):
 	team_winnings.text = str(new_team.total_winnings)
 	team_region.text = new_team.region
 	team_logo.texture = new_team.logo
+	roster[0].set_player(new_team.roster["Carry"])
+	roster[1].set_player(new_team.roster["Assassin"])
+	roster[2].set_player(new_team.roster["Tank"])
+	roster[3].set_player(new_team.roster["Pusher"])
+	roster[4].set_player(new_team.roster["Support"])

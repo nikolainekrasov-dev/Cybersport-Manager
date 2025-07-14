@@ -12,6 +12,13 @@ var games_drawn = 0
 var games_lost = 0
 var rating = start_team_rating
 var total_winnings = 0
+var roster = {
+	"Carry": null,
+	"Assassin": null,
+	"Tank": null,
+	"Pusher": null,
+	"Support": null
+}
 
 func _init(team_name, team_region):
 	self.name = team_name
