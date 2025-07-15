@@ -12,6 +12,7 @@ var player_age: Label
 var player_region: Label
 var player_team: Label
 var player_winnings: Label
+var player_heroes_skill: HeroesSkillPanel
 
 func _ready():
 	player_photo = find_child("Player Photo")
@@ -24,6 +25,7 @@ func _ready():
 	player_age = find_child("Player Age")
 	player_team = find_child("Player Team")
 	player_winnings = find_child("Player Winnings")
+	player_heroes_skill = find_child("Player Heroes Skill")
 
 func set_player(player):
 	player_photo.texture = player.photo
@@ -47,3 +49,5 @@ func set_player(player):
 		player_role.text = "PUS"
 	else:
 		player_role.text = "SUP"
+		
+	player_heroes_skill.update(player)

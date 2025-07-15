@@ -43,8 +43,6 @@ func _init(hero_name, hero_main_attribute, hero_role, hero_attack_type):
 	third_ability_icon = load("res://Heroes/%s/third_ability_icon.png" % name)
 	fourth_ability_icon = load("res://Heroes/%s/fourth_ability_icon.png" % name)
 	mini_portrait = load("res://Heroes/%s/mini_portrait.png" % name)
-	
-	story = FileAccess.open("res://Heroes/%s/story.txt" % name, FileAccess.READ).get_as_text()
 
 func calc_health():
 	return base_health + health_for_strength_point * base_strength

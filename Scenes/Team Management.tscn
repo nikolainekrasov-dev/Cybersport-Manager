@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=156 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -109,6 +109,7 @@
 [ext_resource type="Script" uid="uid://jeyls3wj32d4" path="res://Scripts/PlayerScreenController.gd" id="105_5g405"]
 [ext_resource type="Script" uid="uid://txeafp5poidf" path="res://Scripts/AbilityIcon.gd" id="106_w800s"]
 [ext_resource type="Texture2D" uid="uid://drmn8yamji162" path="res://Sprites/Player/Rating Panel.png" id="110_pu5sy"]
+[ext_resource type="Script" uid="uid://dje6hpvuisqls" path="res://Scripts/HeroesSkillPanel.gd" id="111_eqgwi"]
 [ext_resource type="Script" uid="uid://c3gtg4qbbv67j" path="res://Scripts/HeroScreenController.gd" id="116_pild4"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
@@ -773,6 +774,7 @@ border_width_bottom = 2
 border_color = Color(0.537255, 0.537255, 0.537255, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu5sy"]
 bg_color = Color(1, 1, 1, 1)
@@ -780,6 +782,7 @@ border_width_bottom = 2
 border_color = Color(0.537255, 0.537255, 0.537255, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqgwi"]
 bg_color = Color(1, 1, 1, 1)
@@ -799,6 +802,12 @@ corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvnhf"]
 bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke7bk"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.537255, 0.537255, 0.537255, 1)
+corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="Screen manager" type="Control"]
@@ -6610,15 +6619,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -144.5
+offset_top = -13.0
+offset_right = 144.5
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_8me2i")
 theme_override_font_sizes/font_size = 30
+text = "HERO PLAY SKILL"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -6883,6 +6893,25 @@ offset_top = 590.0
 offset_right = 510.0
 offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fvnhf")
+
+[node name="Player Heroes Skill" type="Panel" parent="Player"]
+offset_left = 970.0
+offset_top = 197.0
+offset_right = 1800.0
+offset_bottom = 982.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ke7bk")
+script = ExtResource("111_eqgwi")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Player/Player Heroes Skill"]
+layout_mode = 0
+offset_right = 830.0
+offset_bottom = 785.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Player Heroes Skill/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
