@@ -4,22 +4,26 @@ class_name ScreenManager
 
 var screens = {}
 var active_screen: CanvasLayer
-var prev_screen: CanvasLayer = null
+var screen_seq = []
 
 
 func _ready():
 	for screen in get_children():
 		screens[screen.name] = screen
 	active_screen = screens["Main menu"]
+	screen_seq.append(active_screen)
 	
 func show_screen(screen_name):
-	prev_screen = active_screen
+	screen_seq.append(active_screen)
 	active_screen.visible = false
 	active_screen = screens[screen_name]
 	active_screen.visible = true
 	
 func show_prev_screen():
-	show_screen(prev_screen.name)
+	var screen_to_show = screen_seq.pop_back()
+	active_screen.visible = false
+	active_screen = screen_to_show
+	active_screen.visible = true
 
 func show_main_menu():
 	show_screen("Main menu")
