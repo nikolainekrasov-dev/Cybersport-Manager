@@ -5112,6 +5112,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Assassin Role"]
+layout_mode = 0
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
@@ -5180,6 +5181,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Tank Role"]
+layout_mode = 0
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
@@ -5248,6 +5250,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Pusher Role"]
+layout_mode = 0
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
@@ -5316,6 +5319,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Support Role"]
+layout_mode = 0
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
@@ -6990,10 +6994,10 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Container" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]

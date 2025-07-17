@@ -116,8 +116,9 @@ func create_player_from_region(region):
 func clear_players():
 	for region in players_by_region:
 		players_by_region[region].clear()
-	for role in players_by_role:
-		players_by_role[role].clear()
+		for role in players_by_role:
+			players_by_role[role].clear()
+			players_by_region_and_role[region][role].clear()
 	sorted_players.clear()
 		
 func _get_player_photos(region, country):
