@@ -46,15 +46,12 @@ func setup_teams_for_new_game(new_player_team):
 	for region in teams_by_region:
 		var rand_indices = []
 		var player_team_index = teams_by_region[region].find(new_player_team)
-		if player_team_index != -1:
-			rand_indices.append(player_team_index)
-		while len(rand_indices) < team_count_in_region:
-			var index = randi() % 40
-			if not(rand_indices.has(index)):
-				rand_indices.append(index)
+		var random_indices = Utils.get_random_set(team_count_in_region, 0, 40)
+		if player_team_index != -1 and not(random_indices.has(player_team_index)):
+			random_indices[0] = player_team_index
 		for team_index in range(len(teams_by_region[region])):
 			teams_by_region[region][team_index].nullify_team()
-			if team_index in rand_indices:
+			if team_index in random_indices:
 				teams_by_region[region][team_index].is_active = true
 				
 func make_all_teams_inactive():
