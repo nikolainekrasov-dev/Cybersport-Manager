@@ -3,7 +3,7 @@ extends Control
 class_name ScreenManager
 
 var screens = {}
-var active_screen: CanvasLayer
+var active_screen = null
 var screen_seq = []
 
 
@@ -11,13 +11,13 @@ func _ready():
 	for screen in get_children():
 		screens[screen.name] = screen
 	active_screen = screens["Main menu"]
-	screen_seq.append(active_screen)
 	
 func show_screen(screen_name):
 	screen_seq.append(active_screen)
 	active_screen.visible = false
 	active_screen = screens[screen_name]
 	active_screen.visible = true
+	active_screen.update()
 	
 func show_prev_screen():
 	var screen_to_show = screen_seq.pop_back()
@@ -56,4 +56,10 @@ func show_player():
 	show_screen("Player")
 	
 func exit_game():
+	active_screen = null
+	screen_seq.clear()
+	for screen in screens:
+		if screens[screen] != null:
+			screens[screen].queue_free()
+	screens.clear()
 	get_tree().quit()

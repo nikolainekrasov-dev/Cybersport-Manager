@@ -29,6 +29,9 @@ func _ready():
 	add_child(progress_bar_timer)
 	team_logo = find_child("Team Logo")
 
+func update():
+	pass
+
 func change_advice():
 	advice_index = (advice_index + 1) % len(advice)
 	advice_label.text = advice[advice_index]

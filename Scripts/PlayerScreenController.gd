@@ -27,6 +27,9 @@ func _ready():
 	player_winnings = find_child("Player Winnings")
 	player_heroes_skill = find_child("Player Heroes Skill")
 
+func update():
+	pass
+
 func set_player(player):
 	player_photo.texture = player.photo
 	player_rating.text = str(player.rating)

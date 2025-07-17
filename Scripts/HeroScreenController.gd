@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 class_name HeroScreenController
 
@@ -47,6 +47,9 @@ func _ready():
 	second_ability = find_child("Second Ability")
 	third_ability = find_child("Third Ability")
 	fourth_ability = find_child("Fourth Ability")
+	
+func update():
+	pass
 	
 func set_hero(new_hero):
 	hero_portrait.texture = new_hero.portrait

@@ -1,8 +1,9 @@
-[gd_scene load_steps=156 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=161 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
 [ext_resource type="Texture2D" uid="uid://derfex6e3ikrw" path="res://Sprites/Main Menu/Main Menu Buttons Background.png" id="2_2gff0"]
+[ext_resource type="Script" uid="uid://c6pxj6ry2mo4t" path="res://Scripts/MainMenuController.gd" id="2_mxolj"]
 [ext_resource type="FontFile" uid="uid://c31cdfbqvt5qu" path="res://Fonts/ALS Gorizont.ttf" id="3_os5ib"]
 [ext_resource type="StyleBox" uid="uid://78e7yp43foiu" path="res://Styles/Top Main Menu Button.tres" id="4_x3y6i"]
 [ext_resource type="Script" uid="uid://bimrmc855rjjr" path="res://Scripts/ScaleTextButtonOnHover.gd" id="5_os5ib"]
@@ -10,6 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://dofs76iilc7ky" path="res://Styles/Bottom Main Menu Button.tres" id="6_2gff0"]
 [ext_resource type="StyleBox" uid="uid://1kgvqa3fsg5" path="res://Styles/Menu Header Style.tres" id="9_47kb3"]
 [ext_resource type="FontFile" uid="uid://dkpcrvjmbigg2" path="res://Fonts/ALS Gorizont Bold.ttf" id="10_8me2i"]
+[ext_resource type="Script" uid="uid://dnhad8wya0f60" path="res://Scripts/TeamSelectionScreenController.gd" id="10_o6hu1"]
 [ext_resource type="Texture2D" uid="uid://le5vpd8h2nbs" path="res://Sprites/Team Selection/Top Region.png" id="11_8me2i"]
 [ext_resource type="StyleBox" uid="uid://dn35qdep1jx5l" path="res://Styles/Back Button Style.tres" id="11_qm2px"]
 [ext_resource type="Texture2D" uid="uid://h830es62rmxg" path="res://Sprites/Team Selection/Middle Region.png" id="12_5ktfc"]
@@ -34,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bomx2t4qu6fpk" path="res://Sprites/Home/Hover Forward Time Button.png" id="32_muq1j"]
 [ext_resource type="Texture2D" uid="uid://dh7f1gcunfmti" path="res://Sprites/Home/Team Management Button.png" id="33_6m5cg"]
 [ext_resource type="Texture2D" uid="uid://bg44thndy43s4" path="res://Sprites/Home/Hover Team Management Button.png" id="34_of6uf"]
+[ext_resource type="Script" uid="uid://dyud85prlhkfk" path="res://Scripts/HomeScreenController.gd" id="34_pild4"]
 [ext_resource type="Texture2D" uid="uid://bt4tgglb0csei" path="res://Sprites/Home/My Team Info Button.png" id="34_wsiqb"]
 [ext_resource type="Texture2D" uid="uid://cy73xdvx4en0n" path="res://Sprites/Home/System Button.png" id="35_c040a"]
 [ext_resource type="Texture2D" uid="uid://nf0lys04yxed" path="res://Sprites/Home/Hover My Team Info Button.png" id="36_8w23o"]
@@ -77,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ngd7wya1sgy" path="res://Sprites/Down Arrow.png" id="67_njl4x"]
 [ext_resource type="Texture2D" uid="uid://bvla6jl7m6b7c" path="res://Sprites/Green Top Arrow.png" id="68_xyo06"]
 [ext_resource type="Texture2D" uid="uid://b4iukmuw7w3mp" path="res://Sprites/Red Down Arrow.png" id="70_aut1c"]
+[ext_resource type="Script" uid="uid://bhnrdxoyienyd" path="res://Scripts/TeamsScreenController.gd" id="72_cdm35"]
 [ext_resource type="Script" uid="uid://bhvrgncgc6cf8" path="res://Scripts/LoadingScreenController.gd" id="74_m33au"]
 [ext_resource type="Texture2D" uid="uid://ipcgnrj00aqt" path="res://Sprites/Pressed Down Arrow.png" id="76_6e0qj"]
 [ext_resource type="Script" uid="uid://b3icnptolqwtp" path="res://Scripts/TeamScreenController.gd" id="78_aup3r"]
@@ -97,6 +101,7 @@
 [ext_resource type="Texture2D" uid="uid://c4vt7enog2myd" path="res://Sprites/Hero/Ability Panel.png" id="91_ffd21"]
 [ext_resource type="Texture2D" uid="uid://r8aw2r6sjb3" path="res://Sprites/Hero/Health Bar.png" id="91_pc54e"]
 [ext_resource type="Texture2D" uid="uid://bt0ew8pofoena" path="res://Sprites/Hero/Red Strength Logo.png" id="92_camai"]
+[ext_resource type="Script" uid="uid://di0coj4tif3i2" path="res://Scripts/PlayersScreenController.gd" id="93_buj1u"]
 [ext_resource type="Texture2D" uid="uid://cmuatp8u8us2n" path="res://Sprites/Hero/White Agility Logo.png" id="93_tecsn"]
 [ext_resource type="Texture2D" uid="uid://ycw72sq5u86i" path="res://Sprites/Hero/White Intelligence Logo.png" id="94_rdtcv"]
 [ext_resource type="Texture2D" uid="uid://cyqjcow24wb6n" path="res://Sprites/Hero/HP Regen Logo.png" id="95_3slng"]
@@ -830,6 +835,7 @@ libraries = {
 }
 
 [node name="Main menu" type="CanvasLayer" parent="."]
+script = ExtResource("2_mxolj")
 
 [node name="Background" type="TextureRect" parent="Main menu"]
 offset_right = 40.0
@@ -996,6 +1002,7 @@ scaled_size = 60.0
 
 [node name="Team Selection" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource("10_o6hu1")
 
 [node name="Background" type="TextureRect" parent="Team Selection"]
 offset_right = 1920.0
@@ -2876,6 +2883,7 @@ uppercase = true
 
 [node name="Home" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource("34_pild4")
 
 [node name="Background" type="TextureRect" parent="Home"]
 offset_right = 1920.0
@@ -4251,6 +4259,7 @@ vertical_alignment = 1
 
 [node name="Teams" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource("72_cdm35")
 
 [node name="Background" type="TextureRect" parent="Teams"]
 offset_right = 40.0
@@ -4681,10 +4690,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_m33au")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p72bl")
 show_percentage = false
 
-[node name="Team" type="CanvasLayer" parent="." node_paths=PackedStringArray("roster")]
+[node name="Team" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("78_aup3r")
-roster = [NodePath("Right Panel/Roster/Carry Role"), NodePath("Right Panel/Roster/Assassin Role"), NodePath("Right Panel/Roster/Tank Role"), NodePath("Right Panel/Roster/Pusher Role"), NodePath("Right Panel/Roster/Support Role")]
 
 [node name="Background" type="TextureRect" parent="Team"]
 offset_right = 1920.0
@@ -5430,6 +5438,7 @@ text = "VIEW MORE TROPHIES"
 
 [node name="Players" type="CanvasLayer" parent="."]
 visible = false
+script = ExtResource("93_buj1u")
 
 [node name="Background" type="TextureRect" parent="Players"]
 offset_right = 1920.0

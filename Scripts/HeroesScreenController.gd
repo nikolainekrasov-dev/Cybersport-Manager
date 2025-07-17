@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 class_name HeroesScreenController
 
@@ -26,6 +26,8 @@ func fix_heroes_icon_count():
 		intelligence_heroes_table.add_child(new_hero_info_icon)
 		new_hero_info_icon.position = Vector2(119 * (i % 4), 87 * (i / 4))
 	
+func update():
+	pass
 
 func update_heroes_table():
 	fix_heroes_icon_count()
