@@ -4571,7 +4571,7 @@ default_texture = ExtResource("66_u033w")
 pressed_texture = ExtResource("70_aut1c")
 sort_method = "sort_teams_by_winnings_increase_order"
 
-[node name="Teams Container" type="ScrollContainer" parent="Teams"]
+[node name="Teams Table" type="ScrollContainer" parent="Teams"]
 offset_left = 130.0
 offset_top = 270.0
 offset_right = 1775.0
@@ -4581,7 +4581,7 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 script = ExtResource("64_3fckt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Teams/Teams Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Teams/Teams Table"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -6956,7 +6956,6 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/System Menu Close Button" to="Home/System Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="." method="show_teams"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
-[connection signal="pressed" from="Home/Database Menu/Teams" to="Teams/Teams Container" method="update_table_content"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="." method="show_players"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="Players/Players Container" method="update_table_content"]
@@ -6974,15 +6973,15 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winrate Sort Increasing Order" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
-[connection signal="pressed" from="Teams/Back Button" to="Teams/Teams Container" method="nullify"]
-[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Container" method="set_next_region"]
-[connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Container" method="set_prev_region"]
-[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Container" method="sort_table_by_rating_in_descending_order"]
-[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Container" method="sort_table_by_rating_in_ascending_order"]
-[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Container" method="sort_table_by_winrate_in_descending_order"]
-[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Container" method="sort_table_by_winrate_in_ascending_order"]
-[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Container" method="sort_table_by_winnings_in_descending_order"]
-[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Container" method="sort_table_by_winnings_in_ascending_order"]
+[connection signal="pressed" from="Teams/Back Button" to="Teams/Teams Table" method="nullify"]
+[connection signal="pressed" from="Teams/Table Header/Next Region" to="Teams/Teams Table" method="set_next_region"]
+[connection signal="pressed" from="Teams/Table Header/Prev Region" to="Teams/Teams Table" method="set_prev_region"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Table" method="sort_table_by_rating_in_descending_order"]
+[connection signal="pressed" from="Teams/Table Header/Rating Sort Increasing Order" to="Teams/Teams Table" method="sort_table_by_rating_in_ascending_order"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Table" method="sort_table_by_winrate_in_descending_order"]
+[connection signal="pressed" from="Teams/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Table" method="sort_table_by_winrate_in_ascending_order"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Table" method="sort_table_by_winnings_in_descending_order"]
+[connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Table" method="sort_table_by_winnings_in_ascending_order"]
 [connection signal="pressed" from="Team/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Players/Back Button" to="." method="show_home"]
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
@@ -6991,13 +6990,13 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winrate Sort Increasing Order" method="nullify"]
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
-[connection signal="pressed" from="Players/Back Button" to="Teams/Teams Container" method="nullify"]
+[connection signal="pressed" from="Players/Back Button" to="Teams/Teams Table" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]

@@ -13,7 +13,7 @@ func _ready():
 	
 func set_player(new_player):
 	for conn in player_photo.get_signal_connection_list("pressed"):
-		player_photo.disconnect(conn.target, conn.method)
+		player_photo.pressed.disconnect(conn["callable"])
 	if new_player != null:
 		player_nick.text = new_player.nick
 		player_photo.texture_normal = new_player.photo
