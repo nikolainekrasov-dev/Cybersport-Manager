@@ -49,10 +49,17 @@ func setup_teams_for_new_game(new_player_team):
 		var random_indices = Utils.get_random_set(team_count_in_region, 0, 40)
 		if player_team_index != -1 and not(random_indices.has(player_team_index)):
 			random_indices[0] = player_team_index
+		var active_team_index = 0
 		for team_index in range(len(teams_by_region[region])):
 			teams_by_region[region][team_index].nullify_team()
 			if team_index in random_indices:
 				teams_by_region[region][team_index].is_active = true
+				teams_by_region[region][team_index].roster["Carry"] = PlayersManager.players_by_region_and_role[region]["Carry"][active_team_index]
+				teams_by_region[region][team_index].roster["Assassin"] = PlayersManager.players_by_region_and_role[region]["Assassin"][active_team_index]
+				teams_by_region[region][team_index].roster["Tank"] = PlayersManager.players_by_region_and_role[region]["Tank"][active_team_index]
+				teams_by_region[region][team_index].roster["Pusher"] = PlayersManager.players_by_region_and_role[region]["Pusher"][active_team_index]
+				teams_by_region[region][team_index].roster["Support"] = PlayersManager.players_by_region_and_role[region]["Support"][active_team_index]
+				active_team_index += 1
 				
 func make_all_teams_inactive():
 	for team in all_teams:

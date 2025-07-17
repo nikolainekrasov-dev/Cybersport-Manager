@@ -5042,11 +5042,13 @@ text = "CARRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Photo" type="TextureRect" parent="Team/Right Panel/Roster/Carry Role"]
+[node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Carry Role"]
 layout_mode = 0
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Carry Role"]
 layout_mode = 0
@@ -5109,11 +5111,12 @@ text = "ASSASSIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Photo" type="TextureRect" parent="Team/Right Panel/Roster/Assassin Role"]
-layout_mode = 0
+[node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Assassin Role"]
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Assassin Role"]
 layout_mode = 0
@@ -5176,11 +5179,12 @@ text = "TANK"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Photo" type="TextureRect" parent="Team/Right Panel/Roster/Tank Role"]
-layout_mode = 0
+[node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Tank Role"]
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Tank Role"]
 layout_mode = 0
@@ -5243,11 +5247,12 @@ text = "PUSHER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Photo" type="TextureRect" parent="Team/Right Panel/Roster/Pusher Role"]
-layout_mode = 0
+[node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Pusher Role"]
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Pusher Role"]
 layout_mode = 0
@@ -5310,11 +5315,12 @@ text = "SUPPORT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Photo" type="TextureRect" parent="Team/Right Panel/Roster/Support Role"]
-layout_mode = 0
+[node name="Photo" type="TextureButton" parent="Team/Right Panel/Roster/Support Role"]
 offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 159.0
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Nick" type="Panel" parent="Team/Right Panel/Roster/Support Role"]
 layout_mode = 0

@@ -2,6 +2,65 @@ extends Node
 
 class_name PlayersManagerAutoload
 
+var players_by_region_and_role = {
+	"Europe": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"North America": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"South America": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"East Asia": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"Southeast Asia": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"CIS": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"Africa and Middle East": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	},
+	"Oceania": {
+		"Carry": [],
+		"Assassin": [],
+		"Tank": [],
+		"Pusher": [],
+		"Support": []
+	}
+}
+
 var players_by_region = {
 	"Europe": [],
 	"North America": [],
@@ -27,7 +86,6 @@ var sorted_players = []
 
 func setup_players_for_new_game():
 	clear_players()
-	var nicks = _readlines("res://Players/nicknames.txt")
 	var threads = []
 	for region in players_by_region:
 		var new_thread = Thread.new()
@@ -48,7 +106,9 @@ func create_player_from_region(region):
 		var surnames = _readlines("res://Players/%s/%s/Surnames.txt" % [region, country])
 		for photo in photos:
 			var nick_index = randi() % len(nicks)
-			var player = Player.new(names[randi() % len(names)], surnames[randi() % len(surnames)], nicks[nick_index], region, players_by_role.keys()[index % 5], "res://Players/%s/%s/%s" % [region, country, photo])
+			var role = players_by_role.keys()[index % 5]
+			var player = Player.new(names[randi() % len(names)], surnames[randi() % len(surnames)], nicks[nick_index], region, role, "res://Players/%s/%s/%s" % [region, country, photo])
+			players_by_region_and_role[region][role].append(player)
 			players_by_region[region].append(player)
 			nicks.remove_at(nick_index)
 			index += 1

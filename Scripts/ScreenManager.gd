@@ -6,7 +6,6 @@ var screens = {}
 var active_screen = null
 var screen_seq = []
 
-
 func _ready():
 	for screen in get_children():
 		screens[screen.name] = screen

@@ -2,16 +2,21 @@ extends Panel
 
 class_name PlayerIcon
 
-var player_photo: TextureRect
+@onready var screen_manager = get_node("/root/Screen manager")
+@onready var player_screen = get_node("/root/Screen manager/Player")
+var player_photo: TextureButton
 var player_nick: Label
-var player: Player
 
 func _ready():
 	player_nick = find_child("Nick").find_child("Label")
 	player_photo = find_child("Photo")
 	
 func set_player(new_player):
+	for conn in player_photo.get_signal_connection_list("pressed"):
+		player_photo.disconnect(conn.target, conn.method)
 	if new_player != null:
-		player = new_player
-		player_nick.text = player.nick
-		player_photo.texture = player.photo
+		player_nick.text = new_player.nick
+		player_photo.texture_normal = new_player.photo
+		player_photo.connect("pressed", Callable(screen_manager, "show_player"))
+		player_photo.connect("pressed", Callable(player_screen, "set_player").bind(new_player))
+		
