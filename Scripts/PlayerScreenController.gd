@@ -38,8 +38,7 @@ func set_player(player):
 	player_surname.text = player.surname
 	player_region.text = player.region
 	player_age.text = str(player.get_age())
-	if player.team != null:
-		player_team.text = player.team.name
+	player_team.text = player.team_name
 	player_winnings.text = "%d $" % player.winnings
 	
 	if player.role == "Carry":

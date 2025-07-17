@@ -8,7 +8,7 @@ var surname: String
 var nick: String
 var photo: Texture2D
 var region: String
-var team: Team
+var team_name: String = ""
 var rating: int
 var winnings: int
 var is_active: bool = false
@@ -21,7 +21,6 @@ func _init(player_name, player_surname, player_nick, player_region, player_role,
 	self.surname = player_surname
 	self.nick = player_nick
 	self.region = player_region
-	self.team = null
 	self.rating = 4500 + randi() % 1000
 	self.winnings = 0
 	self.role = player_role
