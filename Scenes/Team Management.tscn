@@ -6958,7 +6958,6 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="." method="show_players"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="Home/Database Menu" method="close_menu"]
-[connection signal="pressed" from="Home/Database Menu/Players" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="." method="show_heroes"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Heroes" method="update_heroes_table"]
