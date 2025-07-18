@@ -6561,7 +6561,6 @@ expand_mode = 1
 script = ExtResource("106_w800s")
 
 [node name="Player" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("105_5g405")
 
 [node name="Background" type="TextureRect" parent="Player"]
