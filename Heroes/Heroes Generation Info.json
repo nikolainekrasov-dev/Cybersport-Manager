@@ -562,7 +562,7 @@
     },
     "Zirael": {
         "main_attribute": "Agility",
-        "attack_type": "Melee",
+        "attack_type": "Range",
         "role": "Assassin",
         "min_base_strength": 10,
         "max_base_strength": 14,
