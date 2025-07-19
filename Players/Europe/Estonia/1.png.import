@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtra2nmhkngwy"
-path="res://.godot/imported/5.png-4e903a68e9063b2c8fa34a0176bfe8b8.ctex"
+uid="uid://cj2ay55enbfqn"
+path="res://.godot/imported/1.png-9ece57344898f32ef9d40fc07118eeb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Players/Europe/Estonia/5.png"
-dest_files=["res://.godot/imported/5.png-4e903a68e9063b2c8fa34a0176bfe8b8.ctex"]
+source_file="res://Players/Europe/Estonia/1.png"
+dest_files=["res://.godot/imported/1.png-9ece57344898f32ef9d40fc07118eeb2.ctex"]
 
 [params]
 
