@@ -31,4 +31,4 @@ func set_team(new_team):
 	team_region.text = new_team.region
 	team_logo.texture = new_team.logo
 	for player_role in new_team.roster:
-		roster[player_role].set_player(new_team.roster[player_role])
+		roster[player_role].set_player(new_team.roster[player_role].get_ref())
