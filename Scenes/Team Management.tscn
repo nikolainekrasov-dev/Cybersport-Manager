@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=166 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -117,6 +117,10 @@
 [ext_resource type="Texture2D" uid="uid://drmn8yamji162" path="res://Sprites/Player/Rating Panel.png" id="110_pu5sy"]
 [ext_resource type="Script" uid="uid://dje6hpvuisqls" path="res://Scripts/HeroesSkillPanel.gd" id="111_eqgwi"]
 [ext_resource type="Script" uid="uid://c3gtg4qbbv67j" path="res://Scripts/HeroScreenController.gd" id="116_pild4"]
+[ext_resource type="Script" uid="uid://tmj0co65t6j8" path="res://Scripts/TournamentsScreenController.gd" id="118_buj1u"]
+[ext_resource type="Script" uid="uid://cee605c2jcjde" path="res://Scripts/TournamentsTable.gd" id="119_oc217"]
+[ext_resource type="Texture2D" uid="uid://q53qqfeidw0x" path="res://Sprites/Table Menu Item.png" id="120_xwbbt"]
+[ext_resource type="Texture2D" uid="uid://cermk1xorirms" path="res://Sprites/Hover Table Menu Item.png" id="121_2ip8u"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -836,6 +840,7 @@ libraries = {
 }
 
 [node name="Main Menu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_mxolj")
 
 [node name="Background" type="TextureRect" parent="Main Menu"]
@@ -7273,6 +7278,342 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
+[node name="Tournaments" type="CanvasLayer" parent="."]
+script = ExtResource("118_buj1u")
+
+[node name="Background" type="TextureRect" parent="Tournaments"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mrb3r")
+
+[node name="Back Button" type="Button" parent="Tournaments"]
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 231.0
+offset_bottom = 86.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("11_qm2px")
+theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
+theme_override_styles/disabled = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed = ExtResource("11_qm2px")
+theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover = ExtResource("11_qm2px")
+theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/pressed = ExtResource("11_qm2px")
+theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
+theme_override_styles/normal = ExtResource("11_qm2px")
+text = "BACK"
+icon = ExtResource("12_i5bvx")
+
+[node name="Search Tab" type="TextureRect" parent="Tournaments"]
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 1775.0
+offset_bottom = 197.0
+texture = ExtResource("62_dy24r")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Tournaments/Search Tab"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -11.5
+offset_right = 85.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+text = "TOURNAMENTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Table Header" type="TextureRect" parent="Tournaments"]
+offset_left = 130.0
+offset_top = 210.0
+offset_right = 1775.0
+offset_bottom = 270.0
+texture = ExtResource("63_hlwi5")
+expand_mode = 1
+
+[node name="Name Label" type="Label" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = -11.5
+offset_right = 266.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Region Label" type="Label" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 692.0
+offset_top = -11.5
+offset_right = 765.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Region"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rating Label" type="Label" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 988.0
+offset_top = -11.5
+offset_right = 1061.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Rating"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Winrate Label" type="Label" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1185.0
+offset_top = -11.5
+offset_right = 1264.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Winrate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Total Winnings Label" type="Label" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1412.0
+offset_top = -11.5
+offset_right = 1491.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 18
+text = "Total Winnings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next Region" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 780.0
+offset_top = -8.0
+offset_right = 793.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("64_hgvdx")
+texture_pressed = ExtResource("86_cwvpo")
+texture_hover = ExtResource("64_hgvdx")
+texture_disabled = ExtResource("64_hgvdx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Prev Region" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 664.0
+offset_top = -8.0
+offset_right = 677.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("65_u033w")
+texture_pressed = ExtResource("85_ffd21")
+texture_hover = ExtResource("65_u033w")
+texture_disabled = ExtResource("65_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Rating Sort Decreasing Order" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1076.0
+offset_top = -8.0
+offset_right = 1089.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+sort_method = "sort_teams_by_rating_decrease_order"
+
+[node name="Rating Sort Increasing Order" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1086.0
+offset_top = -8.0
+offset_right = 1099.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+sort_method = "sort_teams_by_rating_increase_order"
+
+[node name="Winrate Sort Decreasing Order2" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1279.0
+offset_top = -8.0
+offset_right = 1292.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+sort_method = "sort_teams_by_winrate_decrease_order"
+
+[node name="Winrate Sort Increasing Order" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1289.0
+offset_top = -8.0
+offset_right = 1302.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+sort_method = "sort_teams_by_winrate_increase_order"
+
+[node name="Winnings Sort Decreasing Order3" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1576.0
+offset_top = -8.0
+offset_right = 1589.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("67_njl4x")
+texture_pressed = ExtResource("76_6e0qj")
+texture_hover = ExtResource("67_njl4x")
+texture_disabled = ExtResource("67_njl4x")
+texture_focused = ExtResource("67_njl4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("67_njl4x")
+pressed_texture = ExtResource("68_xyo06")
+sort_method = "sort_teams_by_winnings_decrease_order"
+
+[node name="Winnings Sort Increasing Order2" type="TextureButton" parent="Tournaments/Table Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1586.0
+offset_top = -8.0
+offset_right = 1599.0
+offset_bottom = 5.0
+grow_vertical = 2
+texture_normal = ExtResource("66_u033w")
+texture_pressed = ExtResource("80_pu5sy")
+texture_hover = ExtResource("66_u033w")
+texture_disabled = ExtResource("66_u033w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("67_dba6g")
+default_texture = ExtResource("66_u033w")
+pressed_texture = ExtResource("70_aut1c")
+sort_method = "sort_teams_by_winnings_increase_order"
+
+[node name="Tournaments Container" type="ScrollContainer" parent="Tournaments"]
+offset_left = 130.0
+offset_top = 270.0
+offset_right = 1775.0
+offset_bottom = 982.0
+horizontal_scroll_mode = 0
+script = ExtResource("119_oc217")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tournaments/Tournaments Container"]
+layout_mode = 2
+
+[node name="Tournament Menu Item" type="TextureButton" parent="Tournaments/Tournaments Container/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("120_xwbbt")
+texture_pressed = ExtResource("121_2ip8u")
+texture_hover = ExtResource("121_2ip8u")
+texture_disabled = ExtResource("120_xwbbt")
+texture_focused = ExtResource("121_2ip8u")
+stretch_mode = 0
+script = ExtResource("13_y3n8q")
+default_text_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
 [connection signal="pressed" from="Main Menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main Menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -7306,7 +7647,7 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/No" to="Home/Exit Menu" method="close_menu"]
-[connection signal="pressed" from="Teams/Back Button" to="." method="show_home"]
+[connection signal="pressed" from="Teams/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
 [connection signal="pressed" from="Teams/Back Button" to="Teams/Table Header/Winrate Sort Decreasing Order2" method="nullify"]
@@ -7323,7 +7664,7 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Teams/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Table" method="sort_table_by_winnings_in_descending_order"]
 [connection signal="pressed" from="Teams/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Table" method="sort_table_by_winnings_in_ascending_order"]
 [connection signal="pressed" from="Team/Back Button" to="." method="show_prev_screen"]
-[connection signal="pressed" from="Players/Back Button" to="." method="show_home"]
+[connection signal="pressed" from="Players/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
 [connection signal="pressed" from="Players/Back Button" to="Teams/Table Header/Winrate Sort Decreasing Order2" method="nullify"]
@@ -7348,3 +7689,19 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Heroes/Back Button" to="." method="show_home"]
 [connection signal="pressed" from="Hero/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Player/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Tournaments/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Winrate Sort Decreasing Order2" method="nullify"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Winrate Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
+[connection signal="pressed" from="Tournaments/Back Button" to="Teams/Teams Table" method="nullify"]
+[connection signal="pressed" from="Tournaments/Table Header/Next Region" to="Teams/Teams Table" method="set_next_region"]
+[connection signal="pressed" from="Tournaments/Table Header/Prev Region" to="Teams/Teams Table" method="set_prev_region"]
+[connection signal="pressed" from="Tournaments/Table Header/Rating Sort Decreasing Order" to="Teams/Teams Table" method="sort_table_by_rating_in_descending_order"]
+[connection signal="pressed" from="Tournaments/Table Header/Rating Sort Increasing Order" to="Teams/Teams Table" method="sort_table_by_rating_in_ascending_order"]
+[connection signal="pressed" from="Tournaments/Table Header/Winrate Sort Decreasing Order2" to="Teams/Teams Table" method="sort_table_by_winrate_in_descending_order"]
+[connection signal="pressed" from="Tournaments/Table Header/Winrate Sort Increasing Order" to="Teams/Teams Table" method="sort_table_by_winrate_in_ascending_order"]
+[connection signal="pressed" from="Tournaments/Table Header/Winnings Sort Decreasing Order3" to="Teams/Teams Table" method="sort_table_by_winnings_in_descending_order"]
+[connection signal="pressed" from="Tournaments/Table Header/Winnings Sort Increasing Order2" to="Teams/Teams Table" method="sort_table_by_winnings_in_ascending_order"]
