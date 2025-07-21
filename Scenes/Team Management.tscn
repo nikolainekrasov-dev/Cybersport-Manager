@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=162 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -56,6 +56,7 @@
 [ext_resource type="Script" uid="uid://b4ug0ykoqi1v7" path="res://Scripts/ScheduleDay.gd" id="51_aut1c"]
 [ext_resource type="Texture2D" uid="uid://s61boldftjwc" path="res://Sprites/Home/Second Day.png" id="51_rmrt1"]
 [ext_resource type="Texture2D" uid="uid://dgqpkl4b6mp1y" path="res://Sprites/Home/Third Day.png" id="52_bcrdx"]
+[ext_resource type="Script" uid="uid://b162dann0bocq" path="res://Scripts/TodayMatches.gd" id="53_cdm35"]
 [ext_resource type="Texture2D" uid="uid://m3i1p1quktii" path="res://Sprites/Home/Fourth Day.png" id="53_w4a5l"]
 [ext_resource type="Texture2D" uid="uid://bxues8jh8pg6u" path="res://Sprites/Home/Fifth Day.png" id="54_xd3vi"]
 [ext_resource type="Texture2D" uid="uid://d283e0v2t2rul" path="res://Sprites/Home/Sixth Day.png" id="55_ianid"]
@@ -3204,28 +3205,30 @@ offset_right = 1790.0
 offset_bottom = 983.0
 script = ExtResource("47_xyo06")
 
-[node name="Date Body" type="TextureRect" parent="Home/Schedule"]
+[node name="Today Matches" type="TextureRect" parent="Home/Schedule" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "vs_label", "tournament_name", "stage", "format")]
 layout_mode = 0
 offset_right = 404.0
 offset_bottom = 300.0
 texture = ExtResource("47_mw3us")
+script = ExtResource("53_cdm35")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+vs_label = NodePath("VS")
+tournament_name = NodePath("Tournament Name")
+stage = NodePath("Stage")
+format = NodePath("Format")
 
-[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Date Body"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -60.0
-offset_right = -50.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Today Matches"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 90.0
+offset_right = 152.0
+offset_bottom = 190.0
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="VS" type="Label" parent="Home/Schedule/Date Body"]
+[node name="VS" type="Label" parent="Home/Schedule/Today Matches"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3245,22 +3248,16 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Date Body"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_top = -60.0
-offset_right = 150.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Today Matches"]
+offset_left = 252.0
+offset_top = 90.0
+offset_right = 352.0
+offset_bottom = 190.0
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Tournament Name" type="Label" parent="Home/Schedule/Date Body"]
+[node name="Tournament Name" type="Label" parent="Home/Schedule/Today Matches"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3279,7 +3276,8 @@ theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Stage" type="Label" parent="Home/Schedule/Date Body"]
+[node name="Stage" type="Label" parent="Home/Schedule/Today Matches"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3298,7 +3296,8 @@ theme_override_font_sizes/font_size = 15
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Format" type="Label" parent="Home/Schedule/Date Body"]
+[node name="Format" type="Label" parent="Home/Schedule/Today Matches"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3317,13 +3316,13 @@ theme_override_font_sizes/font_size = 15
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Date Header" type="TextureRect" parent="Home/Schedule"]
+[node name="Today Date" type="TextureRect" parent="Home/Schedule"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("48_ak3ta")
 
-[node name="Label" type="Label" parent="Home/Schedule/Date Header"]
+[node name="Label" type="Label" parent="Home/Schedule/Today Date"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3364,11 +3363,66 @@ shift = 1
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
+
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/First Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VS" type="Label" parent="Home/Schedule/Future Days/First Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 17.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/First Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Second Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -3385,11 +3439,66 @@ shift = 2
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
+
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Second Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VS" type="Label" parent="Home/Schedule/Future Days/Second Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 17.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Second Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Third Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -3406,13 +3515,68 @@ shift = 3
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="Forth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Third Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VS" type="Label" parent="Home/Schedule/Future Days/Third Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 17.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Third Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Fourth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("53_w4a5l")
@@ -3423,15 +3587,70 @@ texture_focused = ExtResource("53_w4a5l")
 script = ExtResource("51_aut1c")
 shift = 4
 
-[node name="Number" type="Label" parent="Home/Schedule/Future Days/Forth Day"]
+[node name="Number" type="Label" parent="Home/Schedule/Future Days/Fourth Day"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
+
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fourth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VS" type="Label" parent="Home/Schedule/Future Days/Fourth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 17.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fourth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Fifth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -3448,11 +3667,66 @@ shift = 5
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
+
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fifth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VS" type="Label" parent="Home/Schedule/Future Days/Fifth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 17.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fifth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Sixth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -3469,11 +3743,66 @@ shift = 6
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
+
+[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Sixth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VS" type="Label" parent="Home/Schedule/Future Days/Sixth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 17.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Sixth Day"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Screen Dimmer" type="ColorRect" parent="Home"]
 visible = false
@@ -7004,14 +7333,14 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Table" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
-[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
-[connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="set_next_region"]
+[connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Players/Players Container" method="sort_table_by_rating_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Rating Sort Increasing Order" to="Players/Players Container" method="sort_table_by_rating_in_ascending_order"]
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Players/Players Container" method="sort_table_by_winnings_in_descending_order"]

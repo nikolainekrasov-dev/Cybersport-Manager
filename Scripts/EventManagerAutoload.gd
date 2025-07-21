@@ -7,10 +7,10 @@ var on_date_changed = []
 var current_date: DateTime = null
 
 func _ready():
-	current_date = start_date
+	current_date = start_date.copy()
 	
 func setup_new_game():
-	current_date = start_date
+	current_date = start_date.copy()
 
 func move_to_date(date):
 	while not(current_date.is_equal(date)):

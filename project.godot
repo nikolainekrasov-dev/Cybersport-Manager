@@ -22,6 +22,7 @@ HeroesManager="*res://Scripts/HeroesManagerAutoload.gd"
 TeamsManager="*res://Scripts/TeamsManagerAutoload.gd"
 PlayersManager="*res://Scripts/PlayersManagerAutoload.gd"
 EventManager="*res://Scripts/EventManagerAutoload.gd"
+TournamentsManager="*res://Scripts/TournamentsManagerAutoload.gd"
 
 [display]
 
