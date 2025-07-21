@@ -25,6 +25,7 @@ var first_ability: TextureRect
 var second_ability: TextureRect
 var third_ability: TextureRect
 var fourth_ability: TextureRect
+var hero: WeakRef
 
 func _ready():
 	hero_portrait = find_child("Hero Portrait")
@@ -49,25 +50,24 @@ func _ready():
 	fourth_ability = find_child("Fourth Ability")
 	
 func update():
-	pass
-	
-func set_hero(new_hero):
-	hero_portrait.texture = new_hero.portrait
-	hero_name.text = new_hero.name
-	hero_role.text = new_hero.role
-	attack_type.text = new_hero.attack_type
-	hero_strength.text = str(new_hero.base_strength)
-	hero_agility.text = str(new_hero.base_agility)
-	hero_intelligence.text = str(new_hero.base_intelligence)
-	health.text = str(new_hero.calc_health())
-	hp_regen.text = "+%s" % str(new_hero.base_health_reg)
-	armor.text = str(new_hero.base_armor)
-	magic_res.text = str(new_hero.base_magic_res)
-	attack.text = str(new_hero.base_attack_damage)
-	attack_interval.text = str(new_hero.calc_base_attack_interval())
-	attack_range.text = str(new_hero.base_attack_range)
-	move_speed.text = str(new_hero.base_move_speed)
-	first_ability.texture = new_hero.first_ability_icon
-	second_ability.texture = new_hero.second_ability_icon
-	third_ability.texture = new_hero.third_ability_icon
-	fourth_ability.texture = new_hero.fourth_ability_icon
+	if hero != null and hero.get_ref() != null:
+		var hero_instance = hero.get_ref()
+		hero_portrait.texture = hero_instance.portrait
+		hero_name.text = hero_instance.name
+		hero_role.text = hero_instance.role
+		attack_type.text = hero_instance.attack_type
+		hero_strength.text = str(hero_instance.base_strength)
+		hero_agility.text = str(hero_instance.base_agility)
+		hero_intelligence.text = str(hero_instance.base_intelligence)
+		health.text = str(hero_instance.calc_health())
+		hp_regen.text = "+%s" % str(hero_instance.base_health_reg)
+		armor.text = str(hero_instance.base_armor)
+		magic_res.text = str(hero_instance.base_magic_res)
+		attack.text = str(hero_instance.base_attack_damage)
+		attack_interval.text = str(hero_instance.calc_base_attack_interval())
+		attack_range.text = str(hero_instance.base_attack_range)
+		move_speed.text = str(hero_instance.base_move_speed)
+		first_ability.texture = hero_instance.first_ability_icon
+		second_ability.texture = hero_instance.second_ability_icon
+		third_ability.texture = hero_instance.third_ability_icon
+		fourth_ability.texture = hero_instance.fourth_ability_icon

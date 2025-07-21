@@ -2,20 +2,16 @@ extends TextureButton
 
 class_name HeroInfoButton
 
-var hero: HeroInfo
-@export var hero_screen: CanvasLayer
+var hero: WeakRef
+@onready var screen_manager = get_node("/root/Screen manager")
 
 func _ready():
 	connect("pressed", Callable(self, "change_hero_screen"))
 
 func change_hero_screen():
-	get_node("/root/Screen manager/Hero").set_hero(hero)
+	screen_manager.show_hero(hero)
 
 func set_hero(new_hero):
 	hero = new_hero
-	texture_normal = new_hero.mini_portrait
-	texture_hover = new_hero.mini_portrait
-	texture_focused = new_hero.mini_portrait
-	texture_disabled = new_hero.mini_portrait
-	texture_pressed = new_hero.mini_portrait
+	texture_normal = hero.get_ref().mini_portrait
 	

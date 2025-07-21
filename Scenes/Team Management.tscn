@@ -834,38 +834,38 @@ libraries = {
 &"": SubResource("AnimationLibrary_2w2tr")
 }
 
-[node name="Main menu" type="CanvasLayer" parent="."]
+[node name="Main Menu" type="CanvasLayer" parent="."]
 script = ExtResource("2_mxolj")
 
-[node name="Background" type="TextureRect" parent="Main menu"]
+[node name="Background" type="TextureRect" parent="Main Menu"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_mrb3r")
 
-[node name="Small column" type="ColorRect" parent="Main menu"]
+[node name="Small column" type="ColorRect" parent="Main Menu"]
 offset_left = 181.0
 offset_right = 223.0
 offset_bottom = 1080.0
 
-[node name="Big column" type="ColorRect" parent="Main menu"]
+[node name="Big column" type="ColorRect" parent="Main Menu"]
 offset_left = 238.0
 offset_right = 300.0
 offset_bottom = 1080.0
 
-[node name="Menu background" type="TextureRect" parent="Main menu"]
+[node name="Menu background" type="TextureRect" parent="Main Menu"]
 offset_left = 315.0
 offset_right = 1015.0
 offset_bottom = 1080.0
 texture = ExtResource("2_2gff0")
 
-[node name="Menu" type="VBoxContainer" parent="Main menu/Menu background"]
+[node name="Menu" type="VBoxContainer" parent="Main Menu/Menu background"]
 layout_mode = 0
 offset_top = 140.0
 offset_right = 700.0
 offset_bottom = 940.0
 theme_override_constants/separation = 0
 
-[node name="Continue" type="Button" parent="Main menu/Menu background/Menu"]
+[node name="Continue" type="Button" parent="Main Menu/Menu background/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -892,7 +892,7 @@ script = ExtResource("5_os5ib")
 default_size = 40.0
 scaled_size = 60.0
 
-[node name="New game" type="Button" parent="Main menu/Menu background/Menu"]
+[node name="New game" type="Button" parent="Main Menu/Menu background/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -919,7 +919,7 @@ script = ExtResource("5_os5ib")
 default_size = 40.0
 scaled_size = 60.0
 
-[node name="Load game" type="Button" parent="Main menu/Menu background/Menu"]
+[node name="Load game" type="Button" parent="Main Menu/Menu background/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -946,7 +946,7 @@ script = ExtResource("5_os5ib")
 default_size = 40.0
 scaled_size = 60.0
 
-[node name="Settings" type="Button" parent="Main menu/Menu background/Menu"]
+[node name="Settings" type="Button" parent="Main Menu/Menu background/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -973,7 +973,7 @@ script = ExtResource("5_os5ib")
 default_size = 40.0
 scaled_size = 60.0
 
-[node name="Exit" type="Button" parent="Main menu/Menu background/Menu"]
+[node name="Exit" type="Button" parent="Main Menu/Menu background/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -6933,8 +6933,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[connection signal="pressed" from="Main menu/Menu background/Menu/New game" to="." method="show_team_selection"]
-[connection signal="pressed" from="Main menu/Menu background/Menu/Exit" to="." method="exit_game"]
+[connection signal="pressed" from="Main Menu/Menu background/Menu/New game" to="." method="show_team_selection"]
+[connection signal="pressed" from="Main Menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Team Selection/Regions/Europe" to="Team Selection/Team Selection Menu" method="show_european_teams"]
 [connection signal="pressed" from="Team Selection/Regions/North America" to="Team Selection/Team Selection Menu" method="show_north_american_teams"]

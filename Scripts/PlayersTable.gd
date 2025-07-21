@@ -35,10 +35,8 @@ var sort_order = "Des"
 static var player_menu_item = preload("res://Prefabs/Player Menu Item.tscn")
 
 func _ready():
-	var screen_manager = get_node("/root/Screen manager")
 	for i in range(PlayersManager.player_count):
 		var new_player_menu_item = player_menu_item.instantiate() as PlayerMenuItem
-		new_player_menu_item.connect("pressed", Callable(screen_manager, "show_player"))
 		find_child("VBoxContainer").add_child(new_player_menu_item)
 		players_buttons.append(new_player_menu_item)
 
@@ -51,34 +49,41 @@ func update_table_content():
 	scroll_vertical = 0
 	update_players()
 	if sort_by_rating and sort_order == "Des":
-		players_to_display.sort_custom(func(a, b): return a.rating > b.rating)
+		players_to_display.sort_custom(func(a, b): return a.get_ref().rating > b.get_ref().rating)
 	elif sort_by_rating and sort_order == "Asc":
-		players_to_display.sort_custom(func(a, b): return a.rating < b.rating)
+		players_to_display.sort_custom(func(a, b): return a.get_ref().rating < b.get_ref().rating)
 	elif sort_by_age and sort_order == "Des":
-		players_to_display.sort_custom(func(a, b): return a.get_age() > b.get_age())
+		players_to_display.sort_custom(func(a, b): return a.get_ref().get_age() > b.get_ref().get_age())
 	elif sort_by_age and sort_order == "Asc":
-		players_to_display.sort_custom(func(a, b): return a.get_age() < b.get_age())
+		players_to_display.sort_custom(func(a, b): return a.get_ref().get_age() < b.get_ref().get_age())
 	elif sort_by_winnings and sort_order == "Des":
-		players_to_display.sort_custom(func(a, b): return a.winnings > b.winnings)
+		players_to_display.sort_custom(func(a, b): return a.get_ref().winnings > b.get_ref().winnings)
 	elif sort_by_winnings and sort_order == "Asc":
-		players_to_display.sort_custom(func(a, b): return a.winnings < b.winnings)
+		players_to_display.sort_custom(func(a, b): return a.get_ref().winnings < b.get_ref().winnings)
 	else:
-		players_to_display.sort_custom(func(a, b): return a.nick < b.nick)
+		players_to_display.sort_custom(func(a, b): return a.get_ref().nick < b.get_ref().nick)
 	display_players()
 
 func update_players():
+	players_to_display.clear()
 	var region = regions[current_region_index]
 	var role = roles[current_role_index]
-	if region == "None":
-		players_to_display = PlayersManager.sorted_players
+	if region != "None" and role != "None":
+		for player in PlayersManager.players_by_region_and_role[region][role]:
+			if player.is_active:
+				players_to_display.append(weakref(player))
+	elif region != "None" and role == "None":
+		for player in PlayersManager.players_by_region[region]:
+			if player.is_active:
+				players_to_display.append(weakref(player))
+	elif region == "None" and role != "None":
+		for player in PlayersManager.players_by_role[role]:
+			if player.is_active:
+				players_to_display.append(weakref(player))
 	else:
-		players_to_display = PlayersManager.players_by_region[region]
-	if role != "None":
-		var result = []
-		for player in players_to_display:
-			if player.role == role:
-				result.append(player)
-		players_to_display = result
+		for player in PlayersManager.sorted_players:
+			if player.is_active:
+				players_to_display.append(weakref(player))
 				
 func display_players():
 	for i in range(len(players_buttons)):

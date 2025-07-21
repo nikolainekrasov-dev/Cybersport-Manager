@@ -25,7 +25,6 @@ static var team_menu_item = preload("res://Prefabs/Team Menu Item.tscn")
 func _ready():
 	for i in range(TeamsManager.teams_count / 2):
 		var new_team_menu_item = team_menu_item.instantiate() as TeamMenuItem
-		new_team_menu_item.connect("pressed", Callable(get_node("/root/Screen manager"), "show_team"))
 		find_child("VBoxContainer").add_child(new_team_menu_item)
 		teams_buttons.append(new_team_menu_item)
 
@@ -33,19 +32,19 @@ func update_table_content():
 	scroll_vertical = 0
 	update_teams()
 	if sort_by_rating and sort_order == "Des":
-		teams_to_display.sort_custom(func(a, b): return a.rating > b.rating)
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().rating > b.get_ref().rating)
 	elif sort_by_rating and sort_order == "Asc":
-		teams_to_display.sort_custom(func(a, b): return a.rating < b.rating)
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().rating < b.get_ref().rating)
 	elif sort_by_winrate and sort_order == "Des":
-		teams_to_display.sort_custom(func(a, b): return a.winrate() > b.winrate())
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().winrate() > b.get_ref().winrate())
 	elif sort_by_winrate and sort_order == "Asc":
-		teams_to_display.sort_custom(func(a, b): return a.winrate() < b.winrate())
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().winrate() < b.get_ref().winrate())
 	elif sort_by_winnings and sort_order == "Des":
-		teams_to_display.sort_custom(func(a, b): return a.total_winnings > b.total_winnings)
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().total_winnings > b.get_ref().total_winnings)
 	elif sort_by_winnings and sort_order == "Asc":
-		teams_to_display.sort_custom(func(a, b): return a.total_winnings < b.total_winnings)
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().total_winnings < b.get_ref().total_winnings)
 	else:
-		teams_to_display.sort_custom(func(a, b): return a.name < b.name)
+		teams_to_display.sort_custom(func(a, b): return a.get_ref().name < b.get_ref().name)
 	display_teams()
 	
 func sort_table_by_rating_in_ascending_order():
@@ -122,11 +121,11 @@ func update_teams():
 	if region == "None":
 		for team in TeamsManager.all_teams:
 			if team.is_active:
-				teams_to_display.append(team)
+				teams_to_display.append(weakref(team))
 	else:
 		for team in TeamsManager.teams_by_region[region]:
 			if team.is_active:
-				teams_to_display.append(team)
+				teams_to_display.append(weakref(team))
 
 func set_next_region():
 	current_region_index = (current_region_index + 1) % len(regions)

@@ -15,8 +15,9 @@ func fix_items_count():
 		container.add_child(new_heroes_skill_item)
 	
 func update(player):
-	fix_items_count()
-	var heroes_skill_items = container.get_children()
-	for i in range(len(heroes_skill_items)):
-		heroes_skill_items[i].set_heroes(player, HeroesManager.heroes[i * 2], HeroesManager.heroes[i * 2 + 1])
+	if player != null and player.get_ref() != null:
+		fix_items_count()
+		var heroes_skill_items = container.get_children()
+		for i in range(len(heroes_skill_items)):
+			heroes_skill_items[i].set_heroes(player, weakref(HeroesManager.heroes[i * 2]), weakref(HeroesManager.heroes[i * 2 + 1]))
 	

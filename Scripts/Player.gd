@@ -8,10 +8,11 @@ var surname: String
 var nick: String
 var photo: Texture2D
 var region: String
-var team_name: String = ""
+var team: WeakRef
 var rating: int
 var winnings: int
 var is_active: bool = false
+var is_retired: bool = false
 var birth_date: DateTime
 var role: String
 var heroes_skill = {}

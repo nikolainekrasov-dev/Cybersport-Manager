@@ -81,6 +81,7 @@ var players_by_role = {
 }
 
 static var player_count = 1600
+static var active_player_count_in_region = 150
 
 var sorted_players = []
 
@@ -111,6 +112,8 @@ func create_player_from_region(region):
 			players_by_region_and_role[region][role].append(player)
 			players_by_region[region].append(player)
 			nicks.remove_at(nick_index)
+			if index < active_player_count_in_region:
+				player.is_active = true
 			index += 1
 
 func clear_players():

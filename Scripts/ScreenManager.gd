@@ -9,7 +9,8 @@ var screen_seq = []
 func _ready():
 	for screen in get_children():
 		screens[screen.name] = screen
-	active_screen = screens["Main menu"]
+	#screens["Player"] = screens["Player"] as PlayerScreenController
+	active_screen = screens["Main Menu"]
 	
 func show_screen(screen_name):
 	screen_seq.append(active_screen)
@@ -25,7 +26,7 @@ func show_prev_screen():
 	active_screen.visible = true
 
 func show_main_menu():
-	show_screen("Main menu")
+	show_screen("Main Menu")
 	
 func show_team_selection():
 	show_screen("Team Selection")
@@ -42,17 +43,23 @@ func show_teams():
 func show_players():
 	show_screen("Players")
 	
-func show_team():
-	show_screen("Team")
+func show_team(team):
+	if team != null and team.get_ref() != null:
+		screens["Team"].team = team
+		show_screen("Team")
 	
 func show_heroes():
 	show_screen("Heroes")
 	
-func show_hero():
-	show_screen("Hero")
+func show_hero(hero):
+	if hero != null and hero.get_ref() != null:
+		screens["Hero"].hero = hero
+		show_screen("Hero")
 	
-func show_player():
-	show_screen("Player")
+func show_player(player):
+	if player != null and player.get_ref() != null:
+		screens["Player"].player = player
+		show_screen("Player")
 	
 func exit_game():
 	active_screen = null

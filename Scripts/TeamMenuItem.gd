@@ -8,35 +8,36 @@ class_name TeamMenuItem
 @export var team_rating: Label
 @export var team_winrate: Label
 @export var team_total_winnings: Label
-var team: Team
-@onready var team_screen: TeamScreenController = get_node("/root/Screen manager/Team")
+@onready var screen_manager: ScreenManager = get_node("/root/Screen manager")
+var team: WeakRef
 
 func _ready():
 	super._ready()
 	team_logo = find_child("Logo")
 	team_name = find_child("Name")
+	connect("pressed", Callable(self, "display_team"))
 	connect("mouse_entered", Callable(self, "set_white_team_logo"))
 	connect("mouse_exited", Callable(self, "set_default_team_logo"))
-	connect("pressed", Callable(self, "show_team_info"))
 	
-func show_team_info():
-	team_screen.set_team(team)
-	
+func display_team():
+	screen_manager.show_team(team)
+
 func set_team(new_team):
-	self.team = new_team
-	team_logo.texture = new_team.logo
-	team_name.text = str(new_team.name)
-	team_rating.text = str(new_team.rating)
-	team_region.text = new_team.region
-	var team_wr = new_team.winrate()
-	if team_wr != -1:
-		team_winrate.text = str(team_wr)
-	else:
-		team_winrate.text = "-"
-	team_total_winnings.text = "%d$" % new_team.total_winnings
+	if new_team != null and new_team.get_ref() != null:
+		team = new_team
+		team_logo.texture = team.get_ref().logo
+		team_name.text = str(team.get_ref().name)
+		team_rating.text = str(team.get_ref().rating)
+		team_region.text = team.get_ref().region
+		var team_wr = team.get_ref().winrate()
+		if team_wr != -1:
+			team_winrate.text = str(team_wr)
+		else:
+			team_winrate.text = "-"
+		team_total_winnings.text = "%d$" % team.get_ref().total_winnings
 		
 func set_white_team_logo():
-	team_logo.texture = self.team.white_logo
+	team_logo.texture = self.team.get_ref().white_logo
 	
 func set_default_team_logo():
-	team_logo.texture = self.team.logo
+	team_logo.texture = self.team.get_ref().logo
