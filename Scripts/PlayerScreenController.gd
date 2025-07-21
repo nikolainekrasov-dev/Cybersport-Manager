@@ -12,6 +12,7 @@ var player_age: Label
 var player_region: Label
 var player_team: Label
 var player_winnings: Label
+var team_logo: TextureButton
 var player_heroes_skill: HeroesSkillPanel
 var player: WeakRef
 
@@ -21,6 +22,7 @@ func _ready():
 	player_role = find_child("Player Role")
 	player_nick = find_child("Player Nick")
 	player_name = find_child("Player Name")
+	team_logo = find_child("Team Logo")
 	player_surname = find_child("Player Surname")
 	player_region = find_child("Player Region")
 	player_age = find_child("Player Age")
@@ -38,6 +40,7 @@ func update():
 	player_age.text = str(player.get_ref().get_age())
 	if player.get_ref().team != null and player.get_ref().team.get_ref() != null:
 		player_team.text = player.get_ref().team.get_ref().name
+		team_logo.texture_normal = player.get_ref().team.get_ref().logo
 	player_winnings.text = "%d $" % player.get_ref().winnings
 	
 	if player.get_ref().role == "Carry":
