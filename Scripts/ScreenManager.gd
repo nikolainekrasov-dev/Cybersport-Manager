@@ -43,6 +43,9 @@ func show_teams():
 func show_players():
 	show_screen("Players")
 	
+func show_tournaments():
+	show_screen("Tournaments")
+	
 func show_team(team):
 	if team != null and team.get_ref() != null:
 		screens["Team"].team = team

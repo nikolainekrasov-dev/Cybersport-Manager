@@ -840,7 +840,6 @@ libraries = {
 }
 
 [node name="Main Menu" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("2_mxolj")
 
 [node name="Background" type="TextureRect" parent="Main Menu"]
@@ -7279,6 +7278,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="Tournaments" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("118_buj1u")
 
 [node name="Background" type="TextureRect" parent="Tournaments"]
@@ -7640,6 +7640,8 @@ metadata/_custom_type_script = "uid://cwrche1rucjko"
 [connection signal="pressed" from="Home/Database Menu/Teams" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="." method="show_players"]
 [connection signal="pressed" from="Home/Database Menu/Players" to="Home/Database Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Database Menu/Tournaments" to="." method="show_tournaments"]
+[connection signal="pressed" from="Home/Database Menu/Tournaments" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="." method="show_heroes"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Heroes" method="update_heroes_table"]
