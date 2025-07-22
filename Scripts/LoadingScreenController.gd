@@ -31,6 +31,9 @@ func _ready():
 
 func update():
 	pass
+	
+func refresh():
+	pass
 
 func change_advice():
 	advice_index = (advice_index + 1) % len(advice)

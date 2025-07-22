@@ -71,3 +71,6 @@ func update():
 		second_ability.texture = hero_instance.second_ability_icon
 		third_ability.texture = hero_instance.third_ability_icon
 		fourth_ability.texture = hero_instance.fourth_ability_icon
+
+func refresh():
+	pass

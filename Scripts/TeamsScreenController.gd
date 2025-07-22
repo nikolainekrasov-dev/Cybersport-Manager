@@ -9,3 +9,6 @@ func _ready():
 
 func update():
 	teams_table.update_table_content()
+	
+func refresh():
+	pass

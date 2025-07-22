@@ -9,3 +9,6 @@ func _ready():
 
 func update():
 	tournaments_table.update()
+
+func refresh():
+	pass

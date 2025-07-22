@@ -32,3 +32,6 @@ func update():
 		team_logo.texture = new_team.logo
 		for player_role in new_team.roster:
 			roster[player_role].set_player(new_team.roster[player_role])
+
+func refresh():
+	pass

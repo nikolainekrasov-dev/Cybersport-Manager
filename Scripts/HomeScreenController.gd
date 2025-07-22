@@ -13,3 +13,6 @@ func _ready():
 func update():
 	schedule.update()
 	tournaments_menu.update()
+	
+func refresh():
+	pass

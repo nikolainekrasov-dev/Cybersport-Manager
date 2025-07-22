@@ -26,6 +26,9 @@ func fix_heroes_icon_count():
 	
 func update():
 	pass
+	
+func refresh():
+	pass
 
 func update_heroes_table():
 	fix_heroes_icon_count()

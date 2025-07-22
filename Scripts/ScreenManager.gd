@@ -64,6 +64,10 @@ func show_player(player):
 		screens["Player"].player = player
 		show_screen("Player")
 	
+func refresh_all_teams():
+	for screen in screens:
+		screens[screen].refresh()
+	
 func exit_game():
 	active_screen = null
 	screen_seq.clear()

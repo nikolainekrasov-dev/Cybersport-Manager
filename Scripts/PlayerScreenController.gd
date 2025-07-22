@@ -55,3 +55,6 @@ func update():
 		player_role.text = "SUP"
 		
 	player_heroes_skill.update(player)
+
+func refresh():
+	pass
