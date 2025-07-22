@@ -81,11 +81,11 @@ func get_current_stage():
 func get_match_result(first_team, second_team):
 	var match_between_teams = null
 	for m in matches:
-		if m.first_team.get_ref() == first_team.get_ref() and m.second_team.get_ref() == second_team.get_ref() or m.first_team.get_ref() == second_team.get_ref() and m.second_team.get_ref() == first_team.get_ref():
+		if m.get_ref().first_team.get_ref() == first_team.get_ref() and m.get_ref().second_team.get_ref() == second_team.get_ref() or m.get_ref().first_team.get_ref() == second_team.get_ref() and m.get_ref().second_team.get_ref() == first_team.get_ref():
 			match_between_teams = m
 			break
 	if match_between_teams != null:
-		return match_between_teams.first_team_score > match_between_teams.second_team_score
+		return match_between_teams.get_ref().first_team_score > match_between_teams.get_ref().second_team_score
 	return true
 		
 func sum_up_group_match_result(first_team_name, second_team_name, first_team_score, second_team_score):
