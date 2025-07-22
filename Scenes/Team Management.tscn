@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=176 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -52,14 +52,20 @@
 [ext_resource type="Texture2D" uid="uid://da4om4h1h8thf" path="res://Sprites/Home/Date Body.png" id="47_mw3us"]
 [ext_resource type="Script" uid="uid://dele6p47flkky" path="res://Scripts/ScheduleController.gd" id="47_xyo06"]
 [ext_resource type="Texture2D" uid="uid://bgu6sq7d5nr0x" path="res://Sprites/Home/Date Header.png" id="48_ak3ta"]
+[ext_resource type="Script" uid="uid://2cbfn4ic6oqc" path="res://Scripts/TournamentsMenu.gd" id="50_2ip8u"]
 [ext_resource type="Texture2D" uid="uid://cxsr0rt8k3vje" path="res://Sprites/Home/First Day.png" id="50_bjp12"]
 [ext_resource type="Script" uid="uid://b4ug0ykoqi1v7" path="res://Scripts/ScheduleDay.gd" id="51_aut1c"]
 [ext_resource type="Texture2D" uid="uid://s61boldftjwc" path="res://Sprites/Home/Second Day.png" id="51_rmrt1"]
+[ext_resource type="Script" uid="uid://6htveqjjjl2d" path="res://Scripts/SeedingTournamentGroupStageMenuBody.gd" id="52_bcd3g"]
 [ext_resource type="Texture2D" uid="uid://dgqpkl4b6mp1y" path="res://Sprites/Home/Third Day.png" id="52_bcrdx"]
+[ext_resource type="Texture2D" uid="uid://i4b7wq3i8as4" path="res://Sprites/Default Team In Group.png" id="52_rudnc"]
+[ext_resource type="Texture2D" uid="uid://b1qmf5sieb1am" path="res://Sprites/Bottom Team In Group.png" id="53_bcd3g"]
 [ext_resource type="Script" uid="uid://b162dann0bocq" path="res://Scripts/TodayMatches.gd" id="53_cdm35"]
+[ext_resource type="Script" uid="uid://dmchvdlk0jh1f" path="res://Scripts/TournamentGroup.gd" id="53_exhjw"]
 [ext_resource type="Texture2D" uid="uid://m3i1p1quktii" path="res://Sprites/Home/Fourth Day.png" id="53_w4a5l"]
 [ext_resource type="Texture2D" uid="uid://bxues8jh8pg6u" path="res://Sprites/Home/Fifth Day.png" id="54_xd3vi"]
 [ext_resource type="Texture2D" uid="uid://d283e0v2t2rul" path="res://Sprites/Home/Sixth Day.png" id="55_ianid"]
+[ext_resource type="Script" uid="uid://beb4s2xij6o7p" path="res://Scripts/TeamInGroup.gd" id="55_m6hf0"]
 [ext_resource type="StyleBox" uid="uid://2cw80nbyp2u3" path="res://Styles/Home Menu Style.tres" id="56_bcrdx"]
 [ext_resource type="Script" uid="uid://63ph6p3us3l2" path="res://Scripts/AnimatedMenu.gd" id="57_ianid"]
 [ext_resource type="Texture2D" uid="uid://cfa378irjphaa" path="res://Sprites/Home/Top Menu Item.png" id="57_w4a5l"]
@@ -681,6 +687,22 @@ bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmrt1"]
 bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ip8u"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4gyt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rudnc"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcd3g"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqky6"]
 bg_color = Color(1, 1, 1, 0)
@@ -3162,19 +3184,21 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Tournaments" type="Panel" parent="Home"]
+[node name="Tournaments Menu" type="Panel" parent="Home"]
 offset_left = 611.0
 offset_top = 350.0
 offset_right = 1376.0
 offset_bottom = 983.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ip8u")
+script = ExtResource("50_2ip8u")
 
-[node name="Tournaments Header" type="TextureRect" parent="Home/Tournaments"]
+[node name="Tournament Header" type="TextureRect" parent="Home/Tournaments Menu"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("46_audvj")
 
-[node name="Name" type="Label" parent="Home/Tournaments/Tournaments Header"]
+[node name="Name" type="Label" parent="Home/Tournaments Menu/Tournament Header"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -3188,19 +3212,2803 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_8me2i")
 theme_override_font_sizes/font_size = 20
 
-[node name="Stage" type="Label" parent="Home/Tournaments/Tournaments Header"]
+[node name="Stage" type="Label" parent="Home/Tournaments Menu/Tournament Header"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 40.0
+offset_top = 50.0
 offset_right = 20.0
-offset_bottom = 63.0
+offset_bottom = 73.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 15
+
+[node name="Seeding Tournament Group Stage Body" type="Panel" parent="Home/Tournaments Menu"]
+layout_mode = 0
+offset_top = 87.0
+offset_right = 765.0
+offset_bottom = 633.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p4gyt")
+script = ExtResource("52_bcd3g")
+
+[node name="Group A" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body" node_paths=PackedStringArray("teams")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 36.0
+offset_right = 366.0
+offset_bottom = 260.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rudnc")
+script = ExtResource("53_exhjw")
+teams = [NodePath("First Team"), NodePath("Second Team"), NodePath("Third Team"), NodePath("Fourth Team"), NodePath("Fifth Team")]
+
+[node name="Group A Header" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A"]
+clip_contents = true
+layout_mode = 0
+offset_right = 341.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcd3g")
+
+[node name="Group Label" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 92.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 15
+text = "Group A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -6.0
+offset_right = 211.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -6.0
+offset_right = 239.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -6.0
+offset_right = 266.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MD" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = -6.0
+offset_right = 301.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "MD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = -6.0
+offset_right = 326.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 341.0
+offset_bottom = 76.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 341.0
+offset_bottom = 113.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Third Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A"]
+layout_mode = 0
+offset_top = 113.0
+offset_right = 341.0
+offset_bottom = 150.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fourth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A"]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 341.0
+offset_bottom = 187.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fifth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A"]
+layout_mode = 0
+offset_top = 187.0
+offset_right = 341.0
+offset_bottom = 224.0
+texture_normal = ExtResource("53_bcd3g")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group A/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group B" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body" node_paths=PackedStringArray("teams")]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 36.0
+offset_right = 737.0
+offset_bottom = 260.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rudnc")
+script = ExtResource("53_exhjw")
+teams = [NodePath("First Team"), NodePath("Second Team"), NodePath("Third Team"), NodePath("Fourth Team"), NodePath("Fifth Team")]
+
+[node name="Group A Header" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B"]
+clip_contents = true
+layout_mode = 0
+offset_right = 341.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcd3g")
+
+[node name="Group Label" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 92.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 15
+text = "Group B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -6.0
+offset_right = 211.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -6.0
+offset_right = 239.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -6.0
+offset_right = 266.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MD" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = -6.0
+offset_right = 301.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "MD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = -6.0
+offset_right = 326.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 341.0
+offset_bottom = 76.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 341.0
+offset_bottom = 113.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Third Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B"]
+layout_mode = 0
+offset_top = 113.0
+offset_right = 341.0
+offset_bottom = 150.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fourth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B"]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 341.0
+offset_bottom = 187.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fifth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B"]
+layout_mode = 0
+offset_top = 187.0
+offset_right = 341.0
+offset_bottom = 224.0
+texture_normal = ExtResource("53_bcd3g")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group B/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group C" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body" node_paths=PackedStringArray("teams")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 285.0
+offset_right = 366.0
+offset_bottom = 509.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rudnc")
+script = ExtResource("53_exhjw")
+teams = [NodePath("First Team"), NodePath("Second Team"), NodePath("Third Team"), NodePath("Fourth Team"), NodePath("Fifth Team")]
+
+[node name="Group A Header" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C"]
+clip_contents = true
+layout_mode = 0
+offset_right = 341.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcd3g")
+
+[node name="Group Label" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 92.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 15
+text = "Group C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -6.0
+offset_right = 211.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -6.0
+offset_right = 239.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -6.0
+offset_right = 266.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MD" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = -6.0
+offset_right = 301.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "MD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = -6.0
+offset_right = 326.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 341.0
+offset_bottom = 76.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 341.0
+offset_bottom = 113.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Third Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C"]
+layout_mode = 0
+offset_top = 113.0
+offset_right = 341.0
+offset_bottom = 150.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fourth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C"]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 341.0
+offset_bottom = 187.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fifth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C"]
+layout_mode = 0
+offset_top = 187.0
+offset_right = 341.0
+offset_bottom = 224.0
+texture_normal = ExtResource("53_bcd3g")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group C/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group D" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body" node_paths=PackedStringArray("teams")]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 285.0
+offset_right = 737.0
+offset_bottom = 509.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rudnc")
+script = ExtResource("53_exhjw")
+teams = [NodePath("First Team"), NodePath("Second Team"), NodePath("Third Team"), NodePath("Fourth Team"), NodePath("Fifth Team")]
+
+[node name="Group A Header" type="Panel" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D"]
+clip_contents = true
+layout_mode = 0
+offset_right = 341.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcd3g")
+
+[node name="Group Label" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 92.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 15
+text = "Group D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -6.0
+offset_right = 211.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="W" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -6.0
+offset_right = 239.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -6.0
+offset_right = 266.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MD" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = -6.0
+offset_right = 301.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "MD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Group A Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = -6.0
+offset_right = 326.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 12
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 341.0
+offset_bottom = 76.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/First Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 341.0
+offset_bottom = 113.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Second Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Third Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D"]
+layout_mode = 0
+offset_top = 113.0
+offset_right = 341.0
+offset_bottom = 150.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Third Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fourth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D"]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 341.0
+offset_bottom = 187.0
+texture_normal = ExtResource("52_rudnc")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fourth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fifth Team" type="TextureButton" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D"]
+layout_mode = 0
+offset_top = 187.0
+offset_right = 341.0
+offset_bottom = 224.0
+texture_normal = ExtResource("53_bcd3g")
+script = ExtResource("55_m6hf0")
+
+[node name="Team Logo" type="TextureRect" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 13.5
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Team Name" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -5.5
+offset_right = 140.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+text_overrun_behavior = 3
+
+[node name="Matches" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -5.5
+offset_right = 208.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wins" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = -5.5
+offset_right = 236.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loses" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -5.5
+offset_right = 263.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Map Diff" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -5.5
+offset_right = 295.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Home/Tournaments Menu/Seeding Tournament Group Stage Body/Group D/Fifth Team"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 317.0
+offset_top = -5.5
+offset_right = 325.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Schedule" type="Panel" parent="Home"]
 offset_left = 1386.0
@@ -3253,6 +6061,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Today Matches"]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 90.0
 offset_right = 352.0

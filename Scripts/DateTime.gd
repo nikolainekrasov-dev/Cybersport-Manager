@@ -54,6 +54,9 @@ func describe():
 
 func is_equal(other_date):
 	return day == other_date.day and month == other_date.month and year == other_date.year
+	
+func is_greater(other_date):
+	return year > other_date.year or year == other_date.year and month > other_date.month or year == other_date.year and month == other_date.month and day > other_date.day
 
 static func get_random_date(left_border, right_border):
 	var result_year = left_border + randi() % (right_border - left_border + 1)

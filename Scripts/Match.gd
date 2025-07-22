@@ -2,20 +2,25 @@ class_name Match
 
 var first_team: WeakRef
 var second_team: WeakRef
+var first_team_score: int
+var second_team_score: int
 var date: DateTime
 var tournament: WeakRef
 var format: String
 var stage: String
+var callback: Callable
 static var matches: Array
 
+
 func _init(first_team_in_match, second_team_in_match, match_date,
-		match_tournament, match_format, match_stage):
+		match_tournament, match_format, match_stage, match_callback):
 	first_team = first_team_in_match
 	second_team = second_team_in_match
 	date = match_date
 	tournament = match_tournament
 	format = match_format
 	stage = match_stage
+	callback = match_callback
 	matches.append(self)
 	
 static func get_matches_for_date(date):
@@ -24,3 +29,19 @@ static func get_matches_for_date(date):
 		if m.date.is_equal(date):
 			matches_for_date.append(m)
 	return matches_for_date
+
+func play():
+	var winner = randi() % 2
+	var winner_score = 0
+	if format == "Best of 3":
+		winner_score = 2
+	elif format == "Best of 5":
+		winner_score = 3
+	var loser_score = randi() % winner_score
+	if winner == 0:
+		first_team_score = winner_score
+		second_team_score = loser_score
+	else:
+		first_team_score = loser_score
+		second_team_score = winner_score
+	callback.call(first_team.get_ref().name, second_team.get_ref().name, first_team_score, second_team_score)

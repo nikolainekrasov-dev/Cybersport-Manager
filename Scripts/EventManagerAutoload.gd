@@ -14,6 +14,8 @@ func setup_new_game():
 
 func move_to_date(date):
 	while not(current_date.is_equal(date)):
+		for m in Match.get_matches_for_date(current_date):
+			m.play()
 		current_date.add_day()
 		for event in on_date_changed:
 			event.call()
