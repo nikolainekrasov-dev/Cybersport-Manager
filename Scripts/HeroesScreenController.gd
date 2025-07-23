@@ -25,12 +25,6 @@ func fix_heroes_icon_count():
 		new_hero_info_icon.position = Vector2(119 * (i % 4), 87 * (i / 4))
 	
 func update():
-	pass
-	
-func refresh():
-	pass
-
-func update_heroes_table():
 	fix_heroes_icon_count()
 	var strength_heroes_icons = strength_heroes_table.get_children()
 	for i in range(len(HeroesManager.strength_heroes)):
@@ -41,4 +35,14 @@ func update_heroes_table():
 	var intelligence_heroes_icons = intelligence_heroes_table.get_children()
 	for i in range(len(HeroesManager.intelligence_heroes)):
 		intelligence_heroes_icons[i].set_hero(weakref(HeroesManager.intelligence_heroes[i]))
+	
+func refresh():
+	for child in strength_heroes_table.get_children():
+		child.queue_free()
+	
+	for child in agility_heroes_table.get_children():
+		child.queue_free()
+		
+	for child in intelligence_heroes_table.get_children():
+		child.queue_free()
 		
