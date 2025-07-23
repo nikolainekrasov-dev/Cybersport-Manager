@@ -1098,7 +1098,7 @@ offset_right = 737.0
 offset_bottom = 982.0
 theme_override_constants/separation = 0
 
-[node name="Europe" type="TextureButton" parent="Team Selection/Regions"]
+[node name="Europe" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("11_8me2i")
@@ -1108,6 +1108,8 @@ texture_focused = ExtResource("12_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/Europe"]
 layout_mode = 1
@@ -1126,7 +1128,7 @@ text = "EUROPE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="North America" type="TextureButton" parent="Team Selection/Regions"]
+[node name="North America" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("12_5ktfc")
@@ -1136,6 +1138,8 @@ texture_focused = ExtResource("13_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/North America"]
 layout_mode = 1
@@ -1154,7 +1158,7 @@ text = "NORTH AMERICA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="South America" type="TextureButton" parent="Team Selection/Regions"]
+[node name="South America" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("12_5ktfc")
@@ -1164,6 +1168,8 @@ texture_focused = ExtResource("13_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/South America"]
 layout_mode = 1
@@ -1182,7 +1188,7 @@ text = "SOUTH AMERICA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="East Asia" type="TextureButton" parent="Team Selection/Regions"]
+[node name="East Asia" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("12_5ktfc")
@@ -1192,6 +1198,8 @@ texture_focused = ExtResource("13_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/East Asia"]
 layout_mode = 1
@@ -1210,7 +1218,7 @@ text = "EAST ASIA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Southeast Asia" type="TextureButton" parent="Team Selection/Regions"]
+[node name="Southeast Asia" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("12_5ktfc")
@@ -1220,6 +1228,8 @@ texture_focused = ExtResource("13_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/Southeast Asia"]
 layout_mode = 1
@@ -1238,7 +1248,7 @@ text = "SOUTHEAST ASIA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CIS" type="TextureButton" parent="Team Selection/Regions"]
+[node name="CIS" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("12_5ktfc")
@@ -1248,6 +1258,8 @@ texture_focused = ExtResource("13_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/CIS"]
 layout_mode = 1
@@ -1266,7 +1278,7 @@ text = "CIS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Africa and Middle East" type="TextureButton" parent="Team Selection/Regions"]
+[node name="Africa and Middle East" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("12_5ktfc")
@@ -1276,6 +1288,8 @@ texture_focused = ExtResource("13_ljre4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/Africa and Middle East"]
 layout_mode = 1
@@ -1294,7 +1308,7 @@ text = "AFRICA AND MIDDLE EAST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Oceania" type="TextureButton" parent="Team Selection/Regions"]
+[node name="Oceania" type="TextureButton" parent="Team Selection/Regions" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("15_aj7oc")
@@ -1304,6 +1318,8 @@ texture_focused = ExtResource("16_y3n8q")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0.388235, 0.388235, 0.388235, 1), Color(1, 1, 1, 1)]])
 
 [node name="Label" type="Label" parent="Team Selection/Regions/Oceania"]
 layout_mode = 1
@@ -1389,7 +1405,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="1st Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="1st Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("18_ehs75")
@@ -1397,7 +1413,8 @@ texture_pressed = ExtResource("19_fudmk")
 texture_hover = ExtResource("19_fudmk")
 texture_focused = ExtResource("19_fudmk")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/1st Team"]
@@ -1427,7 +1444,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="2nd Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="2nd Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1435,7 +1452,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/2nd Team"]
@@ -1465,7 +1483,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="3rd Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="3rd Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1473,7 +1491,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/3rd Team"]
@@ -1503,7 +1522,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="4th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="4th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1511,7 +1530,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/4th Team"]
@@ -1541,7 +1561,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="5th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="5th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1549,7 +1569,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/5th Team"]
@@ -1579,7 +1600,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="6th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="6th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1587,7 +1608,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/6th Team"]
@@ -1617,7 +1639,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="7th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="7th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1625,7 +1647,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/7th Team"]
@@ -1655,7 +1678,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="8th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="8th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1663,7 +1686,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/8th Team"]
@@ -1693,7 +1717,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="9th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="9th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1701,7 +1725,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/9th Team"]
@@ -1731,7 +1756,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="10th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="10th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1739,7 +1764,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/10th Team"]
@@ -1769,7 +1795,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="11th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="11th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1777,7 +1803,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/11th Team"]
@@ -1807,7 +1834,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="12th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="12th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1815,7 +1842,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/12th Team"]
@@ -1845,7 +1873,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="13th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="13th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1853,7 +1881,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/13th Team"]
@@ -1883,7 +1912,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="14th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="14th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1891,7 +1920,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/14th Team"]
@@ -1921,7 +1951,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="15th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="15th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1929,7 +1959,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/15th Team"]
@@ -1959,7 +1990,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="16th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="16th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -1967,7 +1998,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/16th Team"]
@@ -1997,7 +2029,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="17th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="17th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2005,7 +2037,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/17th Team"]
@@ -2035,7 +2068,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="18th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="18th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2043,7 +2076,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/18th Team"]
@@ -2073,7 +2107,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="19th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="19th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2081,7 +2115,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/19th Team"]
@@ -2111,7 +2146,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="20th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="20th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2119,7 +2154,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/20th Team"]
@@ -2149,7 +2185,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="21th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="21th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2157,7 +2193,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/21th Team"]
@@ -2187,7 +2224,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="22th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="22th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2195,7 +2232,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/22th Team"]
@@ -2225,7 +2263,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="23th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="23th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2233,7 +2271,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/23th Team"]
@@ -2263,7 +2302,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="24th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="24th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2271,7 +2310,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/24th Team"]
@@ -2301,7 +2341,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="25th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="25th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2309,7 +2349,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/25th Team"]
@@ -2339,7 +2380,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="26th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="26th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2347,7 +2388,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/26th Team"]
@@ -2377,7 +2419,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="27th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="27th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2385,7 +2427,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/27th Team"]
@@ -2415,7 +2458,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="28th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="28th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2423,7 +2466,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/28th Team"]
@@ -2453,7 +2497,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="29th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="29th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2461,7 +2505,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/29th Team"]
@@ -2491,7 +2536,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="30th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="30th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2499,7 +2544,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/30th Team"]
@@ -2529,7 +2575,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="31th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="31th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2537,7 +2583,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/31th Team"]
@@ -2567,7 +2614,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="32th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="32th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2575,7 +2622,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/32th Team"]
@@ -2605,7 +2653,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="33th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="33th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2613,7 +2661,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/33th Team"]
@@ -2643,7 +2692,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="34th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="34th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2651,7 +2700,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/34th Team"]
@@ -2681,7 +2731,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="35th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="35th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2689,7 +2739,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/35th Team"]
@@ -2719,7 +2770,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="36th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="36th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2727,7 +2778,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/36th Team"]
@@ -2757,7 +2809,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="37th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="37th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2765,7 +2817,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/37th Team"]
@@ -2795,7 +2848,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="38th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="38th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2803,7 +2856,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/38th Team"]
@@ -2833,7 +2887,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="39th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="39th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("20_71nic")
@@ -2841,7 +2895,8 @@ texture_pressed = ExtResource("20_2v7ms")
 texture_hover = ExtResource("20_2v7ms")
 texture_focused = ExtResource("20_2v7ms")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/39th Team"]
@@ -2871,7 +2926,7 @@ theme_override_fonts/font = ExtResource("23_n8hfv")
 theme_override_font_sizes/font_size = 25
 uppercase = true
 
-[node name="40th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container"]
+[node name="40th Team" type="TextureButton" parent="Team Selection/Team Selection Menu/Teams/Teams container" node_paths=PackedStringArray("labels")]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("25_5he4t")
@@ -2879,7 +2934,8 @@ texture_pressed = ExtResource("26_ryuot")
 texture_hover = ExtResource("26_ryuot")
 texture_focused = ExtResource("26_ryuot")
 script = ExtResource("21_vl1f0")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Team Name")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Team Logo" type="TextureRect" parent="Team Selection/Team Selection Menu/Teams/Teams container/40th Team"]
@@ -2919,7 +2975,7 @@ offset_bottom = 1080.0
 texture = ExtResource("1_mrb3r")
 expand_mode = 1
 
-[node name="Forward Time" type="TextureButton" parent="Home"]
+[node name="Forward Time" type="TextureButton" parent="Home" node_paths=PackedStringArray("labels")]
 offset_left = 130.0
 offset_top = 137.0
 offset_right = 601.0
@@ -2932,7 +2988,8 @@ texture_focused = ExtResource("32_muq1j")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Forward Time"]
@@ -2950,7 +3007,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Forward Time"
 
-[node name="Team Management" type="TextureButton" parent="Home"]
+[node name="Team Management" type="TextureButton" parent="Home" node_paths=PackedStringArray("labels")]
 offset_left = 130.0
 offset_top = 292.0
 offset_right = 601.0
@@ -2963,7 +3020,8 @@ texture_focused = ExtResource("34_of6uf")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Team Management"]
@@ -2981,7 +3039,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Team Management"
 
-[node name="My Team Info" type="TextureButton" parent="Home"]
+[node name="My Team Info" type="TextureButton" parent="Home" node_paths=PackedStringArray("labels")]
 offset_left = 130.0
 offset_top = 447.0
 offset_right = 601.0
@@ -2994,7 +3052,8 @@ texture_focused = ExtResource("36_8w23o")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/My Team Info"]
@@ -3012,7 +3071,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "My Team Info"
 
-[node name="Database" type="TextureButton" parent="Home"]
+[node name="Database" type="TextureButton" parent="Home" node_paths=PackedStringArray("labels")]
 offset_left = 130.0
 offset_top = 602.0
 offset_right = 601.0
@@ -3025,7 +3084,8 @@ texture_focused = ExtResource("38_560ds")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database"]
@@ -3043,7 +3103,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Database"
 
-[node name="System" type="TextureButton" parent="Home"]
+[node name="System" type="TextureButton" parent="Home" node_paths=PackedStringArray("labels")]
 offset_left = 130.0
 offset_top = 758.0
 offset_right = 601.0
@@ -3056,7 +3116,8 @@ texture_focused = ExtResource("40_8uvl4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/System"]
@@ -3074,7 +3135,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "System"
 
-[node name="Exit To Main Menu" type="TextureButton" parent="Home"]
+[node name="Exit To Main Menu" type="TextureButton" parent="Home" node_paths=PackedStringArray("labels")]
 offset_left = 130.0
 offset_top = 875.0
 offset_right = 601.0
@@ -3087,7 +3148,8 @@ texture_focused = ExtResource("42_560ds")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Exit To Main Menu"]
@@ -6634,7 +6696,7 @@ theme_override_styles/panel = ExtResource("56_bcrdx")
 script = ExtResource("57_ianid")
 animator = NodePath("../../Menu\'s Animator")
 
-[node name="Start The Match" type="TextureButton" parent="Home/Forward Time Menu"]
+[node name="Start The Match" type="TextureButton" parent="Home/Forward Time Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_right = 471.0
 offset_bottom = 72.0
@@ -6646,7 +6708,8 @@ texture_focused = ExtResource("58_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Forward Time Menu/Start The Match"]
@@ -6664,7 +6727,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Start The Match"
 
-[node name="Skip The Match" type="TextureButton" parent="Home/Forward Time Menu"]
+[node name="Skip The Match" type="TextureButton" parent="Home/Forward Time Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_top = 72.0
 offset_right = 471.0
@@ -6677,7 +6740,8 @@ texture_focused = ExtResource("59_w4a5l")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Forward Time Menu/Skip The Match"]
@@ -6718,7 +6782,7 @@ offset_bottom = 519.0
 script = ExtResource("57_ianid")
 animator = NodePath("../../Menu\'s Animator")
 
-[node name="Team" type="TextureButton" parent="Home/My Team Info Menu"]
+[node name="Team" type="TextureButton" parent="Home/My Team Info Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_right = 471.0
 offset_bottom = 72.0
@@ -6730,7 +6794,8 @@ texture_focused = ExtResource("58_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/My Team Info Menu/Team"]
@@ -6750,7 +6815,7 @@ text = "Team"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Our Tournaments" type="TextureButton" parent="Home/My Team Info Menu"]
+[node name="Our Tournaments" type="TextureButton" parent="Home/My Team Info Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_top = 72.0
 offset_right = 471.0
@@ -6763,6 +6828,8 @@ texture_focused = ExtResource("59_w4a5l")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/My Team Info Menu/Our Tournaments"]
@@ -6809,7 +6876,7 @@ script = ExtResource("57_ianid")
 animator = NodePath("../../Menu\'s Animator")
 metadata/_custom_type_script = "uid://63ph6p3us3l2"
 
-[node name="Inbox" type="TextureButton" parent="Home/Team Management Menu"]
+[node name="Inbox" type="TextureButton" parent="Home/Team Management Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_right = 471.0
 offset_bottom = 72.0
@@ -6821,7 +6888,8 @@ texture_focused = ExtResource("58_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Team Management Menu/Inbox"]
@@ -6841,7 +6909,7 @@ text = "Inbox"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Negotiation" type="TextureButton" parent="Home/Team Management Menu"]
+[node name="Negotiation" type="TextureButton" parent="Home/Team Management Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_top = 72.0
 offset_right = 471.0
@@ -6853,7 +6921,8 @@ texture_disabled = ExtResource("61_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Team Management Menu/Negotiation"]
@@ -6873,7 +6942,7 @@ text = "Negotiation"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Calendar" type="TextureButton" parent="Home/Team Management Menu"]
+[node name="Calendar" type="TextureButton" parent="Home/Team Management Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_top = 144.0
 offset_right = 471.0
@@ -6886,7 +6955,8 @@ texture_focused = ExtResource("59_w4a5l")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Team Management Menu/Calendar"]
@@ -6930,7 +7000,7 @@ script = ExtResource("57_ianid")
 animator = NodePath("../../Menu\'s Animator")
 metadata/_custom_type_script = "uid://63ph6p3us3l2"
 
-[node name="Save Game" type="TextureButton" parent="Home/System Menu"]
+[node name="Save Game" type="TextureButton" parent="Home/System Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_right = 471.0
 offset_bottom = 72.0
@@ -6942,7 +7012,8 @@ texture_focused = ExtResource("58_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/System Menu/Save Game"]
@@ -6962,7 +7033,7 @@ text = "Save Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Load Game" type="TextureButton" parent="Home/System Menu"]
+[node name="Load Game" type="TextureButton" parent="Home/System Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_top = 72.0
 offset_right = 471.0
@@ -6975,7 +7046,8 @@ texture_focused = ExtResource("64_2w2tr")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/System Menu/Load Game"]
@@ -6995,7 +7067,7 @@ text = "Load Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings" type="TextureButton" parent="Home/System Menu"]
+[node name="Settings" type="TextureButton" parent="Home/System Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_top = 144.0
 offset_right = 471.0
@@ -7008,7 +7080,8 @@ texture_focused = ExtResource("59_w4a5l")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/System Menu/Settings"]
@@ -7054,7 +7127,7 @@ script = ExtResource("57_ianid")
 animator = NodePath("../../Menu\'s Animator")
 metadata/_custom_type_script = "uid://63ph6p3us3l2"
 
-[node name="Teams" type="TextureButton" parent="Home/Database Menu"]
+[node name="Teams" type="TextureButton" parent="Home/Database Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 0
 offset_right = 471.0
 offset_bottom = 72.0
@@ -7066,7 +7139,8 @@ texture_focused = ExtResource("58_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database Menu/Teams"]
@@ -7084,7 +7158,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Teams"
 
-[node name="Players" type="TextureButton" parent="Home/Database Menu"]
+[node name="Players" type="TextureButton" parent="Home/Database Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -7101,7 +7175,8 @@ texture_focused = ExtResource("64_2w2tr")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database Menu/Players"]
@@ -7119,7 +7194,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Players"
 
-[node name="Tournaments" type="TextureButton" parent="Home/Database Menu"]
+[node name="Tournaments" type="TextureButton" parent="Home/Database Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -7135,7 +7210,8 @@ texture_focused = ExtResource("59_w4a5l")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database Menu/Tournaments"]
@@ -7153,7 +7229,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Tournaments"
 
-[node name="All Matches" type="TextureButton" parent="Home/Database Menu"]
+[node name="All Matches" type="TextureButton" parent="Home/Database Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -7169,7 +7245,8 @@ texture_focused = ExtResource("58_ianid")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database Menu/All Matches"]
@@ -7187,7 +7264,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "All Matches"
 
-[node name="Statistics" type="TextureButton" parent="Home/Database Menu"]
+[node name="Statistics" type="TextureButton" parent="Home/Database Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -7207,7 +7284,8 @@ texture_focused = ExtResource("64_2w2tr")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database Menu/Statistics"]
@@ -7225,7 +7303,7 @@ theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 23
 text = "Statistics"
 
-[node name="Glossary" type="TextureButton" parent="Home/Database Menu"]
+[node name="Glossary" type="TextureButton" parent="Home/Database Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -7244,7 +7322,8 @@ texture_focused = ExtResource("59_w4a5l")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Database Menu/Glossary"]
@@ -7321,7 +7400,7 @@ text = "Are you sure?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Yes" type="TextureButton" parent="Home/Exit Menu"]
+[node name="Yes" type="TextureButton" parent="Home/Exit Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -7337,7 +7416,8 @@ texture_focused = ExtResource("66_1pyhs")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Exit Menu/Yes"]
@@ -7360,7 +7440,7 @@ text = "Yes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="No" type="TextureButton" parent="Home/Exit Menu"]
+[node name="No" type="TextureButton" parent="Home/Exit Menu" node_paths=PackedStringArray("labels")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -7379,7 +7459,8 @@ texture_focused = ExtResource("66_1pyhs")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Label")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Label" type="Label" parent="Home/Exit Menu/No"]
@@ -8124,7 +8205,7 @@ theme_override_styles/normal_mirrored = ExtResource("80_s63yl")
 theme_override_styles/normal = ExtResource("80_s63yl")
 text = "VIEW MORE MATCH HISTORY"
 
-[node name="First Match Menu Item" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo")]
+[node name="First Match Menu Item" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
 layout_mode = 2
 offset_top = 84.0
 offset_right = 830.0
@@ -8144,6 +8225,8 @@ result = NodePath("Result")
 date = NodePath("Date")
 stage = NodePath("Stage")
 tournament_logo = NodePath("Tournament Logo")
+labels = [NodePath("Result"), NodePath("Date"), NodePath("Stage")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="First Team Logo" type="TextureRect" parent="Team/Left Panel/History/First Match Menu Item"]
@@ -8224,7 +8307,7 @@ offset_right = 803.0
 offset_bottom = 22.5
 grow_vertical = 2
 
-[node name="Second Match Menu Item" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo")]
+[node name="Second Match Menu Item" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
 offset_top = 168.0
 offset_right = 830.0
 offset_bottom = 252.0
@@ -8243,6 +8326,8 @@ result = NodePath("Result")
 date = NodePath("Date")
 stage = NodePath("Stage")
 tournament_logo = NodePath("Tournament Logo")
+labels = [NodePath("Result"), NodePath("Date"), NodePath("Stage")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="First Team Logo" type="TextureRect" parent="Team/Left Panel/History/Second Match Menu Item"]
@@ -8323,7 +8408,7 @@ offset_right = 803.0
 offset_bottom = 22.5
 grow_vertical = 2
 
-[node name="Third Match Menu Item3" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo")]
+[node name="Third Match Menu Item3" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
 offset_top = 252.0
 offset_right = 830.0
 offset_bottom = 336.0
@@ -8342,6 +8427,8 @@ result = NodePath("Result")
 date = NodePath("Date")
 stage = NodePath("Stage")
 tournament_logo = NodePath("Tournament Logo")
+labels = [NodePath("Result"), NodePath("Date"), NodePath("Stage")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="First Team Logo" type="TextureRect" parent="Team/Left Panel/History/Third Match Menu Item3"]
@@ -10722,7 +10809,6 @@ texture_disabled = ExtResource("120_xwbbt")
 texture_focused = ExtResource("121_2ip8u")
 stretch_mode = 0
 script = ExtResource("13_y3n8q")
-default_text_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [connection signal="pressed" from="Main Menu/Menu background/Menu/New game" to="." method="show_team_selection"]

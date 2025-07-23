@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dkpcrvjmbigg2" path="res://Fonts/ALS Gorizont Bold.ttf" id="3_ghdgv"]
 [ext_resource type="Script" uid="uid://b3d1ndmmqydey" path="res://Scripts/PlayerMenuItem.gd" id="3_v63jw"]
 
-[node name="Player Menu Item" type="TextureButton"]
+[node name="Player Menu Item" type="TextureButton" node_paths=PackedStringArray("labels")]
 texture_normal = ExtResource("1_4ydgg")
 texture_pressed = ExtResource("2_v63jw")
 texture_hover = ExtResource("2_v63jw")
@@ -13,7 +13,8 @@ texture_disabled = ExtResource("1_4ydgg")
 texture_focused = ExtResource("2_v63jw")
 stretch_mode = 0
 script = ExtResource("3_v63jw")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Nick"), NodePath("Age"), NodePath("Role"), NodePath("Region"), NodePath("Free Agent"), NodePath("Rating"), NodePath("Winnings")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Photo" type="TextureRect" parent="."]

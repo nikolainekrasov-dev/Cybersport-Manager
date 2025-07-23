@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dkpcrvjmbigg2" path="res://Fonts/ALS Gorizont Bold.ttf" id="4_gp870"]
 [ext_resource type="FontFile" uid="uid://dlerfbtfi5ksu" path="res://Fonts/ALS Gorizont Medium.otf" id="5_oj0sh"]
 
-[node name="Team Menu Item" type="TextureButton" node_paths=PackedStringArray("team_logo", "team_name", "team_region", "team_rating", "team_winrate", "team_total_winnings")]
+[node name="Team Menu Item" type="TextureButton" node_paths=PackedStringArray("team_logo", "team_name", "team_region", "team_rating", "team_winrate", "team_total_winnings", "labels")]
 size_flags_vertical = 3
 texture_normal = ExtResource("1_m8rlj")
 texture_pressed = ExtResource("2_ohh6k")
@@ -20,7 +20,8 @@ team_region = NodePath("Region")
 team_rating = NodePath("Rating")
 team_winrate = NodePath("Winrate")
 team_total_winnings = NodePath("Total Winnings")
-default_text_color = Color(0, 0, 0, 1)
+labels = [NodePath("Name"), NodePath("Region"), NodePath("Rating"), NodePath("Winrate"), NodePath("Total Winnings")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]])
 metadata/_custom_type_script = "uid://cwrche1rucjko"
 
 [node name="Logo" type="TextureRect" parent="."]
