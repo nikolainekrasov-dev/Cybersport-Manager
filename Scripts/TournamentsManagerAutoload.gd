@@ -5,7 +5,7 @@ class_name TournamentsManagerAutoload
 var tournaments = []
 
 func setup_tournaments_for_new_game():
-	Match.matches.clear()
+	Match.clear_matches()
 	tournaments.clear()
 	for region in TeamsManager.teams_by_region:
 		var tournament = null
