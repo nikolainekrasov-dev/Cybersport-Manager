@@ -6245,8 +6245,7 @@ theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/First Day"]
-visible = false
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/First Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6259,8 +6258,7 @@ offset_right = -42.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="VS" type="Label" parent="Home/Schedule/Future Days/First Day"]
 visible = false
@@ -6283,8 +6281,7 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/First Day"]
-visible = false
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/First Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6297,8 +6294,7 @@ offset_right = 99.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="Second Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -6321,8 +6317,7 @@ theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Second Day"]
-visible = false
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Second Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6335,8 +6330,7 @@ offset_right = -42.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="VS" type="Label" parent="Home/Schedule/Future Days/Second Day"]
 visible = false
@@ -6359,8 +6353,7 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Second Day"]
-visible = false
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Second Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6373,8 +6366,7 @@ offset_right = 99.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="Third Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -6397,8 +6389,7 @@ theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Third Day"]
-visible = false
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Third Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6411,8 +6402,7 @@ offset_right = -42.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="VS" type="Label" parent="Home/Schedule/Future Days/Third Day"]
 visible = false
@@ -6435,8 +6425,7 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Third Day"]
-visible = false
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Third Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6449,8 +6438,7 @@ offset_right = 99.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="Fourth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -6473,8 +6461,7 @@ theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fourth Day"]
-visible = false
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Fourth Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6487,8 +6474,7 @@ offset_right = -42.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="VS" type="Label" parent="Home/Schedule/Future Days/Fourth Day"]
 visible = false
@@ -6511,8 +6497,7 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fourth Day"]
-visible = false
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Fourth Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6525,8 +6510,7 @@ offset_right = 99.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="Fifth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -6549,8 +6533,7 @@ theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fifth Day"]
-visible = false
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Fifth Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6563,8 +6546,7 @@ offset_right = -42.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="VS" type="Label" parent="Home/Schedule/Future Days/Fifth Day"]
 visible = false
@@ -6587,8 +6569,7 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Fifth Day"]
-visible = false
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Fifth Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6601,8 +6582,7 @@ offset_right = 99.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="Sixth Day" type="TextureButton" parent="Home/Schedule/Future Days"]
 layout_mode = 2
@@ -6625,8 +6605,7 @@ theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 theme_override_fonts/font = ExtResource("3_os5ib")
 theme_override_font_sizes/font_size = 20
 
-[node name="First Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Sixth Day"]
-visible = false
+[node name="First Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Sixth Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6639,8 +6618,7 @@ offset_right = -42.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="VS" type="Label" parent="Home/Schedule/Future Days/Sixth Day"]
 visible = false
@@ -6663,8 +6641,7 @@ text = "VS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Second Team Logo" type="TextureButton" parent="Home/Schedule/Future Days/Sixth Day"]
-visible = false
+[node name="Second Team Logo" type="TextureRect" parent="Home/Schedule/Future Days/Sixth Day"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -6677,8 +6654,7 @@ offset_right = 99.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-ignore_texture_size = true
-stretch_mode = 0
+expand_mode = 1
 
 [node name="Screen Dimmer" type="ColorRect" parent="Home"]
 visible = false
@@ -8308,6 +8284,7 @@ offset_bottom = 22.5
 grow_vertical = 2
 
 [node name="Second Match Menu Item" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 168.0
 offset_right = 830.0
 offset_bottom = 252.0
@@ -8409,6 +8386,7 @@ offset_bottom = 22.5
 grow_vertical = 2
 
 [node name="Third Match Menu Item3" type="TextureButton" parent="Team/Left Panel/History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 252.0
 offset_right = 830.0
 offset_bottom = 336.0
@@ -10843,8 +10821,8 @@ metadata/_custom_type_script = "uid://cwrche1rucjko"
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Heroes" method="update_heroes_table"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
-[connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="refresh_all_screens"]
+[connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/No" to="Home/Exit Menu" method="close_menu"]
 [connection signal="pressed" from="Teams/Back Button" to="." method="show_prev_screen"]

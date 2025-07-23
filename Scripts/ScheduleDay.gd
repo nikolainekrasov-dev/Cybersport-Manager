@@ -6,8 +6,8 @@ class_name ScheduleDay
 var date: DateTime
 var number_label: Label
 var vs_label: Label
-var first_team_logo: TextureButton
-var second_team_logo: TextureButton
+var first_team_logo: TextureRect
+var second_team_logo: TextureRect
 var day_matches: Array
 
 func _ready():
@@ -33,9 +33,9 @@ func change_number():
 			second_team_logo.visible = true
 			vs_label.visible = true
 			if m.first_team != null and m.first_team.get_ref() != null:
-				first_team_logo.texture_normal = m.first_team.get_ref().logo
+				first_team_logo.texture = m.first_team.get_ref().logo
 			if m.second_team != null and m.second_team.get_ref() != null:
-				second_team_logo.texture_normal = m.second_team.get_ref().logo
+				second_team_logo.texture = m.second_team.get_ref().logo
 			day_matches.append(m)
 	if day_matches.is_empty():
 		vs_label.visible = false
