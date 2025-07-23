@@ -8,8 +8,8 @@ var screen_seq = []
 
 func _ready():
 	for screen in get_children():
-		screens[screen.name] = screen
-	#screens["Player"] = screens["Player"] as PlayerScreenController
+		if not(screen.name.ends_with("Animator")):
+			screens[screen.name] = screen
 	active_screen = screens["Main Menu"]
 	
 func show_screen(screen_name):
@@ -64,7 +64,7 @@ func show_player(player):
 		screens["Player"].player = player
 		show_screen("Player")
 	
-func refresh_all_teams():
+func refresh_all_screens():
 	for screen in screens:
 		screens[screen].refresh()
 	

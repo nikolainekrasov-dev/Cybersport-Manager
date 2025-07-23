@@ -14,13 +14,14 @@ func _ready():
 	}
 	
 func update():
-	var sorted_groups = tournament.get_ref().get_sorted_groups()
-	groups["Group A"].group = sorted_groups[0]
-	groups["Group A"].update()
-	groups["Group B"].group = sorted_groups[1]
-	groups["Group B"].update()
-	groups["Group C"].group = sorted_groups[2]
-	groups["Group C"].update()
-	groups["Group D"].group = sorted_groups[3]
-	groups["Group D"].update()
+	if tournament != null and tournament.get_ref() != null:
+		var sorted_groups = tournament.get_ref().get_sorted_groups()
+		groups["Group A"].group = sorted_groups[0]
+		groups["Group A"].update()
+		groups["Group B"].group = sorted_groups[1]
+		groups["Group B"].update()
+		groups["Group C"].group = sorted_groups[2]
+		groups["Group C"].update()
+		groups["Group D"].group = sorted_groups[3]
+		groups["Group D"].update()
 	

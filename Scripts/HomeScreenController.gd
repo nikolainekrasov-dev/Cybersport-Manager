@@ -15,4 +15,4 @@ func update():
 	tournaments_menu.update()
 	
 func refresh():
-	pass
+	tournaments_menu.refresh()

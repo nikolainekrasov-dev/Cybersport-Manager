@@ -10456,6 +10456,7 @@ metadata/_custom_type_script = "uid://cwrche1rucjko"
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Heroes" method="update_heroes_table"]
 [connection signal="pressed" from="Home/Database Menu Close Button" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="show_main_menu"]
+[connection signal="pressed" from="Home/Exit Menu/Yes" to="." method="refresh_all_screens"]
 [connection signal="pressed" from="Home/Exit Menu/Yes" to="Home/Exit Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Exit Menu/No" to="Home/Exit Menu" method="close_menu"]
 [connection signal="pressed" from="Teams/Back Button" to="." method="show_prev_screen"]

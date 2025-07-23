@@ -25,24 +25,29 @@ func _ready():
 	
 func update():
 	active_tournaments = TournamentsManager.get_announced_tournaments()
+	tournaments_bodies["Seeding Tournament Group Stage Body"].update()
 	if not(has_timer_started):
+		tournament_index = 0
 		has_timer_started = true
 		change_tournament()
 		timer.start()
 	
+func refresh():
+	tournaments_bodies["Seeding Tournament Group Stage Body"].tournament = null
+	has_timer_started = false
+	timer.stop()
 	
 func change_tournament():
 	if len(active_tournaments) > 0:
 		if tournament_index >= len(active_tournaments):
 			tournament_index = 0
 		tournament_index = tournament_index % len(active_tournaments)
-		tournament_name.text = active_tournaments[tournament_index].get_ref().name
-		tournament_stage.text = active_tournaments[tournament_index].get_ref().get_current_stage()
 		if active_tournaments[tournament_index].get_ref():
+			tournament_name.text = active_tournaments[tournament_index].get_ref().name
+			tournament_stage.text = active_tournaments[tournament_index].get_ref().get_current_stage()
 			for tournament_body in tournaments_bodies:
 				tournaments_bodies[tournament_body].visible = false
 			tournaments_bodies["Seeding Tournament Group Stage Body"].visible = true
 			tournaments_bodies["Seeding Tournament Group Stage Body"].tournament = active_tournaments[tournament_index]
 			tournaments_bodies["Seeding Tournament Group Stage Body"].update()
 		tournament_index += 1
-	
