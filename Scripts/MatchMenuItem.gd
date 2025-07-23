@@ -10,6 +10,11 @@ class_name MatchMenuItem
 @export var tournament_logo: TextureRect
 var match_to_display: WeakRef
 
+func _ready():
+	super._ready()
+	connect("mouse_entered", Callable(self, "set_hover_logos"))
+	connect("mouse_exited", Callable(self, "set_default_logos"))
+
 func update(new_match):
 	match_to_display = new_match
 	if match_to_display != null and match_to_display.get_ref() != null:
@@ -19,3 +24,11 @@ func update(new_match):
 		stage.text = match_to_display.get_ref().stage
 		if EventManager.current_date.is_greater(match_to_display.get_ref().date):
 			result.text = "%d:%d" % [match_to_display.get_ref().first_team_score, match_to_display.get_ref().second_team_score]
+			
+func set_hover_logos():
+	first_team_logo.texture = match_to_display.get_ref().first_team.get_ref().white_logo
+	second_team_logo.texture = match_to_display.get_ref().second_team.get_ref().white_logo
+	
+func set_default_logos():
+	first_team_logo.texture = match_to_display.get_ref().first_team.get_ref().logo
+	second_team_logo.texture = match_to_display.get_ref().second_team.get_ref().logo
