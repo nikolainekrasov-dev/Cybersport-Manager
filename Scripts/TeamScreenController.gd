@@ -25,16 +25,17 @@ func _ready():
 			"Pusher": find_child("Pusher Role") as PlayerIcon,
 			"Support": find_child("Support Role") as PlayerIcon}
 
-func update():
+func update(new_team):
+	team = new_team
 	if team != null and team.get_ref() != null:
-		var new_team = team.get_ref()
-		team_name.text = new_team.name
-		team_rating.text = str(new_team.rating)
-		team_winnings.text = str(new_team.total_winnings)
-		team_region.text = new_team.region
-		team_logo.texture = new_team.logo
-		for player_role in new_team.roster:
-			roster[player_role].set_player(new_team.roster[player_role])
+		var team_ref = team.get_ref()
+		team_name.text = team_ref.name
+		team_rating.text = str(team_ref.rating)
+		team_winnings.text = str(team_ref.total_winnings)
+		team_region.text = team_ref.region
+		team_logo.texture = team_ref.logo
+		for player_role in team_ref.roster:
+			roster[player_role].update(team_ref.roster[player_role])
 		var matches = Match.get_past_sorted_matches_for_team(team)
 		if len(matches) == 0:
 			the_first_match.visible = false

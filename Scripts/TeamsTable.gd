@@ -111,7 +111,7 @@ func display_teams():
 	for i in range(len(teams_buttons)):
 		if i < len(teams_to_display):
 			teams_buttons[i].show()
-			teams_buttons[i].set_team(teams_to_display[i])
+			teams_buttons[i].update(teams_to_display[i])
 		else:
 			teams_buttons[i].hide()
 	

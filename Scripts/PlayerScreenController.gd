@@ -15,6 +15,7 @@ var player_winnings: Label
 var team_logo: TextureButton
 var player_heroes_skill: HeroesSkillPanel
 var player: WeakRef
+@export var last_matches: Array[MatchMenuItem]
 
 func _ready():
 	player_photo = find_child("Player Photo")
@@ -30,7 +31,8 @@ func _ready():
 	player_winnings = find_child("Player Winnings")
 	player_heroes_skill = find_child("Player Heroes Skill")
 
-func update():
+func update(new_player):
+	player = new_player
 	player_photo.texture = player.get_ref().photo
 	player_rating.text = str(player.get_ref().rating)
 	player_nick.text = player.get_ref().nick
@@ -42,6 +44,13 @@ func update():
 		player_team.text = player.get_ref().team.get_ref().name
 		team_logo.texture_normal = player.get_ref().team.get_ref().logo
 	player_winnings.text = "%d $" % player.get_ref().winnings
+	var player_matches = Match.get_matches_for_player(player)
+	for i in range(len(last_matches)):
+		if i < len(player_matches):
+			last_matches[i].visible = true
+			last_matches[i].update(player_matches[i])
+		else:
+			last_matches[i].visible = false
 	
 	if player.get_ref().role == "Carry":
 		player_role.text = "CAR"

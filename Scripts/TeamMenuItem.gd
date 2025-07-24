@@ -22,7 +22,7 @@ func _ready():
 func display_team():
 	screen_manager.show_team(team)
 
-func set_team(new_team):
+func update(new_team):
 	if new_team != null and new_team.get_ref() != null:
 		team = new_team
 		team_logo.texture = team.get_ref().logo

@@ -17,7 +17,6 @@ func show_screen(screen_name):
 	active_screen.visible = false
 	active_screen = screens[screen_name]
 	active_screen.visible = true
-	active_screen.update()
 	
 func show_prev_screen():
 	var screen_to_show = screen_seq.pop_back()
@@ -35,12 +34,15 @@ func show_loading():
 	show_screen("Loading")
 
 func show_home():
+	screens["Home"].update()
 	show_screen("Home")
 	
 func show_teams():
+	screens["Teams"].update()
 	show_screen("Teams")
 	
 func show_players():
+	screens["Players"].update()
 	show_screen("Players")
 	
 func show_tournaments():
@@ -48,10 +50,11 @@ func show_tournaments():
 	
 func show_team(team):
 	if team != null and team.get_ref() != null:
-		screens["Team"].team = team
+		screens["Team"].update(team)
 		show_screen("Team")
 	
 func show_heroes():
+	screens["Heroes"].update()
 	show_screen("Heroes")
 	
 func show_hero(hero):
@@ -61,7 +64,7 @@ func show_hero(hero):
 	
 func show_player(player):
 	if player != null and player.get_ref() != null:
-		screens["Player"].player = player
+		screens["Player"].update(player)
 		show_screen("Player")
 	
 func refresh_all_screens():

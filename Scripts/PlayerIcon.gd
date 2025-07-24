@@ -12,11 +12,12 @@ func _ready():
 	player_photo = find_child("Photo")
 	player_photo.connect("pressed", Callable(self, "display_player"))
 	
-func set_player(new_player):
-	if new_player != null and new_player.get_ref() != null:
-		player = new_player
+func update(new_player):
+	player = new_player
+	if player != null and player.get_ref() != null:
 		player_nick.text = player.get_ref().nick
 		player_photo.texture_normal = player.get_ref().photo
 		
 func display_player():
-	screen_manager.show_player(player)
+	if player != null and player.get_ref() != null:
+		screen_manager.show_player(player)

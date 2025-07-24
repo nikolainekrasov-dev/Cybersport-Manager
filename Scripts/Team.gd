@@ -32,7 +32,10 @@ func nullify_team():
 	games_lost = 0
 	rating = start_team_rating
 	total_winnings = 0
-	
+
+func has_player(player):
+	return roster[player.get_ref().role].get_ref() == player.get_ref()
+
 func winrate():
 	var games_played = games_won + games_drawn + games_lost
 	if games_played == 0:

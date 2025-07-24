@@ -32,6 +32,14 @@ static func get_matches_for_date(date):
 		if m.date.is_equal(date):
 			matches_for_date.append(m)
 	return matches_for_date
+	
+static func get_matches_for_player(player):
+	var player_matches = []
+	for m in past_matches:
+		if m.first_team.get_ref().has_player(player) or m.second_team.get_ref().has_player(player):
+			player_matches.append(weakref(m))
+	player_matches.sort_custom(func(a, b): return a.get_ref().date.is_greater(b.get_ref().date))
+	return player_matches
 
 static func get_past_sorted_matches_for_team(team):
 	var matches_for_team = []
