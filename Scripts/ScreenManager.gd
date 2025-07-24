@@ -46,6 +46,10 @@ func show_players():
 	screens["Players"].update()
 	show_screen("Players")
 	
+func show_matches():
+	screens["Matches"].update()
+	show_screen("Matches")
+	
 func show_tournaments():
 	show_screen("Tournaments")
 	
