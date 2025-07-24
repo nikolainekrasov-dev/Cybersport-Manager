@@ -91,7 +91,7 @@
 [ext_resource type="Script" uid="uid://bhvrgncgc6cf8" path="res://Scripts/LoadingScreenController.gd" id="74_m33au"]
 [ext_resource type="Texture2D" uid="uid://ipcgnrj00aqt" path="res://Sprites/Pressed Down Arrow.png" id="76_6e0qj"]
 [ext_resource type="Script" uid="uid://b3icnptolqwtp" path="res://Scripts/TeamScreenController.gd" id="78_aup3r"]
-[ext_resource type="Texture2D" uid="uid://dxhfyuulkflld" path="res://Teams/AllStars eSports/white_logo.png" id="78_jwx42"]
+[ext_resource type="Texture2D" uid="uid://exwnl2io37ln" path="res://Teams/AllStars eSports/white_logo.png" id="78_jwx42"]
 [ext_resource type="StyleBox" uid="uid://c7tqbl1ixvkdb" path="res://Styles/Hover Team Screen Button.tres" id="79_a0n5v"]
 [ext_resource type="Texture2D" uid="uid://by7uqenogdjy5" path="res://Sprites/Pressed Top Arrow.png" id="80_pu5sy"]
 [ext_resource type="StyleBox" uid="uid://crermaeax7tex" path="res://Styles/Team Screen Button.tres" id="80_s63yl"]
