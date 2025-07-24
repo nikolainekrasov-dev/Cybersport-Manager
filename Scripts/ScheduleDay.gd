@@ -28,7 +28,7 @@ func change_number():
 	number_label.text = str(date.day).pad_zeros(2)
 	day_matches = []
 	for m in Match.get_matches_for_date(date):
-		if m.first_team != null and m.first_team.get_ref() != null and m.first_team.get_ref() == TeamsManager.player_team or m.second_team != null and m.second_team.get_ref() != null and m.second_team.get_ref() == TeamsManager.player_team:
+		if m.first_team != null and m.first_team.get_ref() == TeamsManager.player_team or m.second_team != null and m.second_team.get_ref() == TeamsManager.player_team:
 			first_team_logo.visible = true
 			second_team_logo.visible = true
 			vs_label.visible = true

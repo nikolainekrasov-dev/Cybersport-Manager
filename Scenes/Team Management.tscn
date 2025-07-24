@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=192 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -133,6 +133,14 @@
 [ext_resource type="Script" uid="uid://nwqhq814w8te" path="res://Scripts/MatchHistoryPanel.gd" id="127_gogn4"]
 [ext_resource type="Script" uid="uid://bewv72sodcl1m" path="res://Scripts/MatchesScreenController.gd" id="132_c2ngp"]
 [ext_resource type="Script" uid="uid://coognf0ymii6m" path="res://Scripts/MatchesTable.gd" id="133_tca7i"]
+[ext_resource type="Script" uid="uid://dhlamvn2j0xxg" path="res://Scripts/CalendarScreenController.gd" id="134_n0tq7"]
+[ext_resource type="Texture2D" uid="uid://b6magysikcvot" path="res://Sprites/Calendar/Right Calendar Day.png" id="135_bggdr"]
+[ext_resource type="Script" uid="uid://c5i6nhobqlv5s" path="res://Scripts/CalendarDay.gd" id="135_es8ar"]
+[ext_resource type="Script" uid="uid://byrxa87a5g7g7" path="res://Scripts/CalendarDays.gd" id="135_ryo1a"]
+[ext_resource type="Texture2D" uid="uid://d3y52j7d5kng4" path="res://Sprites/Calendar/Next Month Button.png" id="135_y32da"]
+[ext_resource type="Texture2D" uid="uid://bd8ux3gu41apk" path="res://Sprites/Calendar/Prev Month Button.png" id="136_es8ar"]
+[ext_resource type="Texture2D" uid="uid://bat5fr6ibsl0y" path="res://Sprites/Calendar/Hover Calendar Day.png" id="136_ryo1a"]
+[ext_resource type="Texture2D" uid="uid://d4kyyogaw7ng5" path="res://Sprites/Calendar/Middle Calendar Day.png" id="138_bggdr"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -850,6 +858,11 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lghwh"]
 bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x05a1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Screen manager" type="Control"]
 layout_mode = 3
@@ -11810,6 +11823,3326 @@ container = NodePath("VBoxContainer")
 layout_mode = 2
 theme_override_constants/separation = 0
 
+[node name="Calendar" type="CanvasLayer" parent="." node_paths=PackedStringArray("date_label", "days")]
+visible = false
+script = ExtResource("134_n0tq7")
+date_label = NodePath("Table Header/Date Label")
+days = NodePath("Days")
+
+[node name="Background" type="TextureRect" parent="Calendar"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mrb3r")
+
+[node name="Back Button" type="Button" parent="Calendar"]
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 231.0
+offset_bottom = 86.0
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("11_qm2px")
+theme_override_styles/disabled_mirrored = ExtResource("11_qm2px")
+theme_override_styles/disabled = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover_pressed = ExtResource("11_qm2px")
+theme_override_styles/hover_mirrored = ExtResource("11_qm2px")
+theme_override_styles/hover = ExtResource("11_qm2px")
+theme_override_styles/pressed_mirrored = ExtResource("11_qm2px")
+theme_override_styles/pressed = ExtResource("11_qm2px")
+theme_override_styles/normal_mirrored = ExtResource("11_qm2px")
+theme_override_styles/normal = ExtResource("11_qm2px")
+text = "BACK"
+icon = ExtResource("12_i5bvx")
+
+[node name="Search Tab" type="TextureRect" parent="Calendar"]
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 1775.0
+offset_bottom = 197.0
+texture = ExtResource("62_dy24r")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Calendar/Search Tab"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -11.5
+offset_right = 85.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 30
+text = "CALENDAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Table Header" type="TextureRect" parent="Calendar"]
+clip_contents = true
+offset_left = 130.0
+offset_top = 210.0
+offset_right = 1775.0
+offset_bottom = 270.0
+texture = ExtResource("63_hlwi5")
+expand_mode = 1
+
+[node name="Date Label" type="Label" parent="Calendar/Table Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -11.5
+offset_right = 64.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("10_8me2i")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Days" type="Panel" parent="Calendar" node_paths=PackedStringArray("days")]
+clip_contents = true
+offset_left = 130.0
+offset_top = 270.0
+offset_right = 1775.0
+offset_bottom = 980.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x05a1")
+script = ExtResource("135_ryo1a")
+days = [NodePath("Day1"), NodePath("Day2"), NodePath("Day3"), NodePath("Day4"), NodePath("Day5"), NodePath("Day6"), NodePath("Day7"), NodePath("Day8"), NodePath("Day9"), NodePath("Day10"), NodePath("Day11"), NodePath("Day12"), NodePath("Day13"), NodePath("Day14"), NodePath("Day15"), NodePath("Day16"), NodePath("Day17"), NodePath("Day18"), NodePath("Day19"), NodePath("Day20"), NodePath("Day21"), NodePath("Day22"), NodePath("Day23"), NodePath("Day24"), NodePath("Day25"), NodePath("Day26"), NodePath("Day27"), NodePath("Day28"), NodePath("Day29"), NodePath("Day30"), NodePath("Day31")]
+
+[node name="Day1" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 142.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day1"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day1"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 235.0
+offset_right = 470.0
+offset_bottom = 142.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day2"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "02"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 470.0
+offset_right = 705.0
+offset_bottom = 142.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day3"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "03"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 705.0
+offset_right = 940.0
+offset_bottom = 142.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day4"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "04"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day4"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 940.0
+offset_right = 1175.0
+offset_bottom = 142.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day5"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day5"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1175.0
+offset_right = 1410.0
+offset_bottom = 142.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day6"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "06"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day6"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1410.0
+offset_right = 1645.0
+offset_bottom = 142.0
+texture_normal = ExtResource("135_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("135_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day7"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "07"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day7"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day8" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_top = 142.0
+offset_right = 235.0
+offset_bottom = 284.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day8"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "08"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day8"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day9" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 142.0
+offset_right = 470.0
+offset_bottom = 284.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day9"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "09"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day9"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day10" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 142.0
+offset_right = 705.0
+offset_bottom = 284.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day10"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day10"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day11" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 142.0
+offset_right = 940.0
+offset_bottom = 284.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day11"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day11"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day12" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 142.0
+offset_right = 1175.0
+offset_bottom = 284.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day12"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day12"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day13" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1175.0
+offset_top = 142.0
+offset_right = 1410.0
+offset_bottom = 284.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day13"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day13"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day13"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day14" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1410.0
+offset_top = 142.0
+offset_right = 1645.0
+offset_bottom = 284.0
+texture_normal = ExtResource("135_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("135_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day14"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "14"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day14"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day15" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_top = 284.0
+offset_right = 235.0
+offset_bottom = 426.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day15"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day15"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day16" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 284.0
+offset_right = 470.0
+offset_bottom = 426.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day16"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day16"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day16"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day16"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day16"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day17" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 284.0
+offset_right = 705.0
+offset_bottom = 426.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day17"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "17"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day17"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day17"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day17"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day17"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day18" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 284.0
+offset_right = 940.0
+offset_bottom = 426.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day18"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "18"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day18"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day18"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day18"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day18"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day19" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 284.0
+offset_right = 1175.0
+offset_bottom = 426.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day19"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "19"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day19"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day19"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day19"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day19"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day20" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1175.0
+offset_top = 284.0
+offset_right = 1410.0
+offset_bottom = 426.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day20"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day20"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day20"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day20"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day20"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day21" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1410.0
+offset_top = 284.0
+offset_right = 1645.0
+offset_bottom = 426.0
+texture_normal = ExtResource("135_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("135_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day21"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day21"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day21"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day21"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day21"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day22" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_top = 426.0
+offset_right = 235.0
+offset_bottom = 568.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day22"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "22"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day22"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day22"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day22"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day22"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day23" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 426.0
+offset_right = 470.0
+offset_bottom = 568.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day23"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "23"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day23"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day23"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day23"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day23"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day24" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 426.0
+offset_right = 705.0
+offset_bottom = 568.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day24"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "24"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day24"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day24"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day24"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day24"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day25" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 426.0
+offset_right = 940.0
+offset_bottom = 568.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day25"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day25"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day25"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day25"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day25"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day26" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 426.0
+offset_right = 1175.0
+offset_bottom = 568.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day26"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "26"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day26"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day26"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day26"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day26"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day27" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1175.0
+offset_top = 426.0
+offset_right = 1410.0
+offset_bottom = 568.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day27"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "27"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day27"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day27"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day27"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day27"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day28" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 1410.0
+offset_top = 426.0
+offset_right = 1645.0
+offset_bottom = 568.0
+texture_normal = ExtResource("135_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("135_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day28"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "28"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day28"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day28"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day28"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day28"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day29" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_top = 568.0
+offset_right = 235.0
+offset_bottom = 710.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day29"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "29"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day29"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day29"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day29"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day29"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day30" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 568.0
+offset_right = 470.0
+offset_bottom = 710.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day30"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day30"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day30"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day30"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day30"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day31" type="TextureButton" parent="Calendar/Days" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "tournament_name", "vs_label", "labels")]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 568.0
+offset_right = 705.0
+offset_bottom = 710.0
+texture_normal = ExtResource("138_bggdr")
+texture_pressed = ExtResource("136_ryo1a")
+texture_hover = ExtResource("136_ryo1a")
+texture_disabled = ExtResource("138_bggdr")
+texture_focused = ExtResource("136_ryo1a")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("135_es8ar")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+tournament_name = NodePath("Tournament Name")
+vs_label = NodePath("VS")
+labels = [NodePath("VS"), NodePath("Tournament Name"), NodePath("Day Number")]
+colors = Array[Array]([[Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Day Number" type="Label" parent="Calendar/Days/Day31"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 20
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="Calendar/Days/Day31"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -31.0
+offset_right = -22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="VS" type="Label" parent="Calendar/Days/Day31"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_n8hfv")
+theme_override_font_sizes/font_size = 20
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="Calendar/Days/Day31"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -31.0
+offset_right = 67.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Tournament Name" type="Label" parent="Calendar/Days/Day31"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = 29.0
+offset_right = 118.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_os5ib")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next Month Button" type="TextureButton" parent="Calendar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 849.0
+offset_top = 22.0
+offset_right = 919.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 35)
+texture_normal = ExtResource("135_y32da")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
+
+[node name="Prev Month Button" type="TextureButton" parent="Calendar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -920.0
+offset_top = 22.0
+offset_right = -850.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 35)
+texture_normal = ExtResource("136_es8ar")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
+
 [connection signal="pressed" from="Main Menu/Menu background/Menu/New game" to="." method="show_team_selection"]
 [connection signal="pressed" from="Main Menu/Menu background/Menu/Exit" to="." method="exit_game"]
 [connection signal="pressed" from="Team Selection/Back Button" to="." method="show_prev_screen"]
@@ -11830,6 +15163,8 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Home/Exit To Main Menu" to="Home/Exit Menu" method="open_menu"]
 [connection signal="pressed" from="Home/Forward Time Close Menu Button" to="Home/Forward Time Menu" method="close_menu"]
 [connection signal="pressed" from="Home/My Team Info Menu Close Button" to="Home/My Team Info Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Team Management Menu/Calendar" to="." method="show_calendar"]
+[connection signal="pressed" from="Home/Team Management Menu/Calendar" to="Home/Team Management Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Team Management Menu Close Button" to="Home/Team Management Menu" method="close_menu"]
 [connection signal="pressed" from="Home/System Menu Close Button" to="Home/System Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Teams" to="." method="show_teams"]
@@ -11875,12 +15210,12 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Table" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
-[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
+[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="set_next_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Players/Players Container" method="sort_table_by_rating_in_descending_order"]
@@ -11920,3 +15255,13 @@ theme_override_constants/separation = 0
 [connection signal="pressed" from="Matches/Table Header/Prev Tournament" to="Teams/Teams Table" method="set_prev_region"]
 [connection signal="pressed" from="Matches/Table Header/Date Sort Decreasing Order" to="Teams/Teams Table" method="sort_table_by_winrate_in_descending_order"]
 [connection signal="pressed" from="Matches/Table Header/Date Sort Increasing Order" to="Teams/Teams Table" method="sort_table_by_winrate_in_ascending_order"]
+[connection signal="pressed" from="Calendar/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Table Header/Winrate Sort Decreasing Order2" method="nullify"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Table Header/Winrate Sort Increasing Order" method="nullify"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Table Header/Winnings Sort Decreasing Order3" method="nullify"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Table Header/Winnings Sort Increasing Order2" method="nullify"]
+[connection signal="pressed" from="Calendar/Back Button" to="Teams/Teams Table" method="nullify"]
+[connection signal="pressed" from="Calendar/Next Month Button" to="Calendar" method="show_next_month"]
+[connection signal="pressed" from="Calendar/Prev Month Button" to="Calendar" method="show_prev_month"]

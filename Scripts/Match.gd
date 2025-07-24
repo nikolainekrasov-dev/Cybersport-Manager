@@ -33,6 +33,14 @@ static func get_matches_for_date(date):
 			matches_for_date.append(m)
 	return matches_for_date
 	
+static func get_player_match_for_date(date):
+	var player_match = null
+	for m in matches:
+		if m.date.is_equal(date) and (m.first_team != null and m.first_team.get_ref() == TeamsManager.player_team or m.second_team != null and m.second_team.get_ref() == TeamsManager.player_team):
+			player_match = weakref(m)
+			break
+	return player_match
+	
 static func get_matches_for_player(player):
 	var player_matches = []
 	for m in past_matches:

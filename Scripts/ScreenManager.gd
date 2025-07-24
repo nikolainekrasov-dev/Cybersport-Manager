@@ -62,6 +62,10 @@ func show_heroes():
 	screens["Heroes"].update()
 	show_screen("Heroes")
 	
+func show_calendar():
+	screens["Calendar"].update()
+	show_screen("Calendar")
+	
 func show_hero(hero):
 	if hero != null and hero.get_ref() != null:
 		screens["Hero"].hero = hero
