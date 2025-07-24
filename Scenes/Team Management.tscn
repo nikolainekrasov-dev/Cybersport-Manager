@@ -11932,7 +11932,7 @@ texture_normal = ExtResource("138_bggdr")
 texture_pressed = ExtResource("136_ryo1a")
 texture_hover = ExtResource("136_ryo1a")
 texture_disabled = ExtResource("138_bggdr")
-texture_focused = ExtResource("136_ryo1a")
+texture_focused = ExtResource("138_bggdr")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("135_es8ar")
@@ -15214,10 +15214,10 @@ metadata/_custom_type_script = "uid://dbhxtueib6hoh"
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
-[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
-[connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="set_next_region"]
+[connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="set_next_region"]
 [connection signal="pressed" from="Players/Table Header/Rating Sort Decreasing Order" to="Players/Players Container" method="sort_table_by_rating_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Rating Sort Increasing Order" to="Players/Players Container" method="sort_table_by_rating_in_ascending_order"]
 [connection signal="pressed" from="Players/Table Header/Winnings Sort Decreasing Order3" to="Players/Players Container" method="sort_table_by_winnings_in_descending_order"]

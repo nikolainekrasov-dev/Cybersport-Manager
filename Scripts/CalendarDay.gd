@@ -15,9 +15,11 @@ func _ready():
 
 func update(new_match):
 	day_match = new_match
-	if new_match != null and new_match.get_ref() != null:
+	if day_match != null and day_match.get_ref() != null:
+		focus_mode = Control.FOCUS_ALL
+		disabled = false
 		vs_label.visible = true
-		var match_ref = new_match.get_ref()
+		var match_ref = day_match.get_ref()
 		if match_ref.first_team and match_ref.first_team.get_ref() != null:
 			first_team_logo.visible = true
 			first_team_logo.texture = match_ref.first_team.get_ref().logo
@@ -32,6 +34,7 @@ func update(new_match):
 		first_team_logo.visible = false
 		second_team_logo.visible = false
 		tournament_name.visible = false
+		focus_mode = Control.FOCUS_NONE
 
 func set_white_logos():
 	if day_match != null and day_match.get_ref() != null:
