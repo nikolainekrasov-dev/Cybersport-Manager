@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://85lqjuy6rw8s"]
+
+[ext_resource type="Texture2D" uid="uid://q53qqfeidw0x" path="res://Sprites/Table Menu Item.png" id="1_5vgvd"]
+[ext_resource type="Texture2D" uid="uid://cermk1xorirms" path="res://Sprites/Hover Table Menu Item.png" id="2_458v2"]
+[ext_resource type="Script" uid="uid://v772ixxuvd3e" path="res://Scripts/MatchMenuItem.gd" id="3_3alsg"]
+[ext_resource type="FontFile" uid="uid://c31cdfbqvt5qu" path="res://Fonts/ALS Gorizont.ttf" id="4_pr72w"]
+[ext_resource type="FontFile" uid="uid://dlerfbtfi5ksu" path="res://Fonts/ALS Gorizont Medium.otf" id="7_ai5fo"]
+
+[node name="Match Menu Item" type="TextureButton" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+texture_normal = ExtResource("1_5vgvd")
+texture_pressed = ExtResource("2_458v2")
+texture_hover = ExtResource("2_458v2")
+texture_disabled = ExtResource("1_5vgvd")
+texture_focused = ExtResource("2_458v2")
+stretch_mode = 0
+script = ExtResource("3_3alsg")
+first_team_logo = NodePath("First Team Logo")
+second_team_logo = NodePath("Second Team Logo")
+result = NodePath("Result")
+date = NodePath("Date")
+stage = NodePath("Stage")
+tournament_logo = NodePath("Tournament Logo")
+labels = [NodePath("Date"), NodePath("Result"), NodePath("Stage")]
+colors = Array[Array]([[Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)], [Color(0, 0, 0, 1), Color(1, 1, 1, 1)], [Color(0.501961, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]])
+metadata/_custom_type_script = "uid://cwrche1rucjko"
+
+[node name="Date" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -38.0
+offset_right = 444.0
+offset_bottom = 38.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("4_pr72w")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="First Team Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -40.0
+offset_right = -32.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Second Team Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.5
+offset_top = -40.0
+offset_right = 112.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -38.0
+offset_right = 55.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ai5fo")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1165.0
+offset_top = -38.0
+offset_right = 1462.0
+offset_bottom = 38.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_fonts/font = ExtResource("4_pr72w")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tournament Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1430.0
+offset_top = -40.0
+offset_right = 1510.0
+offset_bottom = 40.0
+grow_vertical = 2
+expand_mode = 1
