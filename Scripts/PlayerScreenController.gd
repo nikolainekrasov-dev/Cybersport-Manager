@@ -2,34 +2,24 @@ extends CanvasLayer
 
 class_name PlayerScreenController
 
-var player_photo: TextureRect
-var player_rating: Label
-var player_role: Label
-var player_nick: Label
-var player_name: Label
-var player_surname: Label
-var player_age: Label
-var player_region: Label
-var player_team: Label
-var player_winnings: Label
-var team_logo: TextureButton
-var player_heroes_skill: HeroesSkillPanel
-var player: WeakRef
-@export var last_matches: Array[MatchMenuItem]
+@export var player_photo: TextureRect
+@export var player_rating: Label
+@export var player_role: Label
+@export var player_nick: Label
+@export var player_name: Label
+@export var player_surname: Label
+@export var player_age: Label
+@export var player_region: Label
+@export var player_team: Label
+@export var player_winnings: Label
+@export var team_logo: TextureButton
+@export var player_heroes_skill: HeroesSkillPanel
+@export var player_match_history: MatchHistoryPanel
+@export var right_panel_name: Label
+@export var info_panels: Array[Panel]
 
-func _ready():
-	player_photo = find_child("Player Photo")
-	player_rating = find_child("Player Rating")
-	player_role = find_child("Player Role")
-	player_nick = find_child("Player Nick")
-	player_name = find_child("Player Name")
-	team_logo = find_child("Team Logo")
-	player_surname = find_child("Player Surname")
-	player_region = find_child("Player Region")
-	player_age = find_child("Player Age")
-	player_team = find_child("Player Team")
-	player_winnings = find_child("Player Winnings")
-	player_heroes_skill = find_child("Player Heroes Skill")
+var info_panel_index = 0
+var player: WeakRef
 
 func update(new_player):
 	player = new_player
@@ -44,13 +34,6 @@ func update(new_player):
 		player_team.text = player.get_ref().team.get_ref().name
 		team_logo.texture_normal = player.get_ref().team.get_ref().logo
 	player_winnings.text = "%d $" % player.get_ref().winnings
-	var player_matches = Match.get_matches_for_player(player)
-	for i in range(len(last_matches)):
-		if i < len(player_matches):
-			last_matches[i].visible = true
-			last_matches[i].update(player_matches[i])
-		else:
-			last_matches[i].visible = false
 	
 	if player.get_ref().role == "Carry":
 		player_role.text = "CAR"
@@ -63,7 +46,22 @@ func update(new_player):
 	else:
 		player_role.text = "SUP"
 		
-	player_heroes_skill.update(player)
+	show_current_panel()
+
+func show_prev_info_panel():
+	info_panels[info_panel_index].refresh()
+	info_panel_index = (info_panel_index - 1) % len(info_panels)
+	show_current_panel()
+	
+func show_next_info_panel():
+	info_panels[info_panel_index].refresh()
+	info_panel_index = (info_panel_index + 1) % len(info_panels)
+	show_current_panel()
+	
+func show_current_panel():
+	info_panels[info_panel_index].update(player)
 
 func refresh():
-	pass
+	info_panel_index = 0
+	for info_panel in info_panels:
+		info_panel.refresh()

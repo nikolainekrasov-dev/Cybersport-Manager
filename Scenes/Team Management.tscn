@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=181 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -128,6 +128,9 @@
 [ext_resource type="Script" uid="uid://cee605c2jcjde" path="res://Scripts/TournamentsTable.gd" id="119_oc217"]
 [ext_resource type="Texture2D" uid="uid://q53qqfeidw0x" path="res://Sprites/Table Menu Item.png" id="120_xwbbt"]
 [ext_resource type="Texture2D" uid="uid://cermk1xorirms" path="res://Sprites/Hover Table Menu Item.png" id="121_2ip8u"]
+[ext_resource type="Texture2D" uid="uid://bxuf0ku27m5t4" path="res://Sprites/Back Black Arrow.png" id="125_1adgp"]
+[ext_resource type="Texture2D" uid="uid://c445uuo34863h" path="res://Sprites/Forward Black Arrow.png" id="126_c2ngp"]
+[ext_resource type="Script" uid="uid://nwqhq814w8te" path="res://Scripts/MatchHistoryPanel.gd" id="127_gogn4"]
 
 [sub_resource type="Animation" id="Animation_hgvdx"]
 resource_name = "Close Database Menu"
@@ -10075,10 +10078,24 @@ grow_vertical = 0
 expand_mode = 1
 script = ExtResource("106_w800s")
 
-[node name="Player" type="CanvasLayer" parent="." node_paths=PackedStringArray("last_matches")]
+[node name="Player" type="CanvasLayer" parent="." node_paths=PackedStringArray("player_photo", "player_rating", "player_role", "player_nick", "player_name", "player_surname", "player_age", "player_region", "player_team", "player_winnings", "team_logo", "player_heroes_skill", "player_match_history", "right_panel_name", "info_panels")]
 visible = false
 script = ExtResource("105_5g405")
-last_matches = [NodePath("Match History/First Match Menu Item"), NodePath("Match History/Second Match Menu Item"), NodePath("Match History/Third Match Menu Item"), NodePath("Match History/Fourth Match Menu Item"), NodePath("Match History/Fifth Match Menu Item"), NodePath("Match History/Sixth Match Menu Item"), NodePath("Match History/Seventh Match Menu Item"), NodePath("Match History/Eighth Match Menu Item")]
+player_photo = NodePath("Player Photo Panel/Player Photo")
+player_rating = NodePath("Player Photo Panel/Player Rating Panel/Player Rating")
+player_role = NodePath("Player Photo Panel/Player Role")
+player_nick = NodePath("Player Nick Panel/Player Nick")
+player_name = NodePath("Detailed Information/Player Name")
+player_surname = NodePath("Detailed Information/Player Surname")
+player_age = NodePath("Detailed Information/Player Age")
+player_region = NodePath("Detailed Information/Player Region")
+player_team = NodePath("Detailed Information/Player Team")
+player_winnings = NodePath("Detailed Information/Player Winnings")
+team_logo = NodePath("Player Photo Panel/Team Logo")
+player_heroes_skill = NodePath("Player Heroes Skill")
+player_match_history = NodePath("Match History")
+right_panel_name = NodePath("Additional Information/Label")
+info_panels = [NodePath("Player Heroes Skill"), NodePath("Match History")]
 
 [node name="Background" type="TextureRect" parent="Player"]
 offset_right = 1920.0
@@ -10169,6 +10186,43 @@ text = "HERO PLAY SKILL"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Show Prev Panel" type="TextureButton" parent="Player/Additional Information"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_vertical = 2
+pivot_offset = Vector2(15, 15)
+texture_normal = ExtResource("125_1adgp")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
+
+[node name="Show Next Panel" type="TextureButton" parent="Player/Additional Information"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = -20.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(15, 15)
+texture_normal = ExtResource("126_c2ngp")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("20_7vgiu")
+metadata/_custom_type_script = "uid://dbhxtueib6hoh"
 
 [node name="Player Photo Panel" type="Panel" parent="Player"]
 clip_contents = true
@@ -10446,7 +10500,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fvnhf")
 
 [node name="Player Heroes Skill" type="Panel" parent="Player"]
 visible = false
-clip_contents = true
 offset_left = 970.0
 offset_top = 197.0
 offset_right = 1800.0
@@ -10466,14 +10519,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Match History" type="Panel" parent="Player"]
+[node name="Match History" type="Panel" parent="Player" node_paths=PackedStringArray("last_matches")]
+visible = false
 offset_left = 970.0
 offset_top = 197.0
 offset_right = 1800.0
 offset_bottom = 981.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lghwh")
+script = ExtResource("127_gogn4")
+last_matches = [NodePath("First Match Menu Item"), NodePath("Second Match Menu Item"), NodePath("Third Match Menu Item"), NodePath("Fourth Match Menu Item"), NodePath("Fifth Match Menu Item"), NodePath("Sixth Match Menu Item"), NodePath("Seventh Match Menu Item"), NodePath("Eighth Match Menu Item")]
 
 [node name="First Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_right = 830.0
 offset_bottom = 98.0
 size_flags_vertical = 3
@@ -10504,6 +10561,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/First Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -10565,6 +10623,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Second Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 98.0
 offset_right = 830.0
 offset_bottom = 196.0
@@ -10596,6 +10655,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Second Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -10657,6 +10717,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Third Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 196.0
 offset_right = 830.0
 offset_bottom = 294.0
@@ -10688,6 +10749,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Third Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -10749,6 +10811,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Fourth Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 294.0
 offset_right = 830.0
 offset_bottom = 392.0
@@ -10780,6 +10843,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Fourth Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -10841,6 +10905,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Fifth Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 392.0
 offset_right = 830.0
 offset_bottom = 490.0
@@ -10872,6 +10937,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Fifth Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -10933,6 +10999,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Sixth Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 490.0
 offset_right = 830.0
 offset_bottom = 588.0
@@ -10964,6 +11031,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Sixth Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -11025,6 +11093,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Seventh Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 588.0
 offset_right = 830.0
 offset_bottom = 686.0
@@ -11056,6 +11125,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Seventh Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -11117,6 +11187,7 @@ offset_right = 808.0
 offset_bottom = 73.0
 
 [node name="Eighth Match Menu Item" type="TextureButton" parent="Player/Match History" node_paths=PackedStringArray("first_team_logo", "second_team_logo", "result", "date", "stage", "tournament_logo", "labels")]
+layout_mode = 0
 offset_top = 686.0
 offset_right = 830.0
 offset_bottom = 784.0
@@ -11148,6 +11219,7 @@ offset_bottom = 73.0
 expand_mode = 1
 
 [node name="Second Team Logo" type="TextureRect" parent="Player/Match History/Eighth Match Menu Item"]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 23.0
 offset_right = 498.0
@@ -11607,10 +11679,10 @@ metadata/_custom_type_script = "uid://cwrche1rucjko"
 [connection signal="pressed" from="Players/Back Button" to="Teams/Teams Table" method="nullify"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Decreasing Order2" to="Players/Players Container" method="sort_table_by_age_in_descending_order"]
 [connection signal="pressed" from="Players/Table Header/Age Sort Increasing Order2" to="Players/Players Container" method="sort_table_by_age_in_ascending_order"]
-[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="set_prev_role"]
-[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
+[connection signal="pressed" from="Players/Table Header/Prev Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="set_next_role"]
+[connection signal="pressed" from="Players/Table Header/Next Pos" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="update_table_content"]
 [connection signal="pressed" from="Players/Table Header/Prev Region" to="Players/Players Container" method="set_prev_region"]
 [connection signal="pressed" from="Players/Table Header/Next Region" to="Players/Players Container" method="update_table_content"]
@@ -11622,6 +11694,8 @@ metadata/_custom_type_script = "uid://cwrche1rucjko"
 [connection signal="pressed" from="Heroes/Back Button" to="." method="show_home"]
 [connection signal="pressed" from="Hero/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Player/Back Button" to="." method="show_prev_screen"]
+[connection signal="pressed" from="Player/Additional Information/Show Prev Panel" to="Player" method="show_prev_info_panel"]
+[connection signal="pressed" from="Player/Additional Information/Show Next Panel" to="Player" method="show_next_info_panel"]
 [connection signal="pressed" from="Tournaments/Back Button" to="." method="show_prev_screen"]
 [connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Rating Sort Decreasing Order" method="nullify"]
 [connection signal="pressed" from="Tournaments/Back Button" to="Teams/Table Header/Rating Sort Increasing Order" method="nullify"]

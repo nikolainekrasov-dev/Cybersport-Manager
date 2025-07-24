@@ -19,6 +19,7 @@ func show_screen(screen_name):
 	active_screen.visible = true
 	
 func show_prev_screen():
+	active_screen.refresh()
 	var screen_to_show = screen_seq.pop_back()
 	active_screen.visible = false
 	active_screen = screen_to_show
