@@ -11971,6 +11971,8 @@ layout_mode = 2
 [connection signal="pressed" from="Home/Database Menu/Players" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Tournaments" to="." method="show_tournaments"]
 [connection signal="pressed" from="Home/Database Menu/Tournaments" to="Home/Database Menu" method="close_menu"]
+[connection signal="pressed" from="Home/Database Menu/All Matches" to="." method="show_matches"]
+[connection signal="pressed" from="Home/Database Menu/All Matches" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="." method="show_heroes"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Home/Database Menu" method="close_menu"]
 [connection signal="pressed" from="Home/Database Menu/Glossary" to="Heroes" method="update_heroes_table"]
