@@ -49,8 +49,9 @@ func _ready():
 	third_ability = find_child("Third Ability")
 	fourth_ability = find_child("Fourth Ability")
 	
-func update():
-	if hero != null and hero.get_ref() != null:
+func update(new_hero):
+	if new_hero != null and new_hero.get_ref() != null:
+		hero = new_hero
 		var hero_instance = hero.get_ref()
 		hero_portrait.texture = hero_instance.portrait
 		hero_name.text = hero_instance.name
