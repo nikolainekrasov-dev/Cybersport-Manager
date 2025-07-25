@@ -1,4 +1,4 @@
-[gd_scene load_steps=192 format=3 uid="uid://d1y1oi4t34at7"]
+[gd_scene load_steps=194 format=3 uid="uid://d1y1oi4t34at7"]
 
 [ext_resource type="Texture2D" uid="uid://durylqfp5glw4" path="res://Sprites/Background.png" id="1_mrb3r"]
 [ext_resource type="Script" uid="uid://dhuvbvu2japc1" path="res://Scripts/ScreenManager.gd" id="1_x3y6i"]
@@ -130,7 +130,9 @@
 [ext_resource type="Texture2D" uid="uid://cermk1xorirms" path="res://Sprites/Hover Table Menu Item.png" id="121_2ip8u"]
 [ext_resource type="Texture2D" uid="uid://bxuf0ku27m5t4" path="res://Sprites/Back Black Arrow.png" id="125_1adgp"]
 [ext_resource type="Texture2D" uid="uid://c445uuo34863h" path="res://Sprites/Forward Black Arrow.png" id="126_c2ngp"]
+[ext_resource type="Texture2D" uid="uid://dk27m1gxb6ryc" path="res://Sprites/Player/Hover Back Arrow.png" id="126_i0tfm"]
 [ext_resource type="Script" uid="uid://nwqhq814w8te" path="res://Scripts/MatchHistoryPanel.gd" id="127_gogn4"]
+[ext_resource type="Texture2D" uid="uid://b6g8600j7xi5t" path="res://Sprites/Player/Hover Forward Arrow.png" id="128_hnnk0"]
 [ext_resource type="Script" uid="uid://bewv72sodcl1m" path="res://Scripts/MatchesScreenController.gd" id="132_c2ngp"]
 [ext_resource type="Script" uid="uid://coognf0ymii6m" path="res://Scripts/MatchesTable.gd" id="133_tca7i"]
 [ext_resource type="Script" uid="uid://dhlamvn2j0xxg" path="res://Scripts/CalendarScreenController.gd" id="134_n0tq7"]
@@ -10214,6 +10216,8 @@ offset_bottom = 15.0
 grow_vertical = 2
 pivot_offset = Vector2(15, 15)
 texture_normal = ExtResource("125_1adgp")
+texture_pressed = ExtResource("126_i0tfm")
+texture_hover = ExtResource("126_i0tfm")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("20_7vgiu")
@@ -10234,6 +10238,8 @@ grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(15, 15)
 texture_normal = ExtResource("126_c2ngp")
+texture_pressed = ExtResource("128_hnnk0")
+texture_hover = ExtResource("128_hnnk0")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("20_7vgiu")
