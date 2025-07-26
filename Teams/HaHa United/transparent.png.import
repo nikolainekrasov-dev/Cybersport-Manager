@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnx1q5u4q0yld"
-path="res://.godot/imported/logo.png-bd2cfd8ca34c968de4c64abb3d96e7c7.ctex"
+uid="uid://dcikwh7x8t5sj"
+path="res://.godot/imported/transparent.png-d0177a60dfc3971bb5ba436ac7d31ae1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Teams/Idol/logo.png"
-dest_files=["res://.godot/imported/logo.png-bd2cfd8ca34c968de4c64abb3d96e7c7.ctex"]
+source_file="res://Teams/HaHa United/transparent.png"
+dest_files=["res://.godot/imported/transparent.png-d0177a60dfc3971bb5ba436ac7d31ae1.ctex"]
 
 [params]
 
